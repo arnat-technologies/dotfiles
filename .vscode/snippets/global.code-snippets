@@ -1,0 +1,1777 @@
+{
+  // edit-connect
+  "Add Edit Connect Component HTML": {
+    "scope": "html,freemarker,nunjucks",
+    "prefix": "ec-ComponentHTML",
+    "body": [
+      "<ng-container *ngIf=\"presentationValidated; else presentationError\">",
+      "<div class=\"hst-container-item\">",
+      "  <div id=\"{{ id }}\" class=\"\">",
+      "      flexible-banner works!",
+      "  </div>",
+      "</div>",
+      "</ng-container>",
+      "",
+      "<ng-template #presentationError>",
+      "<div class=\"hst-container-item presentation-error\">",
+      "      The content of this components document is incompatible with the selected Presentation option.",
+      "</div>",
+      "</ng-template>",
+    ],
+    "description": "EditConnect Component Markup"
+  },
+  "Add Edit Connect Component": {
+    "scope": "javascript,typescript",
+    "prefix": "ec-Component",
+    "body": [
+        "import { Component, ElementRef, Injector } from '@angular/core';",
+        "import { BaseComponent } from 'edit-connect-angular/base-classes/baseComponent';",
+        "import { ContentService } from 'edit-connect-angular/services/content.service';",
+        "",
+        "@Component({",
+        "  selector: 'app-${1:component-name}',",
+        "  templateUrl: './${1:component-name}.component.html',",
+        "  styleUrls: ['./${1:component-name}.component.scss']",
+        "})",
+        "export class ${2:ComponentName}Component extends BaseComponent {",
+        "  document: any;",
+        "  channel: any;",
+        "  parameters: any;",
+        "  id: any;",
+        "",
+        "  private presentationValidated: boolean;",
+        "",
+        "  constructor( elementRef: ElementRef, contentService: ContentService, injector: Injector ) {",
+        "    super( elementRef, contentService, injector );",
+        "  }",
+        "",
+        "  updateComponent(data) {",
+        "    super.updateComponent(data);",
+        "    console.log('${2:ComponentName}', this.content);",
+        "",
+        "    this.document = this.content.attributes['document'];",
+        "    this.channel = this.content.parameters;",
+        "    this.id = this.channel.targetingId;",
+        "    this.presentationValidated = this.document !== undefined;",
+        "  }",
+        "",
+        "}"
+    ],
+    "description": "EditConnect Component"
+  },
+  // javascript typescript vue
+  "var assignment": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "va",
+    "body": "var ${1} = ${0}",
+    "description": "var assignment"
+  },
+  "let assignment": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "la",
+    "body": "let ${1} = ${0}",
+    "description": "let assignment"
+  },
+  "const assignment": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "ca",
+    "body": "const ${1} = ${0}",
+    "description": "const assignment"
+  },
+  "var destructuring assignment": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "vda",
+    "body": "var {${2}} = ${1}${0}",
+    "description": "var destructuring assignment"
+  },
+  "let destructuring assignment": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "lda",
+    "body": "let {${2}} = ${1}${0}",
+    "description": "let destructuring assignment"
+  },
+  "const destructuring assignment": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "cda",
+    "body": "const {${2}} = ${1}${0}",
+    "description": "const destructuring assignment"
+  },
+  "if statement": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "if",
+    "body": "if (${1}) {${0}}",
+    "description": "if statement"
+  },
+  "else statement": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "else",
+    "body": "else {${0}}",
+    "description": "else statement"
+  },
+  "if/else statement": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "ifel",
+    "body": "if (${1}) {${2}} else {${0}}",
+    "description": "if/else statement"
+  },
+  "else if statement": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "elif",
+    "body": "else if (${1}) {${0}}",
+    "description": "else if statement"
+  },
+  "ternary operator": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "ternary",
+    "body": "${1} ? ${2} : ${3}",
+    "description": "ternary operator"
+  },
+  "switch case": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "switch",
+    "body": "switch (${1}) {\n\tcase ${2} :\n\t\t$0\n\tdefault:\n\t\tbreak;\n}",
+    "description": "switch case"
+  },
+  "case": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "case",
+    "body": "case ${1} :\n\t${0}",
+    "description": "switch's case"
+  },
+  "for loop": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "for",
+    "body": "for (${1} ; ${2} ; ${3}) {\n\t${0}\n}",
+    "description": "for loop"
+  },
+  "for loop array": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "forarr",
+    "body":
+      "for (let ${1} = 0, ${2} = ${3}.length; ${1} < ${2}; ${1}++) {\n\t${0}\n}",
+    "description": "for loop array"
+  },
+  "reverse for loop array": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "rforarr",
+    "body": "for (let ${1} = ${2}.length - 1; ${1} >= 0; ${1}--) {\n\t${0}\n}",
+    "description": "reverse for loop array"
+  },
+  "for in loop": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "forin",
+    "body":
+      "for (const ${1} in ${2}) {\n\tif (${2}.hasOwnProperty(${1})) {\n\t\t${0}\n\t}\n}",
+    "description": "for in loop"
+  },
+  "for of loop (ES2015)": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "forof",
+    "body": "for (const ${1} of ${2}) {\n\t${0}\n}",
+    "description": "for of loop (ES2015)"
+  },
+  "while loop": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "while",
+    "body": "while (${1}) {${0}}",
+    "description": "while loop"
+  },
+  "try/catch": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "trycatch",
+    "body": "try {${0}} catch (error) (${1}) {${2}}",
+    "description": "try/catch"
+  },
+  "try/finally": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "tf",
+    "body": "try {${0}} finally {${1}}",
+    "description": "try/finally"
+  },
+  "try/catch/finally": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "tcf",
+    "body": "try {${0}} catch (${1}) {${2}} finally {${3}}",
+    "description": "try/catch/finally"
+  },
+  "anonymous function": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "f",
+    "body": "function(${1}) {${2}}${0}",
+    "description": "anonymous function"
+  },
+  "named function": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "fn",
+    "body": "function ${1}(${2}) {${3}}${0}",
+    "description": "named function"
+  },
+  "arrow function (ES2015)": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "af",
+    "body": "(${1}) => ${2}",
+    "description": "arrow function (ES2015)"
+  },
+  "async anonymous function": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "fa",
+    "body": "async function (${1}) {${2}}${0}",
+    "description": "async anonymous function"
+  },
+  "async named function": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "fna",
+    "body": "async function ${1}(${2}) {${3}}${0}",
+    "description": "async named function"
+  },
+  "async arrow function (ES2015)": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "afa",
+    "body": "async (${1}) => ${2}",
+    "description": "async arrow function (ES2015)"
+  },
+  "immediately-invoked function expression (IIFE)": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "iife",
+    "body": "(${2})(${1})${0}",
+    "description": "immediately-invoked function expression (IIFE)"
+  },
+  "function apply": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "fapply",
+    "body": "${1}.apply(${2:this})${0}",
+    "description": "function apply"
+  },
+  "function call": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "fcall",
+    "body": "${1}.call(${2:this})${0}",
+    "description": "function call"
+  },
+  "function bind": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "fbind",
+    "body": "${1}.bind(${2:this})${0}",
+    "description": "function bind"
+  },
+  "generator function (ES2015)": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "gf",
+    "body": "function* (${1}) {${0}}",
+    "description": "generator function (ES2015)"
+  },
+  "async generator function (ES2018)": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "gfa",
+    "body": "async function* (${1}) {${0}}",
+    "description": "async generator function (ES2018)"
+  },
+  "named generator function (ES2015)": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "gfn",
+    "body": "function* ${1}(${2}) {${0}}",
+    "description": "named generator function (ES2015)"
+  },
+  "async named generator function (ES2018)": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "gfna",
+    "body": "async function* ${1}(${2}) {${0}}",
+    "description": "async named generator function (ES2018)"
+  },
+  "sequence of 0..n": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "seq",
+    "body": "[...Array(${1:length}).keys()]${0}",
+    "description": "sequence of 0..n"
+  },
+
+  "object literal": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "ol",
+    "body": "{ ${1}: ${2}, }${0}",
+    "description": "object literal"
+  },
+  "same-line object literal": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "slol",
+    "body": "{ kv${0} }${0}",
+    "description": "same-line object literal"
+  },
+  "key/value pair": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "kv",
+    "body": "${1}: ${2},",
+    "description": "key/value pair"
+  },
+  "Object.assign": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "oa",
+    "body": "Object.assign(${1:dest}, ${2:source})",
+    "description": "Object.assign"
+  },
+  "Object.assign copy (shallow clone)": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "oc",
+    "body": "Object.assign({}, ${1:original}, ${2:source})",
+    "description": "Object.assign copy (shallow clone)"
+  },
+
+  "class (ES2015)": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "c",
+    "body": "class ${1} {\n\t${0}\n}",
+    "description": "class (ES2015)"
+  },
+  "class extends (ES2015)": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "cex",
+    "body": "class ${1} extends ${2:base} {\n\t${0}\n}",
+    "description": "class extends (ES2015)"
+  },
+  "class constructor (ES2015)": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "ctor",
+    "body": "constructor(${1}) {${0}}",
+    "description": "class constructor (ES2015)"
+  },
+  "method (ES2015)": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "cm",
+    "body": "${1:name}(${2}) {${0}}",
+    "description": "method (ES2015)"
+  },
+  "async method (ES2015)": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "acm",
+    "body": "async ${1:name}(${2}) {${0}}",
+    "description": "async method (ES2015)"
+  },
+  "getter (ES2015)": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "gter",
+    "body": "get ${1:property}() {${0}}",
+    "description": "getter (ES2015)"
+  },
+  "setter (ES2015)": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "ster",
+    "body": "set ${1:property}(${2:value}) {${0}}",
+    "description": "setter (ES2015)"
+  },
+  "getter and setter (ES2015)": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "gs",
+    "body": "get ${1:property}() {${0}}\n\nset ${1:property}(${2:value}) {}",
+    "description": "getter and setter (ES2015)"
+  },
+  "prototypal constructor": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "pctor",
+    "body": "var ${1:Class} = function(${2}) {${0}};",
+    "description": "prototypal constructor"
+  },
+  "prototype method": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "proto",
+    "body": "${1:Class}.prototype.${2:method} = function(${3}) {${0}};",
+    "description": "prototype method"
+  },
+
+  "typeof": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "tof",
+    "body": "typeof ${1:source} === '${2:type}'",
+    "description": "typeof"
+  },
+  "instanceof": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "iof",
+    "body": "${1:source} instanceof ${2:Class}",
+    "description": "instanceof"
+  },
+
+  "Promise (ES2015)": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "p",
+    "body": "new Promise(${0})",
+    "description": "Promise (ES2015)"
+  },
+  "Promise.th": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "th",
+    "body": "${1:promise}.then(${2})${0}",
+    "description": "Promise.then"
+  },
+  "Promise.catch": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "cat",
+    "body": "${1:promise}.catch(${2})${0}",
+    "description": "Promise.catch"
+  },
+  "Promise.finally": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "fin",
+    "body": "${1:promise}.finally(${2})${0}",
+    "description": "Promise.finally"
+  },
+
+  "export (ES2015)": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "exp",
+    "body": "export ${0}",
+    "description": "export (ES2015)"
+  },
+  "export default (ES2015)": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "expd",
+    "body": "export default ${0}",
+    "description": "export default (ES2015)"
+  },
+  "export as (ES2015)": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "expas",
+    "body": "export ${1} as ${2};${0}",
+    "description": "export as (ES2015)"
+  },
+  "export from (ES2015)": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "expf",
+    "body": "export ${2:name} from ${1}${0}",
+    "description": "export from (ES2015)"
+  },
+  "import (ES2015)": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "import",
+    "body": "import ${1}",
+    "description": "import module (ES2015)"
+  },
+  "import module (ES2015)": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "imp",
+    "body": "import ${2:name} from ${1}${0}",
+    "description": "import module (ES2015)"
+  },
+  "import module as (ES2015)": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "impas",
+    "body": "import ${2:name} as ${3} from ${1}${0}",
+    "description": "import module as (ES2015)"
+  },
+  "import module all as (ES2015)": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "impall",
+    "body": "import * as ${2} from ${1}${0}",
+    "description": "import module all as (ES2015)"
+  },
+  "Node.js style callback": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "cb",
+    "body": "(err, ${1:response}) => {${0}}",
+    "description": "Node.js style callback"
+  },
+  "require": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "require",
+    "body": "require(${1:path})${0}",
+    "description": "require"
+  },
+  "require assignment": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "req",
+    "body": "const ${2:name} = require(${1});${0}",
+    "description": "require assignment"
+  },
+  "exports.member": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "em",
+    "body": "exports.${1} = ${2};${0}",
+    "description": "exports.member"
+  },
+  "module.exports": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "me",
+    "body": "module.exports = ${1}${0}",
+    "description": "module.exports"
+  },
+  "event handler": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "on",
+    "body": "on('${1:event}', ${2:callback});${0}",
+    "description": "event handler"
+  },
+
+  "describe": {
+    "scope": "javascript, typescript",
+    "prefix": "desc",
+    "body": "describe('${1:description}', ${2:callback});${0}",
+    "description": "describe"
+  },
+  "context": {
+    "scope": "javascript, typescript",
+    "prefix": "cont",
+    "body": "context('${1:description}', ${2:callback});${0}",
+    "description": "context"
+  },
+  "it": {
+    "scope": "javascript, typescript",
+    "prefix": "it",
+    "body": "it('${1:description}', ${2:callback});${0}",
+    "description": "it"
+  },
+  "it synchronous": {
+    "scope": "javascript, typescript",
+    "prefix": "its",
+    "body": "it('${1:description}', ${2:callback});${0}",
+    "description": "it synchronous"
+  },
+  "it asynchronous": {
+    "scope": "javascript, typescript",
+    "prefix": "ita",
+    "body": "it('${1:description}', (done) => {\n\t${2}\n\tdone();\n});${0}",
+    "description": "it asynchronous"
+  },
+  "before test suite": {
+    "scope": "javascript, typescript",
+    "prefix": "bf",
+    "body": "before(${1:callback});${0}",
+    "description": "before test suite"
+  },
+  "before each test": {
+    "scope": "javascript, typescript",
+    "prefix": "bfe",
+    "body": "beforeEach(${1:callback});${0}",
+    "description": "before each test"
+  },
+  "after test suite": {
+    "scope": "javascript, typescript",
+    "prefix": "aft",
+    "body": "after(${1:callback});${0}",
+    "description": "after test suite"
+  },
+  "after each test": {
+    "scope": "javascript, typescript",
+    "prefix": "afe",
+    "body": "afterEach(${1:callback});${0}",
+    "description": "after each test"
+  },
+
+  "console.log": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "cl",
+    "body": "console.log(${1})${0}",
+    "description": "console.log"
+  },
+  "console.error": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "ce",
+    "body": "console.error(${1})${0}",
+    "description": "console.error"
+  },
+  "console.warn": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "cw",
+    "body": "console.warn(${1})${0}",
+    "description": "console.warn"
+  },
+  "console.log labeled": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "cll",
+    "body": "console.log('${1}', ${1})${0}",
+    "description": "console.log labeled"
+  },
+  "console.error labeled": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "cel",
+    "body": "console.error('${1}', ${1})${0}",
+    "description": "console.error labeled"
+  },
+  "console.warn labeled": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "cwl",
+    "body": "console.warn('${1}', ${1})${0}",
+    "description": "console.warn labeled"
+  },
+
+  "setTimeout": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "sett",
+    "body": "setTimeout(${2:callback}, ${1:delay})${0}",
+    "description": "setTimeout"
+  },
+  "setInterval": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "setin",
+    "body": "setInterval(${2:callback}, ${1:delay})${0}",
+    "description": "setInterval"
+  },
+  "setImmediate": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "setim",
+    "body": "setImmediate(${1:callback}${2})${0}",
+    "description": "setImmediate (Node.JS)"
+  },
+  "process nextTick": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "nextick",
+    "body": "process.nextTick(${1});${0}",
+    "description": "process nextTick (Node.JS)"
+  },
+
+  "insert 'use strict' statement": {
+    "scope": "javascript, typescript, vue",
+    "prefix": "us",
+    "body": "'use strict';",
+    "description": "insert 'use strict' statement"
+  },
+
+  // html
+  "class": {
+    "scope": "html",
+    "prefix": "a-class",
+    "body": ["[class]=\"${1:expression}\""],
+    "description": "Angular [class] binding"
+  },
+  "style": {
+    "scope": "html",
+    "prefix": "a-style",
+    "body": ["[style.${1:property}]=\"${2:expression}\""],
+    "description": "Angular [style] binding"
+  },
+  "ngClass": {
+    "scope": "html",
+    "prefix": "a-ngClass",
+    "body": ["[ngClass]=\"{${1:cssClass}: ${2:expression}}\""],
+    "description": "Angular ngClass"
+  },
+  "ngFor": {
+    "scope": "html",
+    "prefix": "a-ngFor",
+    "body": ["*ngFor=\"let ${1:item} of ${2:list}\"${0}"],
+    "description": "Angular *ngFor"
+  },
+  "ngFor with trackBy": {
+    "scope": "html",
+    "prefix": "a-ngFor-trackBy",
+    "body": ["*ngFor=\"let ${1:item} of ${2:list}; trackBy:${1:item}.id\"${0}"],
+    "description": "Angular *ngFor with trackBy"
+  },
+  "ngForAsync": {
+    "scope": "html",
+    "prefix": "a-ngForAsync",
+    "body": [
+      "*ngFor=\"let ${1:item} of ${2:stream} | async as ${3:list}\"${0}"
+    ],
+    "description": "Angular *ngForAsync"
+  },
+  "ngFormControlName": {
+    "scope": "html",
+    "prefix": "a-formControlName",
+    "body": ["formControlName=\"${1:control}\""],
+    "description": "Angular formControlName"
+  },
+  "ngFormGroup": {
+    "scope": "html",
+    "prefix": "a-formGroup",
+    "body": ["[formGroup]=\"${1:form}\""],
+    "description": "Angular formGroup"
+  },
+  "ngFormGroupName": {
+    "scope": "html",
+    "prefix": "a-formGroupName",
+    "body": ["[formGroupName]=\"${1:name}\""],
+    "description": "Angular formGroupName"
+  },
+  "ngIf": {
+    "scope": "html",
+    "prefix": "a-ngIf",
+    "body": ["*ngIf=\"${1:expression}\""],
+    "description": "Angular *ngIf"
+  },
+  "ngIfElse": {
+    "scope": "html",
+    "prefix": "a-ngIfElse",
+    "body": ["*ngIf=\"${1:expression};else ${2:templateName}\""],
+    "description": "Angular *ngIfElse"
+  },
+  "ngModel": {
+    "scope": "html",
+    "prefix": "a-ngModel",
+    "body": ["[(ngModel)]=\"${1:binding}\""],
+    "description": "Angular ngModel"
+  },
+  "ngRouterLink": {
+    "scope": "html",
+    "prefix": "a-routerLink",
+    "body": [
+      "[routerLink]=\"['/${1:routePath}']\" routerLinkActive=\"${2:router-link-active}\" $0"
+    ],
+    "description": "Angular routerLink"
+  },
+  "ngRouterLinkWithParameter": {
+    "scope": "html",
+    "prefix": "a-routerLink-param",
+    "body": [
+      "[routerLink]=\"['${1:routePath}', ${2:routeParameterValue}]\"",
+      "routerLinkActive=\"${3:router-link-active}\"$0"
+    ],
+    "description": "Angular routerLink with a route parameter"
+  },
+  "ngSelect": {
+    "scope": "html",
+    "prefix": "a-select",
+    "body": [
+      "<select [(ngModel)]=\"${1:model}\">",
+      "\t<option *ngFor=\"let ${2:item} of ${3:list}\" [value]=\"${2:item}\">{{${2:item}}}</option>",
+      "</select>"
+    ],
+    "description": "<select> control with ngModel"
+  },
+  "ngStyle": {
+    "scope": "html",
+    "prefix": "a-ngStyle",
+    "body": ["[ngStyle]=\"{${1:style}: ${2:expression}}\""],
+    "description": "Angular ngStyle"
+  },
+  "ngSwitch": {
+    "scope": "html",
+    "prefix": "a-ngSwitch",
+    "body": [
+      "<div [ngSwitch]=\"${1:conditionExpression}\">",
+      "\t<div *ngSwitchCase=\"${2:expression}\">${3:output}</div>",
+      "\t<div *ngSwitchDefault>${4:output2}</div>",
+      "</div>"
+    ],
+    "description": "Angular ngSwitch"
+  },
+  "pre w/ json": {
+    "scope": "html",
+    "prefix": "a-prej",
+    "body": ["<pre>{{${1:model} | json}}</pre>$0"],
+    "description": "Angular pre debug | json"
+  },
+  "pre w/ async json": {
+    "scope": "html",
+    "prefix": "a-preja",
+    "body": ["<pre>{{${1:model} | async | json}}</pre>$0"],
+    "description": "Angular pre debug | async | json"
+  },
+  "Angular Pipe uppercase": {
+    "scope": "html",
+    "prefix": "a-pipe-uppercase",
+    "description": "Uppercase pipe",
+    "body": ["{{ ${variable} | uppercase }}$0"]
+  },
+  "Angular Pipe lowercase": {
+    "scope": "html",
+    "prefix": "a-pipe-lowercase",
+    "description": "Lowercase pipe",
+    "body": ["{{ ${variable} | lowercase }$0"]
+  },
+  "Angular Pipe titlecase": {
+    "scope": "html",
+    "prefix": "a-pipe-titlecase",
+    "description": "v4: Titlecase pipe",
+    "body": ["{{ ${variable} | titlecase }$0"]
+  },
+  "Angular Pipe date": {
+    "scope": "html",
+    "prefix": "a-pipe-date",
+    "description": "Date pipe - Default format: 09/15/1971",
+    "body": ["{{ ${variable} | date }}$0"]
+  },
+  "Angular Pipe date custom": {
+    "scope": "html",
+    "prefix": "a-pipe-date-custom",
+    "description": "Date pipe - Format: \"MM/dd/yy\" = 09/15/71",
+    "body": ["{{ ${variable} | date:\"MM/dd/yy\" }}$0"]
+  },
+  "Angular Pipe date short-date": {
+    "scope": "html",
+    "prefix": "a-pipe-date-short",
+    "description": "Short date pipe - Format: 09/15/1971",
+    "body": ["{{ ${variable} | date:shortDate }}$0"]
+  },
+  "Angular Pipe date full": {
+    "scope": "html",
+    "prefix": "a-pipe-date-full",
+    "description": "Full date pipe - Format: Wednesday, September 15, 1971",
+    "body": ["{{ ${variable} | date:fullDate }}$0"]
+  },
+  "Angular Pipe percent": {
+    "scope": "html",
+    "prefix": "a-pipe-percent",
+    "description":
+      "Percent pipe - Usage: number_expression &#x7c; percent[:digitInfo]",
+    "body": ["{{ ${variable} | percent:${digitInfo} }}$0"]
+  },
+  "Angular Pipe decimal": {
+    "scope": "html",
+    "prefix": "a-pipe-decimal",
+    "description":
+      "Decimal pipe - Usage: number_expression &#x7c; decimal[:digitInfo]",
+    "body": ["{{ ${variable} | decimal:${digitInfo} }}$0"]
+  },
+  "Angular Pipe slice": {
+    "scope": "html",
+    "prefix": "a-pipe-slice",
+    "description":
+      "Slice pipe - Usage: array_or_string_expression &#x7c; slice:start[:end]",
+    "body": ["{{ ${variable} | slice:${start}:${end} }}$0"]
+  },
+  "Angular Pipe currency": {
+    "scope": "html",
+    "prefix": "a-pipe-currency",
+    "description": "Currency pipe - Usage: money &#x7c; currency:'EUR'",
+    "body": ["{{ ${variable} | currency:'${CURRENCY}' }}$0"]
+  },
+  "Angular Pipe json": {
+    "scope": "html",
+    "prefix": "a-pipe-json",
+    "description": "Json pipe - Usage: object &#x7c; json",
+    "body": ["{{ ${object} | json }}$0"]
+  },
+  "Angular Pipe async": {
+    "scope": "html",
+    "prefix": "a-pipe-async",
+    "description":
+      "Async pipe - Usage: observable_or_promise_expression &#x7c; async",
+    "body": ["{{ ${observable} | async }}$0"]
+  },
+
+  "Angular router Link": {
+    "prefix": "a-router-link",
+    "description": "Router link",
+    "scope": "html",
+    "body": ["<a [routerLink]=\"[ '/${path}', ${routeParam} ]\">${name}</a>$0"]
+  },
+  "Angular router Attribute": {
+    "prefix": "a-router-attribute",
+    "description": "Router link",
+    "scope": "html",
+    "body": ["[routerLink]=\"[ '/${path}', ${routeParam} ]\"$0"]
+  },
+  "Angular router LinkActive": {
+    "prefix": "a-router-linkActive",
+    "description": "Router active link",
+    "scope": "html",
+    "body": [
+      "<a [routerLink]=\"[ '/${path}' ]\" routerLinkActive=\"active\">${name}</a>$0"
+    ]
+  },
+  "Angular router Outlet": {
+    "prefix": "a-router-outlet",
+    "description": "Router outlet element",
+    "scope": "html",
+    "body": ["<router-outlet></router-outlet>", "$0"]
+  },
+  "Angular router Outlet-name": {
+    "prefix": "a-router-outlet-name",
+    "description": "Router outlet element with name",
+    "scope": "html",
+    "body": ["<router-outlet name=\"${name}\"></router-outlet>", "$0"]
+  },
+  "Angular route Guard can Activate": {
+    "prefix": "a-route-guard-canactivate",
+    "description": "CanActivate Guard Route",
+    "scope": "javascript, typescript",
+    "body": [
+      "import { Injectable } from '@angular/core';",
+      "import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';",
+      "import { Observable } from 'rxjs/Observable';",
+      "",
+      "@Injectable()",
+      "export class ${CanActivate}Guard implements CanActivate {",
+      "\tcanActivate(",
+      "\t\troute: ActivatedRouteSnapshot,",
+      "\t\tstate: RouterStateSnapshot",
+      "\t): Observable<boolean> | Promise<boolean> | boolean {",
+      "\t\treturn true;$0",
+      "\t}",
+      "}",
+      ""
+    ]
+  },
+  "Angular route Guard canActivatechild": {
+    "prefix": "a-route-guard-canactivatechild",
+    "description": "CanActivateChild Route",
+    "scope": "javascript, typescript",
+    "body": [
+      "import { Injectable } from '@angular/core';",
+      "import { CanActivateChild, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';",
+      "import { Observable } from 'rxjs/Observable';",
+      "",
+      "@Injectable()",
+      "export class ${CanActivateChild}Guard implements CanActivateChild {",
+      "\tcanActivateChild(",
+      "\t\troute: ActivatedRouteSnapshot,",
+      "\t\tstate: RouterStateSnapshot",
+      "\t): Observable<boolean> | Promise<boolean> | boolean {",
+      "\t\treturn true;$0",
+      "\t}",
+      "}",
+      ""
+    ]
+  },
+  "Angular route Guard Resolve": {
+    "prefix": "a-route-guard-resolve",
+    "description": "Resolve Guard Route",
+    "scope": "html",
+    "body": [
+      "import { Injectable } from '@angular/core';",
+      "import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';",
+      "import { Observable } from 'rxjs/Observable';",
+      "",
+      "@Injectable()",
+      "export class ${Resolve}Guard implements Resolve<${T}> {",
+      "\tresolve(",
+      "\t\troute: ActivatedRouteSnapshot,",
+      "\t\tstate: RouterStateSnapshot",
+      "\t): Observable<any> | Promise<any> | any {",
+      "\t\treturn true;$0",
+      "\t}",
+      "}",
+      ""
+    ]
+  },
+  "Angular route Guard canload": {
+    "prefix": "a-route-guard-canload",
+    "description": "CanLoad Guard Route",
+    "scope": "javascript, typescript",
+    "body": [
+      "import { Injectable } from '@angular/core';",
+      "import { CanLoad, Route } from '@angular/router';",
+      "import { Observable } from 'rxjs/Observable';",
+      "",
+      "@Injectable()",
+      "export class ${CanLoad}Guard implements CanLoad {",
+      "\tcanLoad(",
+      "\t\t${route}: Route",
+      "\t): Observable<boolean> | Promise<boolean> | boolean {",
+      "\t\treturn true;$0",
+      "\t}",
+      "}",
+      ""
+    ]
+  },
+  "Angular route Guard candeActivate": {
+    "prefix": "a-route-guard-candeactivate",
+    "description": "CanDeactivate Guard Route",
+    "scope": "javascript, typescript",
+    "body": [
+      "import { Injectable } from '@angular/core';",
+      "import { CanDeactivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';",
+      "import { Observable } from 'rxjs/Observable';",
+      "",
+      "@Injectable()",
+      "export class ${CanDeactivate}Guard implements CanDeactivate<${T}> {",
+      "\tcanDeactivate(",
+      "\t\tcomponent: ${T},",
+      "\t\troute: ActivatedRouteSnapshot,",
+      "\t\tstate: RouterStateSnapshot",
+      "\t): Observable<boolean> | Promise<boolean> | boolean {",
+      "\t\treturn true;$0",
+      "\t}",
+      "}"
+    ]
+  },
+  "Angular if": {
+    "prefix": "a-if",
+    "description": "If directive: *ngIf=\"expression\"",
+    "scope": "html",
+    "body": ["*ngIf=\"${expression}\""]
+  },
+  "Angular if-else": {
+    "prefix": "a-if-else",
+    "description": "v4: If else directive: *ngIf=\"expression; else\"",
+    "scope": "html",
+    "body": [
+      "<ng-container *ngIf=\"${expression}; else ${elseTemplate}\">",
+      "\t$1",
+      "</ng-container>",
+      "<ng-template #${elseTemplate}>",
+      "\t$2",
+      "</ng-template>",
+      "$0"
+    ]
+  },
+  "Angular if-then-else": {
+    "prefix": "a-if-then-else",
+    "description":
+      "v4: If then else directive: *ngIf=\"expression; then; else\"",
+    "scope": "html",
+    "body": [
+      "<ng-container *ngIf=\"${expression}; then ${thenTemplate}; else ${elseTemplate}\"></ng-container>",
+      "<ng-template #${thenTemplate}>",
+      "\t$1",
+      "</ng-template>",
+      "<ng-template #${elseTemplate}>",
+      "\t$2",
+      "</ng-template>",
+      "$0"
+    ]
+  },
+  "Angular for": {
+    "prefix": "a-for",
+    "description": "For-loop directive",
+    "scope": "html",
+    "body": ["*ngFor=\"let ${item} of ${items}\"$0"]
+  },
+  "Angular for-li": {
+    "prefix": "a-for-li",
+    "description": "For-loop directive with li element",
+    "scope": "html",
+    "body": ["<li *ngFor=\"let ${item} of ${items}\">$0</li>"]
+  },
+  "Angular for-index": {
+    "prefix": "a-for-index",
+    "description": "For-loop directive with index",
+    "scope": "html",
+    "body": ["*ngFor=\"let ${item} of ${items}; let i=index\"$0"]
+  },
+  "Angular for-trackBy": {
+    "prefix": "a-for-trackBy",
+    "description": "For-loop directive with trackBy",
+    "scope": "html",
+    "body": ["*ngFor=\"let ${item} of ${items}; trackBy:${item}.id\"$0"]
+  },
+  "Angular class": {
+    "prefix": "a-class",
+    "description": "CSS class",
+    "scope": "html",
+    "body": ["[ngClass]=\"{'${class}': ${true}}\"$0"]
+  },
+  "Angular style": {
+    "prefix": "a-style",
+    "description": "CSS style",
+    "scope": "html",
+    "body": ["[ngStyle]=\"{'${property}': ${expression}}\"$0"]
+  },
+  "Angular switch": {
+    "prefix": "a-switch",
+    "description": "Switch template",
+    "scope": "html",
+    "body": [
+      "<span [ngSwitch]=\"\">",
+      "<p *ngSwitchCase=\"true\">",
+      "",
+      "</p>",
+      "<p *ngSwitchCase=\"false\">",
+      "",
+      "</p>",
+      "<p *ngSwitchDefault>",
+      "",
+      "</p>",
+      "</span>"
+    ]
+  },
+  "Angular property": {
+    "prefix": "a-property",
+    "description": "Property: [property]=\"expression\"",
+    "scope": "html",
+    "body": ["[${property}]=\"${expression}\"$0"]
+  },
+  "Angular event": {
+    "prefix": "a-event",
+    "description": "Event: (event) = \"onEvent()\"",
+    "scope": "html",
+    "body": ["(${event}) = \"on${Event}()\"$0"]
+  },
+  "Angular binding-oneway": {
+    "prefix": "a-binding-oneway",
+    "description": "Property: [property]=\"expression\"",
+    "scope": "html",
+    "body": ["[${property}]=\"${expression}\"$0"]
+  },
+  "Angular binding-twoway": {
+    "prefix": "a-binding-twoway",
+    "description": "Two-way data binding with the NgModel",
+    "scope": "html",
+    "body": ["[(ngModel)]=\"${Name}\"$0"]
+  },
+  "Angular interpolation": {
+    "prefix": "a-interpolation",
+    "description": "Interpolation: {{ interpolation }}",
+    "scope": "html",
+    "body": ["{{ ${interpolation} }}$0"]
+  },
+  "Angular repeat": {
+    "prefix": "a-repeat",
+    "description": "Use ngFor instead.",
+    "scope": "html",
+    "body": ["*ngFor=\"let ${item} of ${items}\"$0"]
+  },
+  "Angular click": {
+    "prefix": "a-click",
+    "description": "Click event",
+    "scope": "html",
+    "body": ["(click)=\"${expression}\"$0"]
+  },
+  "Angular show": {
+    "prefix": "a-show",
+    "description": "Usage: Bind to the hidden property.",
+    "scope": "html",
+    "body": ["[hidden]=\"!${expression}\"$0"]
+  },
+  "Angular hide": {
+    "prefix": "a-hide",
+    "description": "Usage: Bind to the hidden property.",
+    "scope": "html",
+    "body": ["[hidden]=\"${expression}\"$0"]
+  },
+  "Angular href": {
+    "prefix": "a-href",
+    "description": "Usage: Bind to the href property.",
+    "scope": "html",
+    "body": ["[href]=\"${url}\"$0"]
+  },
+  "Angular src": {
+    "prefix": "a-src",
+    "description": "Usage: Bind to the src property.",
+    "scope": "html",
+    "body": ["[src]=\"${url}\"$0"]
+  },
+  "Angular orderBy": {
+    "prefix": "a-orderBy",
+    "description":
+      "For performance reasons, no comparable pipe exists in Angular 2. Instead, use component code to order or sort results. If you need the same ordering or sorting code in several templates, consider building a custom pipe.",
+    "scope": "html",
+    "body": ["$0"]
+  },
+  "Angular filter": {
+    "prefix": "a-filter",
+    "description":
+      "For performance reasons, no comparable pipe exists in Angular 2. Do all your filtering in the component. If you need the same filtering code in several templates, consider building a custom pipe.",
+    "scope": "html",
+    "body": ["$0"]
+  },
+  "Angular button-submit": {
+    "prefix": "a-button-submit",
+    "description": "A submit button element with a click event",
+    "scope": "html",
+    "body": ["<button type=\"submit\">${Submit}</button>", "$0"]
+  },
+  "Angular button": {
+    "prefix": "a-button",
+    "description": "A button element with a click event",
+    "scope": "html",
+    "body": ["<button (click)=\"${onClick()}\">${name}</button>", "$0"]
+  },
+  "Angular import": {
+    "prefix": "a-import",
+    "description": "import module or component from path;",
+    "scope": "html",
+    "body": ["import { ${2:moduleOrComponent} } from '${1:path}';", "$0"]
+  },
+  "Angular http-get": {
+    "prefix": "a-http-get",
+    "description": "Http observable get request",
+    "scope": "html",
+    "body": [
+      "this.http.get('${url}')",
+      "\t.map((res: Response) => {",
+      "\t\tres.json();",
+      "})$0"
+    ]
+  },
+  "Angular httpClient-get": {
+    "prefix": "a-httpClient-get",
+    "description": "HttpClient observable get request",
+    "scope": "html",
+    "body": ["this.http.get('${url}')$0"]
+  },
+  "Angular http-get-post": {
+    "prefix": "a-http-get-post",
+    "description": "Http observable get & post request",
+    "scope": "html",
+    "body": [
+      "get${Type}(): Observable<I${Type}[]> {",
+      "\treturn this.http.get(${name})",
+      "\t\t.map((res: Response) => <I${Type}[]>res.json())",
+      "\t\t.catch(this.handleError);",
+      "}",
+      "",
+      "add${Type}(${name}: string): Observable<I${Type}> {",
+      "\tlet body = JSON.stringify({ ${name} });",
+      "\tlet headers = new Headers({ 'Content-Type': 'application/json'});",
+      "\tlet options = new RequestOptions({ headers: headers });",
+      "",
+      "\treturn this.http.post(this.${url}, body, options)",
+      "\t\t.map(this.handleResponse)",
+      "\t.catch(this.handleError);",
+      "}",
+      "private handleError(error: Response) {",
+      "\tconsole.error(error);",
+      "\treturn Observable.throw(error.json().error || 'Server error');",
+      "}",
+      "$0"
+    ]
+  },
+  "Angular debug": {
+    "prefix": "a-debug",
+    "description": "pre obj pipe json",
+    "scope": "html",
+    "body": ["<pre>{{ ${obj} | json }}</pre>$0"]
+  },
+  "Angular debug-async": {
+    "prefix": "a-debug-async",
+    "description": "pre obj pipe async pipe json",
+    "scope": "html",
+    "body": ["<pre>{{ ${obj} | async | json }}</pre>$0"]
+  },
+
+  // typescript
+  "interface (TypeScript)": {
+    "prefix": "int",
+    "scope": "typescript",
+    "body": "interface ${1:name} {${2}}${0}",
+    "description": "interface (TypeScript)"
+  },
+  "enum (TypeScript)": {
+    "prefix": "enum",
+    "scope": "typescript",
+    "body": "enum ${1:name} {${2}}${0}",
+    "description": "enum (TypeScript)"
+  },
+  "module (TypeScript)": {
+    "prefix": "mod",
+    "scope": "typescript",
+    "body": "module ${1:name} {${2}}${0}",
+    "description": "module (TypeScript)"
+  },
+  "namespace (TypeScript)": {
+    "prefix": "nam",
+    "scope": "typescript",
+    "body": "namespace ${1:name} {${2}}${0}",
+    "description": "namespace (TypeScript)"
+  },
+  "Angular Component": {
+    "scope": "typescript",
+    "prefix": "a-component",
+    "description": "Angular component",
+    "body": [
+      "import { Component, OnInit } from '@angular/core';",
+      "",
+      "@Component({",
+      "\tselector: '${1:selector-name}',",
+      "\ttemplateUrl: '${2:name}.component.html'",
+      "})",
+      "",
+      "export class ${3:Name}Component implements OnInit {",
+      "\tconstructor() { }",
+      "",
+      "\tngOnInit() { }$0",
+      "}"
+    ]
+  },
+  "Angular Component with Inline Template": {
+    "scope": "typescript",
+    "prefix": "a-component-inline",
+    "description": "Angular component with an inline template",
+    "body": [
+      "import { Component, OnInit } from '@angular/core';",
+      "",
+      "@Component({",
+      "\tselector: '${1:selector-name}',",
+      "\ttemplate: `$0`",
+      "})",
+      "",
+      "export class ${2:Name}Component implements OnInit {",
+      "\tconstructor() { }",
+      "",
+      "\tngOnInit() { }",
+      "}"
+    ]
+  },
+  "Angular Service": {
+    "scope": "typescript",
+    "prefix": "a-service",
+    "description": "Angular service",
+    "body": [
+      "import { Injectable } from '@angular/core';",
+      "",
+      "@Injectable()",
+      "export class ${1:Name}Service {",
+      "$0",
+      "\tconstructor() { }",
+      "}"
+    ]
+  },
+  "Angular Pipe": {
+    "scope": "typescript",
+    "prefix": "a-pipe",
+    "description": "Angular pipe",
+    "body": [
+      "import { Pipe, PipeTransform } from '@angular/core';",
+      "",
+      "@Pipe({",
+      "\tname: '${1:selector-name}'",
+      "})",
+      "",
+      "export class ${2:Name}Pipe implements PipeTransform {",
+      "\ttransform(value: any, ...args: any[]): any {",
+      "\t\t$0",
+      "\t}",
+      "}"
+    ]
+  },
+  "Angular Default Route Path": {
+    "scope": "typescript",
+    "prefix": "a-route-path-default",
+    "description": "Angular default route path",
+    "body": ["{ path: '', pathMatch: 'full', redirectTo: '${1:path}' }$0"]
+  },
+  "Angular Route Path with Children": {
+    "scope": "typescript",
+    "prefix": "a-route-path-with-children",
+    "description": "Angular route path with children",
+    "body": [
+      "{",
+      "\tpath: '', ",
+      "\tcomponent: ${1:Component},",
+      "\tchildren: [",
+      "\t\t{ path: '${2:childpath}', component: ${3:ChildComponent} }",
+      "\t]",
+      "}$0"
+    ]
+  },
+  "Angular 404 Route Path": {
+    "scope": "typescript",
+    "prefix": "a-route-path-404",
+    "description": "Angular 404 route path",
+    "body": [
+      "{ path: '**', pathMatch: 'full', component: ${1:PathNotFoundComponent} }$0"
+    ]
+  },
+  "Angular Eager Route Path": {
+    "scope": "typescript",
+    "prefix": "a-route-path-eager",
+    "description": "Angular eager route path",
+    "body": ["{ path: '${1:path}', component: ${2:Name}Component },"]
+  },
+  "Angular Lazy Route Path": {
+    "scope": "typescript",
+    "prefix": "a-route-path-lazy",
+    "description": "Angular lazy route path",
+    "body": [
+      "{ path: '${1:path}', loadChildren: '${2:lazy-path}#${3:lazy-module}' },"
+    ]
+  },
+  "Routing Params - Subscribe": {
+    "scope": "typescript",
+    "prefix": "a-route-params-subscribe",
+    "description": "Angular - subscribe to routing parameters",
+    "body": [
+      "this.route.params",
+      "\t.pipe(map(params => params['id']), tap(id => (this.id = +id)))",
+      "\t.subscribe(id => ${1:function()}());",
+      "$0"
+    ]
+  },
+  "Http.get": {
+    "scope": "typescript",
+    "prefix": "a-http-get",
+    "description": "Angular Http.get",
+    "body": [
+      "return this.http.get('${1:url}')",
+      "\t.map((response: Response) => response.json());$0"
+    ]
+  },
+  "HttpClient.get": {
+    "scope": "typescript",
+    "prefix": "a-httpclient-get",
+    "description": "Angular HttpClient.get",
+    "body": ["return this.httpClient.get('${1:url}');$0"]
+  },
+  "Angular Http Service": {
+    "scope": "typescript",
+    "prefix": "a-service-http",
+    "description": "Angular service with Http",
+    "body": [
+      "import { Injectable } from '@angular/core';",
+      "import { Http, Response } from '@angular/http';",
+      "import { Observable } from 'rxjs/Observable';",
+      "import 'rxjs/add/operator/map';",
+      "import 'rxjs/add/operator/catch';",
+      "",
+      "@Injectable()",
+      "export class ${1:ServiceName}Service {",
+      "\tconstructor(private http: Http) { }",
+      "\t$0",
+      "}"
+    ]
+  },
+  "Angular HttpClient Service": {
+    "scope": "typescript",
+    "prefix": "a-service-httpclient",
+    "description": "Angular service with HttpClient",
+    "body": [
+      "import { Injectable } from '@angular/core';",
+      "import { HttpClient } from '@angular/common/http';",
+      "import { catchError } from 'rxjs/operators';",
+      "",
+      "@Injectable()",
+      "export class ${1:ServiceName}Service {",
+      "\tconstructor(private httpClient: HttpClient) { }",
+      "\t$0",
+      "}"
+    ]
+  },
+  "Angular HttpInterceptor for Logging": {
+    "scope": "typescript",
+    "prefix": "a-http-interceptor-logging",
+    "description": "Angular HttpInterceptor for Logging HttpClient",
+    "body": [
+      "import { HttpInterceptor, HttpHandler, HttpRequest, HttpEvent, HttpResponse } from '@angular/common/http';",
+      "import { Observable } from 'rxjs/Observable';",
+      "import { tap } from 'rxjs/operators';",
+      "",
+      "export class LogInterceptor implements HttpInterceptor {",
+      "\tconstructor() {}",
+      "",
+      "\tintercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {",
+      "\t\tconst started = Date.now();",
+      "\t\treturn next.handle(req).pipe(",
+      "\t\t\ttap(event => {",
+      "\t\t\t\tif (event instanceof HttpResponse) {",
+      "\t\t\t\t\tconst elapsed = Date.now() - started;",
+      "\t\t\t\t\tconsole.log(`Request for \\${req.urlWithParams} took \\${elapsed} ms.`);",
+      "\t\t\t\t}",
+      "\t\t\t})",
+      "\t\t);",
+      "\t}",
+      "}"
+    ]
+  },
+  "Angular HttpInterceptor for Headers": {
+    "scope": "typescript",
+    "prefix": "a-http-interceptor-headers",
+    "description": "Angular HttpInterceptor for headers HttpClient",
+    "body": [
+      "import { Injectable } from '@angular/core';",
+      "import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';",
+      "import { Observable } from 'rxjs/Observable';",
+      "",
+      "@Injectable()",
+      "export class HeaderInterceptor implements HttpInterceptor {",
+      "\tconstructor() {}",
+      "",
+      "\tintercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {",
+      "\t\tconst headers = req.headers",
+      "\t\t\t.set('Content-Type', 'application/json');",
+      "\t\tconst authReq = req.clone({ headers });",
+      "\t\treturn next.handle(authReq);",
+      "\t}",
+      "}"
+    ]
+  },
+  "Angular HttpInterceptor - Empty": {
+    "scope": "typescript",
+    "prefix": "a-http-interceptor",
+    "description": "Empty Angular HttpInterceptor for HttpClient",
+    "body": [
+      "import { Injectable } from '@angular/core';",
+      "import { HttpInterceptor, HttpEvent, HttpHandler, HttpRequest } from '@angular/common/http';",
+      "import { Observable } from 'rxjs/Observable';",
+      "",
+      "@Injectable()",
+      "export class HeaderInterceptor implements HttpInterceptor {",
+      "\tintercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {",
+      "\t\treturn next.handle(req);",
+      "\t}",
+      "}"
+    ]
+  },
+  "Output Event": {
+    "scope": "typescript",
+    "prefix": "a-output-event",
+    "body": ["@Output() ${1:eventName} = new EventEmitter<${2:eventType}>();"],
+    "description": "Angular @Output event and emitter"
+  },
+  "Subscribe": {
+    "scope": "typescript",
+    "prefix": "a-subscribe",
+    "description": "Angular observable subscribe",
+    "body": [
+      "this.${1:service}.${2:function}",
+      "\t.subscribe(${3:arg} => this.${4:property} = ${3:arg});",
+      "$0"
+    ]
+  },
+  "Angular Root Component": {
+    "scope": "typescript",
+    "prefix": "a-component-root",
+    "description": "Angular App root component",
+    "body": [
+      "import { Component } from '@angular/core';",
+      "",
+      "@Component({",
+      "\tselector: '${1:prefix-app}',",
+      "\ttemplate: `",
+      "\t\t<router-outlet></router-outlet>",
+      "\t\t`",
+      "})",
+      "export class ${2:App}Component { }",
+      "$0"
+    ]
+  },
+  "Angular Root Module": {
+    "scope": "typescript",
+    "prefix": "a-module-root",
+    "description": "Angular Root Module",
+    "body": [
+      "import { NgModule } from '@angular/core';",
+      "import { BrowserModule  } from '@angular/platform-browser';",
+      "import { HttpModule } from '@angular/http';",
+      "",
+      "import { ${1:App}Component } from './${1:app}.component';",
+      "import { AppRoutingModule } from './${1:app}.routing'; //TODO: Create ${1:app}.routing",
+      "",
+      "@NgModule({",
+      "\timports: [",
+      "\t\tBrowserModule,",
+      "\t\tHttpModule,",
+      "\t",
+      "\t\tAppRoutingModule,",
+      "\t],",
+      "\tdeclarations: [${1:App}Component],",
+      "\tproviders: [/* TODO: Providers go here */],",
+      "\tbootstrap: [${1:App}Component],",
+      "})",
+      "export class ${1:App}Module { }",
+      "$0"
+    ]
+  },
+  "Angular Routing Module": {
+    "scope": "typescript",
+    "prefix": "a-module-routing",
+    "description": "Angular routing module file (forChild)",
+    "body": [
+      "import { NgModule } from '@angular/core';",
+      "import { Routes, RouterModule } from '@angular/router';",
+      "",
+      "import { ${1:Name}Component } from './${2:name}.component';",
+      "",
+      "const routes: Routes = [",
+      "  { path: '${3:path}', component: ${1:Name}Component },",
+      "];",
+      "",
+      "@NgModule({",
+      "  imports: [RouterModule.forChild(routes)],",
+      "  exports: [RouterModule],",
+      "})",
+      "export class ${1:Name}RoutingModule { }",
+      "",
+      "export const routedComponents = [${1:Name}Component];"
+    ]
+  },
+  "Angular Module": {
+    "scope": "typescript",
+    "prefix": "a-module",
+    "description": "Angular Module",
+    "body": [
+      "import { NgModule } from '@angular/core';",
+      "",
+      "import { ${1:Name}Component } from './${2:name}.component';",
+      "",
+      "@NgModule({",
+      "\timports: [],",
+      "\texports: [],",
+      "\tdeclarations: [${1:Name}Component],",
+      "\tproviders: [],",
+      "})",
+      "export class ${1:Name}Module { }",
+      "$0"
+    ]
+  },
+  "Angular Directive": {
+    "scope": "typescript",
+    "prefix": "a-directive",
+    "description": "Angular directive",
+    "body": [
+      "import { Directive } from '@angular/core';",
+      "",
+      "@Directive({ selector: '[${1:selector-name}]' })",
+      "export class ${2:Name}Directive {",
+      "\tconstructor() { }",
+      "}"
+    ]
+  },
+  "Angular CanActivate Guard": {
+    "scope": "typescript",
+    "prefix": "a-guard-can-activate",
+    "description": "Angular CanActivate guard",
+    "body": [
+      "import { Injectable } from '@angular/core';",
+      "import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from '@angular/router';",
+      "",
+      "@Injectable()",
+      "export class ${1:Name}Guard implements CanActivate {",
+      "\tconstructor() { }",
+      "",
+      "\tcanActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {",
+      "\t\treturn true;$0",
+      "\t}",
+      "}"
+    ]
+  },
+  "Angular CanActivateChild Guard": {
+    "scope": "typescript",
+    "prefix": "a-guard-can-activate-child",
+    "description": "Angular CanActivateChild guard",
+    "body": [
+      "import { Injectable } from '@angular/core';",
+      "import { ActivatedRouteSnapshot, CanActivateChild, RouterStateSnapshot } from '@angular/router';",
+      "",
+      "@Injectable()",
+      "export class ${1:Name}Guard implements CanActivateChild {",
+      "\tconstructor() { }",
+      "",
+      "\tcanActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {",
+      "\t\treturn true;$0",
+      "\t}",
+      "}"
+    ]
+  },
+  "Angular CanLoad Guard": {
+    "scope": "typescript",
+    "prefix": "a-guard-can-load",
+    "description": "Angular CanLoad guard",
+    "body": [
+      "import { Injectable } from '@angular/core';",
+      "import { CanLoad, Route } from '@angular/router';",
+      "",
+      "@Injectable()",
+      "export class ${1:Name}Guard implements CanLoad {",
+      "\tconstructor() { }",
+      "",
+      "\tcanLoad(route: Route) {",
+      "\t\treturn true;$0",
+      "\t}",
+      "}"
+    ]
+  },
+  "Angular CanDeactivate Guard": {
+    "scope": "typescript",
+    "prefix": "a-guard-can-deactivate",
+    "description": "Angular CanDeactivate guard",
+    "body": [
+      "import { Injectable } from '@angular/core';",
+      "import { ActivatedRouteSnapshot, CanDeactivate, RouterStateSnapshot } from '@angular/router';",
+      "import { Observable } from 'rxjs/Observable';",
+      "",
+      "import { ${1:ComponentName}Component } from './${2:filename}.component';",
+      "",
+      "// Consider using this interface for all CanDeactivate guards,",
+      "// and have your components implement this interface, too.",
+      "//",
+      "//   e.g. export class CanDeactivateGuard implements CanDeactivate<CanComponentDeactivate> {",
+      "//",
+      "// export interface CanComponentDeactivate {",
+      "// canDeactivate: () => any;",
+      "// }",
+      "",
+      "@Injectable()",
+      "export class ${2:Name}Guard implements CanDeactivate<${1:ComponentName}Component> {",
+      "\tcanDeactivate(",
+      "\t\tcomponent: ${1:ComponentName}Component,",
+      "\t\tcurrentRoute: ActivatedRouteSnapshot, ",
+      "\t\tcurrentState: RouterStateSnapshot",
+      "\t): Observable<boolean>|Promise<boolean>|boolean {",
+      "\t\treturn false;$0",
+      "\t}",
+      "}"
+    ]
+  },
+  "Angular Custom Preload Strategy": {
+    "scope": "typescript",
+    "prefix": "a-preload-strategy",
+    "description": "Angular custom preload strategy",
+    "body": [
+      "import { PreloadingStrategy, Route } from '@angular/router';",
+      "import { Observable } from 'rxjs/Observable';",
+      "import { of } from 'rxjs/observable/of';",
+      "",
+      "export class PreloadSelectedModulesList implements PreloadingStrategy {",
+      "\tpreload(route: Route, load: Function): Observable<any> {",
+      "\t\treturn route.data && route.data['${1:preload}'] ? load() : of(null);",
+      "\t}",
+      "}",
+      "$0"
+    ]
+  },
+  "Angular Router Events": {
+    "scope": "typescript",
+    "prefix": "a-router-events",
+    "description": "Angular Router Events",
+    "body": [
+      "checkEvents() {",
+      "\tthis.router.events.subscribe(event => {",
+      "\t\tswitch (true) {",
+      "\t\t\tcase event instanceof ${1:eventName}:",
+      "\t\t\t\t$0",
+      "\t\t\t\tbreak;",
+      "",
+      "\t\t\tdefault:",
+      "\t\t\t\tbreak;",
+      "\t\t}",
+      "\t});",
+      "}"
+    ]
+  },
+  "Angular Module SkipSelf Constructor": {
+    "scope": "typescript",
+    "prefix": "a-ctor-skip-self",
+    "description": "Angular Module SkipSelf constructor",
+    "body": [
+      "constructor( @Optional() @SkipSelf() parentModule: ${1:ModuleName} {",
+      "\tif (parentModule) {",
+      "\t\tconst msg = `${1:ModuleName} has already been loaded. ",
+      "\t\t\tImport ${1:ModuleName} once, only, in the root AppModule.`;",
+      "\t\tthrow new Error(msg);",
+      "\t}",
+      "}"
+    ]
+  },
+  "RxJS Observable Import": {
+    "scope": "typescript",
+    "prefix": "rx-observable",
+    "description": "RxJS Observable import",
+    "body": ["import { Observable } from 'rxjs/Observable';", "$0"]
+  },
+  "RxJS ReplaySubject Import": {
+    "scope": "typescript",
+    "prefix": "rx-replay-subject",
+    "description": "RxJS ReplaySubject import",
+    "body": ["import { ReplaySubject } from 'rxjs/ReplaySubject';", "$0"]
+  },
+  "RxJS Subject Import": {
+    "scope": "typescript",
+    "prefix": "rx-subject",
+    "description": "RxJS Subject import",
+    "body": ["import { Subject } from 'rxjs/Subject';", "$0"]
+  },
+  "RxJS BehaviorSubject Import": {
+    "scope": "typescript",
+    "prefix": "rx-behavior-subject",
+    "description": "RxJS BehaviorSubject import",
+    "body": ["import { BehaviorSubject } from 'rxjs/BehaviorSubject';", "$0"]
+  },
+  "RxJS Add Operator Import": {
+    "scope": "typescript",
+    "prefix": "rx-add-operator",
+    "description": "RxJS Add Operator import",
+    "body": ["import 'rxjs/add/operator/${1:map}';", "$0"]
+  },
+  "RxJS Add Observable Import": {
+    "scope": "typescript",
+    "prefix": "rx-add-observable",
+    "description": "RxJS Add Observable import",
+    "body": ["import 'rxjs/add/observable/${1:of}';", "$0"]
+  },
+  "RxJS Operators": {
+    "scope": "typescript",
+    "prefix": "rx-operators",
+    "description": "RxJS Operators import",
+    "body": ["import { ${1:map} } from 'rxjs/operators';", "$0"]
+  }
+}

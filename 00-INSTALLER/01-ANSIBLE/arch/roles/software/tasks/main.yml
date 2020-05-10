@@ -1,0 +1,6 @@
+---
+- import_tasks: yay.yml
+- import_tasks: yay-extras.yml
+
+- name: Execute SOFTWARE installation script
+  command: sh software.sh

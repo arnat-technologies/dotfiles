@@ -1,0 +1,6 @@
+---
+- hosts: local
+  roles:
+    # - bootstrap
+#    - software
+    - postinstall

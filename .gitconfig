@@ -1,0 +1,84 @@
+[cola]
+  spellcheck = false
+[user]
+  email = rsurjano@outlook.com
+  name = Roy Surjano
+  useConfigOnly = true
+[core]
+  attributesfile = ~/.gitattributes
+  excludesfile = ~/.gitignore
+  editor = code -w
+  autocrlf = input
+  eol = lf
+  safecrlf = false
+[diff]
+  renames = true
+  algorithm = patience
+  tool = vscode
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+  interactive = auto
+  ui = true
+[color "branch"]
+  current = green reverse
+  local = green
+  remote = yellow
+[color "status"]
+  added = green
+  changed = yellow
+  untracked = blue
+[color "diff"]
+  meta = yellow bold
+  commit = green bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
+[github]
+  user = rsurjano
+[rebase]
+  stat = true
+  autosquash = true
+  autostash = true
+[branch]
+  autosetupmerge = true
+  autosetuprebase = always
+[push]
+  default = upstream
+[pull]
+  rebase = preserve
+[status]
+  submoduleSummary = true
+  showUntrackedFiles = all
+[merge]
+  tool = splice
+  stat = true
+[fetch]
+  prune = true
+[submodule]
+  fetchJobs = 4
+[stash]
+  showPatch = true
+[credential]
+  helper = cache --timeout=604800
+[pager]
+  diff = diff-so-fancy | less --tabs=4 -RFX
+[http]
+  sslVerify = false
+  postBuffer = 1048576000
+[gc]
+  autoDetach = false
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
+
+# INCLUDING PERSONAL GITCONFIG
+[include]
+  path = .gitconfig.local
+

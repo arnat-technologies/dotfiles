@@ -1,0 +1,716 @@
+#!/bin/bash
+
+# --------------------------------------------------
+# HTTPIE
+#--------------------------------------------------
+
+if [[ "$(is_installed http)" != "0" ]]; then
+#
+fi
+
+# --------------------------------------------------
+# TMUX
+#--------------------------------------------------
+
+if [[ "$(is_installed tmux)" != "0" ]]; then
+  alias tmux='tmux -2'
+  alias ta='tmux attach -t'
+  alias tnew='tmux new -s'
+  alias tls='tmux ls'
+  alias tkill='tmux kill-session -t'
+  alias td='tmux detach -a'
+fi
+
+
+# --------------------------------------------------
+# light
+#--------------------------------------------------
+
+if [[ "$(is_installed light)" != "0" ]]; then
+  alias li='light -S'
+fi
+
+
+# --------------------------------------------------
+# VAGRANT
+#--------------------------------------------------
+
+if [[ "$(is_installed vagrant)" != "0" ]]; then
+#
+fi
+
+
+# --------------------------------------------------
+# AZURE
+#--------------------------------------------------
+
+if [[ "$(is_installed az)" != "0" ]]; then
+#
+fi
+
+
+# --------------------------------------------------
+# TIG
+#--------------------------------------------------
+
+if [[ "$(is_installed tig)" != "0" ]]; then
+  alias grf='git reflog --pretty=raw | tig --pretty=raw'
+fi
+
+
+# --------------------------------------------------
+# YAY
+#--------------------------------------------------
+
+if [[ "$(is_installed yay)" != "0" ]]; then
+#
+fi
+
+
+# --------------------------------------------------
+# REFLECTOR
+#--------------------------------------------------
+
+if [[ "$(is_installed reflector)" != "0" ]]; then
+  alias reflector-update='reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist'
+fi
+
+
+# --------------------------------------------------
+# XCLIP/PBCOPY LINUX/MAC
+#--------------------------------------------------
+
+if [[ "$(is_installed xclip)" != "0" ]]; then
+  alias pbcopy='xclip -selection clipboard'
+  alias pbpaste='xclip -selection clipboard -o'
+fi
+
+
+# --------------------------------------------------
+# GIT
+#--------------------------------------------------
+
+if [[ "$(is_installed git)" != "0" ]]; then
+
+  # Git
+  alias g='git'
+  alias gitcz='git cz'
+
+  # Branch (b)
+  alias gb='git branch'
+  alias gba='git branch --all --verbose'
+  alias gbd='git branch --delete'
+  alias gbD='git branch --delete --force'
+  alias gbl='git branch --verbose'
+  alias gbL='git branch --all --verbose'
+  alias gbm='git branch --move'
+  alias gbM='git branch --move --force'
+  alias gbr='git branch --move'
+  alias gbR='git branch --move --force'
+  alias gbs='git show-branch'
+  alias gbS='git show-branch --all'
+  alias gbv='git branch --verbose'
+  alias gbV='git branch --verbose --verbose'
+  alias gbx='git branch --delete'
+  alias gbX='git branch --delete --force'
+  alias gbnm="git branch --no-merged"
+  alias gbr="git branch --remote"
+
+  # Commit (c)
+  alias gc='git commit --verbose'
+  alias gca='git commit --verbose --all'
+  alias gcm='git commit --message'
+  alias gcS='git commit -S --verbose'
+  alias gcSa='git commit -S --verbose --all'
+  alias gcSm='git commit -S --message'
+  alias gcam='git commit --all --message'
+
+  # Checkout
+  gcb() {
+    if [[ -z "$1" ]]; then
+      echo "Must provide a new BRANCH name"
+    else
+      local BRANCH=$1
+      local ORIGIN=${2:-HEAD}
+      git checkout -b $BRANCH $ORIGIN
+    fi
+  }
+  alias gcO='git checkout --patch'
+  alias gc='git checkout'
+  alias ggmp='git checkout -' # jump back to to your last branch
+
+  # Commit
+  alias gcf='git commit --amend --reuse-message HEAD'
+  alias gcSf='git commit -S --amend --reuse-message HEAD'
+  alias gcF='git commit --verbose --amend'
+  alias gcSF='git commit -S --verbose --amend'
+  alias gam='git commit -am'
+  alias gm='git commit -m'
+  alias wip="git add . && git commit -m 'WIP' . && git push origin HEAD"
+
+  # Cherry & Cherry-Pick
+  alias gcp='git cherry-pick --ff'
+  alias gcP='git cherry-pick --no-commit'
+  alias gcy='git cherry -v --abbrev'
+  alias gcY='git cherry -v'
+
+  # Revert
+  alias gcr='git revert'
+
+  # Reset
+  alias gcR='git reset "HEAD^"'
+
+  # Show
+  alias gcs='git show'
+  alias gcl='git-commit-lost'
+
+  # Conflict (C)
+  alias gCl='git --no-pager diff --name-only --diff-filter=U'
+  alias gCa='git add $(gCl)'
+  alias gCe='git mergetool $(gCl)'
+  alias gCo='git checkout --ours --'
+  alias gCO='gCo $(gCl)'
+  alias gCt='git checkout --theirs --'
+  alias gCT='gCt $(gCl)'
+
+  # Data (d)
+  alias gd='git ls-files'
+  alias gdc='git ls-files --cached'
+  alias gdx='git ls-files --deleted'
+  alias gdm='git ls-files --modified'
+  alias gdu='git ls-files --other --exclude-standard'
+  alias gdk='git ls-files --killed'
+  alias gdi='git status --porcelain --short --ignored | sed -n "s/^!! //p"'
+
+  # Fetch (f)
+  alias gf='git fetch'
+
+  alias gfc='git clone'
+  alias gfcr='git clone --recurse-submodules'
+
+  # Flow (F)
+  alias gFi='git flow init'
+  alias gFf='git flow feature'
+  alias gFb='git flow bugfix'
+  alias gFl='git flow release'
+  alias gFh='git flow hotfix'
+
+  # Grep (g)
+  alias gg='git grep'
+  alias ggi='git grep --ignore-case'
+  alias ggl='git grep --files-with-matches'
+  alias ggL='git grep --files-without-matches'
+  alias ggv='git grep --invert-match'
+  alias ggw='git grep --word-regexp'
+
+  # Index (i)
+  alias gia='git add'
+  alias giA='git add --patch'
+  alias giu='git add --update'
+  alias gid='git diff --no-ext-diff --cached'
+  alias giD='git diff --no-ext-diff --cached --word-diff'
+  alias gii='git update-index --assume-unchanged'
+  alias giI='git update-index --no-assume-unchanged'
+  alias gir='git reset'
+  alias giR='git reset --patch'
+  alias gix='git rm -r --cached'
+  alias giX='git rm -rf --cached'
+
+  # Log (l)
+  alias gl='git log --topo-order --pretty=format:"${_git_log_medium_format}"'
+  alias gls='git log --topo-order --stat --pretty=format:"${_git_log_medium_format}"'
+  alias gld='git log --topo-order --stat --patch --full-diff --pretty=format:"${_git_log_medium_format}"'
+  alias glo='git log --topo-order --pretty=format:"${_git_log_oneline_format}"'
+  alias glg='git log --topo-order --all --graph --pretty=format:"${_git_log_oneline_format}"'
+  alias glb='git log --topo-order --pretty=format:"${_git_log_brief_format}"'
+  alias glc='git shortlog --summary --numbered'
+  alias glp5='git log --pretty --oneline -5' # view your last 5 latest commits each on their own line
+  alias glp='git log --pretty --oneline' # view your last #s
+  alias glsw='git log -S' # search the commit history for the word puppy and display matching commits (glsw [word])
+  alias glt='git log --all --graph --decorate --oneline --simplify-by-decoration' # pretty branch status
+
+  # Merge (m)
+  alias gm='git merge'
+  alias gmC='git merge --no-commit'
+  alias gmF='git merge --no-ff'
+  alias gma='git merge --abort'
+  alias gmt='git mergetool'
+
+  # Push (p)
+  alias gp='git push -u origin HEAD'
+  alias gpf='git push --force-with-lease'
+  alias gpF='git push --force'
+  alias gpa='git push --all'
+  alias gpA='git push --all && git push --tags'
+  alias gpt='git push --tags'
+  #alias gpc='git push --set-upstream origin "$(git-branch-current 2> /dev/null)"'
+  #alias gp="git push -u origin "$(git-branch-current 2> /dev/null)""
+  #alias gpt="git push -u origin "$(git-branch-current 2> /dev/null)" && git push --tags"
+  alias undopush="git push -f origin HEAD^:master" # Undo a `git push`
+
+  # Pull
+  alias gpp='git pull origin "$(git-branch-current 2> /dev/null)" && git push origin "$(git-branch-current 2> /dev/null)"'
+  alias gplh='git pull origin "$(git-branch-current 2> /dev/null)" --prune'
+  alias gplr='git pull --rebase origin'
+  alias gPl='git pull origin "$(git-branch-current 2> /dev/null)" --prune'
+
+  # Rebase (r)
+  alias gr='git rebase'
+  alias gra='git rebase --abort'
+  alias grc='git rebase --continue'
+  alias gri='git rebase --interactive'
+  alias grs='git rebase --skip'
+
+  # Remote (R)
+  alias gR='git remote'
+  alias gRl='git remote --verbose'
+  alias gRa='git remote add'
+  alias gRx='git remote rm'
+  alias gRm='git remote rename'
+  alias gRu='git remote update'
+  alias gRp='git remote prune'
+  alias gRs='git remote show'
+
+  # Stash (s)
+  alias gsa='git stash apply'
+  alias gsx='git stash drop'
+  alias gst='git stash save' # stash git changes and put them into your list
+  alias gstl='git stash list'
+  alias gstp='git stash pop'
+  #alias gsd='git stash show --patch --stat'
+  #alias gss='git stash save --include-untracked'
+  #alias gsS='git stash save --patch --no-keep-index'
+  #alias gsw='git stash save --include-untracked --keep-index'
+
+  # Tag (t)
+  alias gt='git tag'
+  alias gtl='git tag -l'
+
+  # Diff
+  alias gwd='git diff --no-ext-diff'
+  alias gwD='git diff --no-ext-diff --word-diff'
+
+  # Reset
+  alias gwr='git reset --soft'
+  alias gwR='git reset --hard'
+
+  # Clean
+  alias gwc='git clean -n'
+  alias gwC='git clean -f'
+
+  # rm -rf
+  alias gwx='git rm -r'
+  alias gwX='git rm -rf'
+
+  # Add
+  alias ga="git add"
+  alias gaa="git add --all"
+  alias gap='git add -p' # step through each change, or hunk
+  alias gapa="git add --patch"
+
+  alias gfa="git fetch --all --prune"
+
+  alias gta='git tag -a -m'
+
+  alias undocommit="git reset --soft HEAD~1" # reset last commit
+
+  alias gchp='git cherry-pick' # cherry pick the committed code in your own branch (gchp [hash])
+  alias gcl='git clone'
+  alias gcln='git clean -xfd' # remove untracked files
+  alias gcz="git archive --format=zip HEAD > latest-commit.zip" # create a .zip of latest commit
+  alias gd='git diff'
+  alias gf='git reflog' # allows you to see every step you have made with git allowing you to retract and reinstate your steps
+
+  alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
+  alias gra='git remote add'
+  alias grr='git remote rm'
+  alias gsl='git shortlog -sn' # quickly get a list of contributors and see how many commits each person has
+  alias gss='git status'
+  alias gsss="git status -s"
+  alias gwts='git ls-files | xargs wc -l' # count number of lines of code in a git project
+  alias grsh="git reset --soft HEAD^" # Undo your last commit, but don't throw away your changes
+  alias gbl='git blame -b -w'
+
+  alias gopen="open \`git remote -v | grep fetch | head -1 | cut -f2 | cut -d' ' -f1 | sed -e's/git@/http:\/\//' -e's/\.git$//' | sed -E 's/(\/\/[^:]*):/\1\//'\`"
+
+  ggid(){
+    LEVELS=${1:-2}
+    if [ -z "$1" ]; then
+      echo $(git log -n 1 --pretty=format:"%H")
+    else
+      echo $(git log -n 1 --skip $LEVELS --pretty=format:"%H")
+    fi
+  }
+
+  gglc() {
+    local LEVELS=${1:-1}
+    latest_commmit=$(ggid)
+    previous_commit=$(ggid $LEVELS)
+    reponame=$(basename `git rev-parse --show-toplevel`)
+    git diff --name-only $previous_commit $latest_commmit | zip ../latest-changes---$reponame---$previous_commit--latest_commmit.zip -@
+  }
+
+  # levels latest_commit_id
+  ggpvid() {
+    p_id=$(ggid)
+    PARENT=${2:-$p_id}
+    c_id=${1:-1}
+    if (( $c_id > 1 )); then
+      skips=$(expr $c_id - 1)
+      # echo "$skips"
+      echo $(git log --pretty=%P -n 1 --skip $skips $PARENT)
+    else
+      echo $(git log --pretty=%P -n 1 $PARENT)
+    fi
+  }
+
+  # levels
+  ggbc(){
+    local BRANCH=${1:-dev}
+    local COMMITS=${2:-1}
+    local id=$(ggid $BRANCH)
+    reponame=$(basename `git rev-parse --show-toplevel`)
+    git bundle create bundle---$reponame---$BRANCH-$id.bundle $BRANCH~$COMMITS..$BRANCH
+  }
+
+  git_sync(){
+    cd $1
+    print_success "\nsyncing $1 \n"
+    local BRANCH=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+    local ORIGIN=${2:-master}
+    git rebase --abort
+    git checkout $ORIGIN
+    git fetch --all --prune
+    git pull origin $ORIGIN
+
+    if [ "$ORIGIN" != "$BRANCH" ]; then
+      git checkout $BRANCH
+      git pull --rebase origin $ORIGIN
+    fi
+  }
+
+  gh_push_repo(){
+    cd $1
+    print_success "\nupdating $1 \n"
+    git add .
+    git commit -m "Updated to: `date`"
+    git pull
+    git push origin master
+  }
+
+fi
+
+
+# --------------------------------------------------
+# CURL
+#--------------------------------------------------
+
+if [[ "$(is_installed curl)" != "0" ]]; then
+#
+fi
+
+
+# --------------------------------------------------
+# FEH (IMAGE EDITOR)
+#--------------------------------------------------
+
+if [[ "$(is_installed feh)" != "0" ]]; then
+  alias changebg="feh --randomize --bg-fill ~/.betterlockscreen/*"
+  changelock() {
+    # cleaning previous image
+    rm -rf ~/.cache/i3lock
+    # choosing image
+    image=~/.betterlockscreen/$(shuf -i 127-20654 -n 1).jpg
+    while [ ! -f "$image" ]
+    do
+        image=~/.betterlockscreen/$(shuf -i 127-20654 -n 1).jpg
+    done
+    # change the lockscreen wallpaper
+    betterlockscreen -u $image 2>/dev/null &
+  }
+fi
+
+
+# --------------------------------------------------
+# MAVEN
+#--------------------------------------------------
+
+if [[ "$(is_installed mvn)" != "0" ]] ; then
+#
+fi
+
+
+# --------------------------------------------------
+# GOOGLER
+#--------------------------------------------------
+
+if [[ "$(is_installed googler)" != "0" ]]; then
+  alias g="googler --count 5 --lang ENG"
+fi
+
+
+# --------------------------------------------------
+# DOCKER
+#--------------------------------------------------
+
+if [[ "$(is_installed docker)" != "0" ]] ; then
+#
+fi
+
+
+# --------------------------------------------------
+# HUGO
+#--------------------------------------------------
+
+if [[ "$(is_installed hg)" != "0" ]]; then
+#
+fi
+
+
+# --------------------------------------------------
+# NPM
+#--------------------------------------------------
+
+if [[ "$(is_installed npm)" != "0" ]]; then
+  alias npmg="npm list -g --depth=0"
+fi
+
+
+# --------------------------------------------------
+# YARN
+#--------------------------------------------------
+
+if [[ "$(is_installed yarn)" != "0" ]]; then
+#
+fi
+
+
+# --------------------------------------------------
+# VISUAL STUDIO CODE
+#--------------------------------------------------
+
+if [[ "$(is_installed yarn)" != "0" ]]; then
+  c() { [ $# -eq 0 ] && code . || code "$@"; }  # VSCODE
+fi
+
+
+# --------------------------------------------------
+# KUBERNETES
+#--------------------------------------------------
+
+if [[ "$(is_installed kubectl)" != "0" ]]; then
+  kbgp(){
+    local KUBECONFIG=${1:-kube-config}
+    kubectl --kubeconfig=$KUBECONFIG get pods
+  }
+  kbgs(){
+    local KUBECONFIG=${1:-kube-config}
+    kubectl --kubeconfig=$KUBECONFIG get service
+  }
+  kbdp(){
+    if [[ -z "$1" ]]; then
+      echo "Must provide POD NAME to delete"
+    else
+      local POD=$1
+      local KUBECONFIG=${2:-kube-config}
+      kubectl --kubeconfig=$KUBECONFIG delete pod $POD
+    fi
+  }
+  kblp(){
+    if [[ -z "$1" ]]; then
+      echo "Must provide POD NAME to log"
+    else
+      local POD=$1
+      local KUBECONFIG=${2:-kube-config}
+      kubectl --kubeconfig=$KUBECONFIG logs $POD
+    fi
+  }
+  kbsh(){
+    if [[ -z "$1" ]]; then
+      echo "Must provide POD NAME to shell"
+    else
+      local POD=$1
+      local KUBECONFIG=${2:-kube-config}
+      kubectl --kubeconfig=$KUBECONFIG exec -it $POD sh
+    fi
+  }
+fi
+
+
+# --------------------------------------------------
+# NODE
+#--------------------------------------------------
+
+if [[ "$(is_installed node)" != "0" ]]; then
+#
+fi
+
+
+# --------------------------------------------------
+# JAVA
+#--------------------------------------------------
+
+if [[ "$(is_installed java)" != "0" ]]; then
+#
+fi
+
+
+# --------------------------------------------------
+# AWS
+#--------------------------------------------------
+
+if [[ "$(is_installed aws)" != "0" ]]; then
+#
+fi
+
+
+## =================================================
+##
+##  COMMAND LINE
+##
+## =================================================
+
+# Shortcuts
+alias x+="chmod +x"
+
+# Easier navigation: .., ..., ~ and -
+alias ..="cd .."
+alias ...="cd ..\/.."
+alias ....="cd ..\/..\/.."
+alias .....="cd ..\/..\/..\/.."
+
+up() { # up 2, up 4
+  if [[ "$#" < 1 ]] ; then
+      cd ..
+  else
+      CDSTR=""
+      for i in {1..$1} ; do
+          CDSTR="../$CDSTR"
+      done
+      cd $CDSTR
+  fi
+}
+
+# mv, rm, cp, gunzip
+alias mv='mv -v'
+alias rm='rm -i -v'
+alias cp='cp -v'
+
+alias hosts='sudo $EDITOR /etc/hosts'
+alias where=which
+
+# List Directories/Files
+alias l="ls -lF"
+
+# alias la="ls -la"
+alias ls="exa --git --group-directories-first"
+alias ll="ls -l"
+alias la="ll -a"
+alias lk="ll -s=size"                # Sorted by size
+alias lm="ll -s=modified"            # Sorted by modified date
+alias lc="ll --created -s=created"   # Sorted by created date
+
+alias lsd='ls -l | grep "^d"'
+
+
+## =================================================
+##
+##  UTILS
+##
+## =================================================
+
+# zshrc config
+alias reload="source ~/.zshrc && echo 'Shell config reloaded from ~/.zshrc'"
+
+# FILE
+extract() {
+ if [ -z "$1" ]; then
+    echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
+ else
+    if [ -f $1 ] ; then
+        NAME=${1%.*}
+        mkdir $NAME && cd $NAME
+        case $1 in
+          *.tar.bz2)   tar xvjf ../$1    ;;
+          *.tar.gz)    tar xvzf ../$1    ;;
+          *.tar.xz)    tar xvJf ../$1    ;;
+          *.lzma)      unlzma ../$1      ;;
+          *.bz2)       bunzip2 ../$1     ;;
+          *.rar)       unrar x -ad ../$1 ;;
+          *.gz)        gunzip ../$1      ;;
+          *.tar)       tar xvf ../$1     ;;
+          *.tbz2)      tar xvjf ../$1    ;;
+          *.tgz)       tar xvzf ../$1    ;;
+          *.zip)       unzip ../$1       ;;
+          *.Z)         uncompress ../$1  ;;
+          *.7z)        7z x ../$1        ;;
+          *.xz)        unxz ../$1        ;;
+          *.exe)       cabextract ../$1  ;;
+          *)           echo "extract: '$1' - unknown archive method" ;;
+        esac
+        cd ..
+    else
+        echo "$1 - is not a valid file"
+    fi
+fi
+}
+
+mcd () { mkdir -p "$1" && cd "$1"; }
+
+f() { find . -name "$1" 2>&1 | grep -v 'Permission denied'; } # # find shorthand
+
+qfind () { find . -exec grep -l -s $1 {} \; return 0; } # qfind - used to quickly find files that contain a string in a directory
+
+gz() { # Compare original and gzipped file size
+  local origsize=$(wc -c < "$1");
+  local gzipsize=$(gzip -c "$1" | wc -c);
+  local ratio=$(echo "$gzipsize * 100 / $origsize" | bc -l);
+  printf "orig: %d bytes\n" "$origsize";
+  printf "gzip: %d bytes (%2.2f%%)\n" "$gzipsize" "$ratio";
+}
+
+escape() { # UTF-8-encode a string of Unicode symbols
+  printf "\\\x%s" $(printf "$@" | xxd -p -c1 -u);
+  # print a newline unless we’re piping the output to another program
+  if [ -t 1 ]; then
+    echo ""; # newline
+  fi;
+}
+
+deunicode() { # Decode \x{ABCD}-style Unicode escape sequences
+  perl -e "binmode(STDOUT, ':utf8'); print \"$@\"";
+  # print a newline unless we’re piping the output to another program
+  if [ -t 1 ]; then
+    echo ""; # newline
+  fi;
+}
+
+unicode() { # Get a character’s Unicode code point
+  perl -e "use utf8; print sprintf('U+%04X', ord(\"$@\"))";
+  if [ -t 1 ]; then
+    echo ""; # newline
+  fi;
+}
+
+dataurl() { # Create a data URL from a file
+  local mimeType=$(file -b --mime-type "$1");
+  if [[ $mimeType == text/* ]]; then
+    mimeType="${mimeType};charset=utf-8";
+  fi
+  echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')";
+}
+
+isup(){
+  if ping -q -c 1 -W 1 8.8.8.8 >/dev/null; then
+    echo "The network is up"
+  else
+    echo "The network is down"
+  fi
+}
+
+cd () { builtin cd "$@" }
+
+killport() {
+  local PORT=${1:-4200}
+  sudo kill $(sudo lsof -t -i:$PORT)
+}

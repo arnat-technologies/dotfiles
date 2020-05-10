@@ -1,0 +1,513 @@
+---
+
+- name: 'updating/upgrading yay'
+  yay: update_cache=yes upgrade=yes
+
+- name: '[yay] installing a52dec'
+  yay: name=a52dec
+
+- name: '[yay] installing acpi'
+  yay: name=acpi
+
+- name: '[yay] installing acpid'
+  yay: name=acpid
+
+- name: '[yay] installing alsa-tools'
+  yay: name=alsa-tools
+
+- name: '[yay] installing alsa-utils'
+  yay: name=alsa-utils
+
+- name: '[yay] installing ansible'
+  yay: name=ansible
+
+- name: '[yay] installing atool'
+  yay: name=atool
+
+- name: '[yay] installing aur/i3lock-color state=present'
+  yay: name=aur/i3lock-color state=present
+
+- name: '[yay] installing aur/betterlockscreen state=present'
+  yay: name=aur/betterlockscreen state=present
+
+- name: '[yay] installing aur/i3blocks-gaps-git'
+  yay: name=aur/i3blocks-gaps-git
+
+- name: '[yay] installing i3-gaps'
+  yay: name=i3-gaps
+
+- name: '[yay] installing aur/nerd-fonts-complete state=present'
+  yay: name=aur/nerd-fonts-complete state=present
+
+- name: '[yay] installing aur/otf-fira-code-git state=present'
+  yay: name=aur/otf-fira-code-git state=present
+
+- name: '[yay] installing aur/peco state=present'
+  yay: name=aur/peco state=present
+
+- name: '[yay] installing aur/polybar state=present'
+  yay: name=aur/polybar state=present
+
+- name: '[yay] installing aur/qutebrowser-git state=present'
+  yay: name=aur/qutebrowser-git state=present
+
+- name: '[yay] installing community/rofi state=present'
+  yay: name=community/rofi state=present
+
+- name: '[yay] installing aur/rvm state=present'
+  yay: name=aur/rvm state=present
+
+- name: '[yay] installing aur/wercker-cli state=present'
+  yay: name=aur/wercker-cli state=present
+
+- name: '[yay] installing community/xautolock state=present'
+  yay: name=community/xautolock state=present
+
+- name: '[yay] installing avahi'
+  yay: name=avahi
+
+- name: '[yay] installing axel'
+  yay: name=axel
+
+- name: '[yay] installing bash-completion'
+  yay: name=bash-completion
+
+- name: '[yay] installing browsh-bin state=present'
+  yay: name=browsh-bin state=present
+
+- name: '[yay] installing cabextract'
+  yay: name=cabextract
+
+- name: '[yay] installing clang'
+  yay: name=clang
+
+- name: '[yay] installing community/aws-cli state=present'
+  yay: name=community/aws-cli state=present
+
+- name: '[yay] installing community/docker state=present'
+  yay: name=community/docker state=present
+
+- name: '[yay] installing community/docker-compose state=present'
+  yay: name=community/docker-compose state=present
+
+- name: '[yay] installing community/dunst state=present'
+  yay: name=community/dunst state=present
+
+- name: '[yay] installing community/go-tools state=present'
+  yay: name=community/go-tools state=present
+
+- name: '[yay] installing community/hugo state=present'
+  yay: name=community/hugo state=present
+
+- name: '[yay] installing community/maven state=present'
+  yay: name=community/maven state=present
+
+- name: '[yay] installing community/pass state=present'
+  yay: name=community/pass state=present
+
+- name: '[yay] installing community/reflector state=present'
+  yay: name=community/reflector state=present
+
+- name: '[yay] installing community/rxvt-unicode state=present'
+  yay: name=community/rxvt-unicode state=present
+
+- name: '[yay] installing community/tmux state=present'
+  yay: name=community/tmux state=present
+
+- name: '[yay] installing community/urxvt-perls state=present'
+  yay: name=community/urxvt-perls state=present
+
+- name: '[yay] installing community/weechat state=present'
+  yay: name=community/weechat state=present
+
+- name: '[yay] installing community/yarn state=present'
+  yay: name=community/yarn state=present
+
+- name: '[yay] installing compton'
+  yay: name=compton
+
+- name: '[yay] installing corkscrew'
+  yay: name=corkscrew
+
+- name: '[yay] installing cronie'
+  yay: name=cronie
+
+- name: '[yay] installing cups'
+  yay: name=cups
+
+- name: '[yay] installing curl'
+  yay: name=curl
+
+- name: '[yay] installing dbus'
+  yay: name=dbus
+
+- name: '[yay] installing dialog'
+  yay: name=dialog
+
+- name: '[yay] installing dmenu'
+  yay: name=dmenu
+
+- name: '[yay] installing dosfstools'
+  yay: name=dosfstools
+
+- name: '[yay] installing dunst'
+  yay: name=dunst
+
+- name: '[yay] installing easy-rsa'
+  yay: name=easy-rsa
+
+- name: '[yay] installing emacs'
+  yay: name=emacs
+
+- name: '[yay] installing evince'
+  yay: name=evince
+
+- name: '[yay] installing exfat-utils'
+  yay: name=exfat-utils
+
+- name: '[yay] installing extra/composer state=present'
+  yay: name=extra/composer state=present
+
+- name: '[yay] installing extra/conky state=present'
+  yay: name=extra/conky state=present
+
+- name: '[yay] installing extra/cups state=present'
+  yay: name=extra/cups state=present
+
+- name: '[yay] installing extra/mariadb state=present'
+  yay: name=extra/mariadb state=present
+
+- name: '[yay] installing extra/mutt state=present'
+  yay: name=extra/mutt state=present
+
+- name: '[yay] installing extra/nitrogen state=present'
+  yay: name=extra/nitrogen state=present
+
+- name: '[yay] installing extra/php state=present'
+  yay: name=extra/php state=present
+
+- name: '[yay] installing extra/postgresql state=present'
+  yay: name=extra/postgresql state=present
+
+- name: '[yay] installing extra/python-pip state=present'
+  yay: name=extra/python-pip state=present
+
+- name: '[yay] installing extra/xorg-xkill state=present'
+  yay: name=extra/xorg-xkill state=present
+
+- name: '[yay] installing extra/xorg-xinput state=present'
+  yay: name=extra/xorg-xinput state=present
+
+- name: '[yay] installing feh'
+  yay: name=feh
+
+- name: '[yay] installing ffmpeg'
+  yay: name=ffmpeg
+
+- name: '[yay] installing fuse-exfat'
+  yay: name=fuse-exfat
+
+- name: '[yay] installing fuseiso'
+  yay: name=fuseiso
+
+- name: '[yay] installing ghostscript'
+  yay: name=ghostscript
+
+- name: '[yay] installing git'
+  yay: name=git
+
+- name: '[yay] installing go'
+  yay: name=go
+
+- name: '[yay] installing go-tools'
+  yay: name=go-tools
+
+- name: '[yay] installing gpicview'
+  yay: name=gpicview
+
+- name: '[yay] installing gradle'
+  yay: name=gradle
+
+- name: '[yay] installing gsfonts'
+  yay: name=gsfonts
+
+- name: '[yay] installing gst-libav'
+  yay: name=gst-libav
+
+- name: '[yay] installing gtk3-print-backends'
+  yay: name=gtk3-print-backends
+
+- name: '[yay] installing gutenprint'
+  yay: name=gutenprint
+
+- name: '[yay] installing hicolor-icon-theme'
+  yay: name=hicolor-icon-theme
+
+- name: '[yay] installing htop'
+  yay: name=htop
+
+- name: '[yay] installing httptunnel'
+  yay: name=httptunnel
+
+- name: '[yay] installing i3status'
+  yay: name=i3status
+
+- name: '[yay] installing imagemagick'
+  yay: name=imagemagick
+
+- name: '[yay] installing iw'
+  yay: name=iw
+
+- name: '[yay] installing jdk8-openjdk'
+  yay: name=jdk8-openjdk
+
+- name: '[yay] installing libdca'
+  yay: name=libdca
+
+- name: '[yay] installing libdvdcss'
+  yay: name=libdvdcss
+
+- name: '[yay] installing libmad'
+  yay: name=libmad
+
+- name: '[yay] installing libmtp'
+  yay: name=libmtp
+- name: '[yay] installing links'
+  yay: name=links
+
+- name: '[yay] installing lrzip'
+  yay: name=lrzip
+
+- name: '[yay] installing lshw'
+  yay: name=lshw
+
+- name: '[yay] installing lsof'
+  yay: name=lsof
+
+- name: '[yay] installing lxrandr'
+  yay: name=lxrandr
+
+- name: '[yay] installing markdown state=present'
+  yay: name=markdown state=present
+
+- name: '[yay] installing aur/mongodb-bin'
+  yay: name=aur/mongodb-bin
+
+- name: '[yay] installing mtools'
+  yay: name=mtools
+
+- name: '[yay] installing mtpfs'
+  yay: name=mtpfs
+
+- name: '[yay] installing ncmpcpp'
+  yay: name=ncmpcpp
+
+- name: '[yay] installing neofetch'
+  yay: name=neofetch
+
+- name: '[yay] installing net-tools'
+  yay: name=net-tools
+
+- name: '[yay] installing nfs-utils'
+  yay: name=nfs-utils
+
+- name: '[yay] installing nginx'
+  yay: name=nginx
+
+- name: '[yay] installing ngrep'
+  yay: name=ngrep
+
+- name: '[yay] installing nmap'
+  yay: name=nmap
+
+- name: '[yay] installing nss-mdns'
+  yay: name=nss-mdns
+
+- name: '[yay] installing ntfs-3g'
+  yay: name=ntfs-3g
+
+- name: '[yay] installing ntp'
+  yay: name=ntp
+
+- name: '[yay] installing octave'
+  yay: name=octave
+
+- name: '[yay] installing openssh'
+  yay: name=openssh
+
+- name: '[yay] installing openvpn'
+  yay: name=openvpn
+
+- name: '[yay] installing p7zip'
+  yay: name=p7zip
+
+- name: '[yay] installing papirus-icon-theme'
+  yay: name=papirus-icon-theme
+
+- name: '[yay] installing pavucontrol'
+  yay: name=pavucontrol
+
+- name: '[yay] installing pcmanfm-gtk3'
+  yay: name=pcmanfm-gtk3
+
+- name: '[yay] installing perl'
+  yay: name=perl
+
+- name: '[yay] installing polkit'
+  yay: name=polkit
+
+- name: '[yay] installing pulseaudio-alsa'
+  yay: name=pulseaudio-alsa
+
+- name: '[yay] installing pygmentize'
+  yay: name=pygmentize
+
+- name: '[yay] installing qemu'
+  yay: name=qemu
+
+- name: '[yay] installing ranger'
+  yay: name=ranger
+
+- name: '[yay] installing rfkill'
+  yay: name=rfkill
+
+- name: '[yay] installing rsync'
+  yay: name=rsync
+
+- name: '[yay] installing rxvt-unicode'
+  yay: name=rxvt-unicode
+
+- name: '[yay] installing scrot'
+  yay: name=scrot
+
+- name: '[yay] installing simple-scan'
+  yay: name=simple-scan
+
+- name: '[yay] installing socat'
+  yay: name=socat
+
+- name: '[yay] installing sudo'
+  yay: name=sudo
+
+- name: '[yay] installing system-config-printer'
+  yay: name=system-config-printer
+
+- name: '[yay] installing tar'
+  yay: name=tar
+
+- name: '[yay] installing task'
+  yay: name=task
+
+- name: '[yay] installing tcpdump'
+  yay: name=tcpdump
+
+- name: '[yay] installing termite'
+  yay: name=termite
+
+- name: '[yay] installing texmaker'
+  yay: name=texmaker
+
+- name: '[yay] installing tig'
+  yay: name=tig
+
+- name: '[yay] installing tlp'
+  yay: name=tlp
+
+- name: '[yay] installing tmux'
+  yay: name=tmux
+
+- name: '[yay] installing tree'
+  yay: name=tree
+
+- name: '[yay] installing udisks2'
+  yay: name=udisks2
+
+- name: '[yay] installing ufw'
+  yay: name=ufw
+
+- name: '[yay] installing unrar'
+  yay: name=unrar
+
+- name: '[yay] installing vim'
+  yay: name=vim
+
+- name: '[yay] installing w3m'
+  yay: name=w3m
+
+- name: '[yay] installing wget'
+  yay: name=wget
+
+- name: '[yay] installing whois'
+  yay: name=whois
+
+- name: '[yay] installing wpa_supplicant'
+  yay: name=wpa_supplicant
+
+- name: '[yay] installing x264'
+  yay: name=x264
+
+- name: '[yay] installing xclip'
+  yay: name=xclip
+
+- name: '[yay] installing xdotool'
+  yay: name=xdotool
+
+- name: '[yay] installing xorg-xdpyinfo'
+  yay: name=xorg-xdpyinfo
+
+- name: '[yay] installing xorg-xrandr'
+  yay: name=xorg-xrandr
+
+- name: '[yay] installing community/xorg-xbacklight'
+  yay: name=community/xorg-xbacklight
+
+- name: '[yay] installing xsel'
+  yay: name=xsel
+
+- name: '[yay] installing yarn'
+  yay: name=yarn
+
+- name: '[yay] installing zip'
+  yay: name=zip
+
+- name: '[yay] installing zsh'
+  yay: name=zsh
+
+- name: '[yay] installing extra/ethtool'
+  yay: name=extra/ethtool
+
+- name: '[yay] installing aur/etherwake'
+  yay: name=aur/etherwake
+
+- name: '[yay] installing extra/bluez'
+  yay: name=extra/bluez
+
+- name: '[yay] installing extra/bluez-utils'
+  yay: name=extra/bluez-utils
+
+- name: '[yay] installing community/pass'
+  yay: name=community/pass
+
+- name: '[yay] installing aur/xrdp'
+  yay: name=aur/xrdp
+
+- name: '[yay] installing community/py3status'
+  yay: name=community/py3status
+
+- name: '[yay] installing aur/qalculate-gtk-nognome'
+  yay: name=aur/qalculate-gtk-nognome
+
+- name: '[yay] installing community/exa'
+  yay: name=community/exa
+
+- name: '[yay] installing aur/jetty'
+  yay: name=aur/jetty
+
+- name: '[yay] installing aur/aria2'
+  yay: name=aur/aria2
+
+- name: '[yay] installing aur/calcurse'
+  yay: name=aur/calcurse
+
+- name: '[yay] installing aur/mdp'
+  yay: name=aur/mdp
