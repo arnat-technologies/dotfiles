@@ -1,12 +1,18 @@
-while true; do
-  read -p "Warning: this will overwrite your current dotfiles. Continue? [y/n] " yn
-  case $yn in
-    [Yy]* ) break;;
-    [Nn]* ) exit;;
-    * ) echo "Please answer yes or no.";;
-  esac
-done
-echo -n "symlinking files... "
+if [ -z "$SILENT_INSTALL" ]
+then
+    while true; do
+    read -p "Warning: this will overwrite your current dotfiles. Continue? [y/n] " yn
+    case $yn in
+        [Yy]* ) break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+    done
+else
+    print_info ">>> STARTING SYMLINKING"
+fi
+print_info ">>> SYMLINKING FILES..."
+
 ignored_files=(
   .
   ..
@@ -38,18 +44,20 @@ for filename in .* *; do
       print_success "$targetFile → $sourceFile"
     else
 
-if [ -z "$SILENT_INSTALL" ]
-then
-      ask_for_confirmation "'$targetFile' already exists, do you want to overwrite it?"
-      if answer_is_yes; then
-        rm -rf "$targetFile"
-        execute "ln -fs $sourceFile $targetFile" "$targetFile → $sourceFile"
+      if [ -z "$SILENT_INSTALL" ]
+      then
+            ask_for_confirmation "'$targetFile' already exists, do you want to overwrite it?"
+            if answer_is_yes; then
+              rm -rf "$targetFile"
+              execute "ln -fs $sourceFile $targetFile" "$targetFile → $sourceFile"
+            else
+              print_error "$targetFile → $sourceFile"
+            fi
       else
-        print_error "$targetFile → $sourceFile"
+            print_info ">>> OVERWRITTING SILENTLY $targetFile"
+            rm -rf "$targetFile"
+            execute "ln -fs $sourceFile $targetFile" "$targetFile → $sourceFile"
       fi
-else
-      print_info ">>> SYMLINKING SILENTLY"
-fi
 
 
     fi
