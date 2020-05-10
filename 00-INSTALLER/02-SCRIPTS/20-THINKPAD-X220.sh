@@ -1,5 +1,3 @@
-#!/bin/bash
-
 {
 echo "\nPreinstalling for Thinkpad x220 i3\n"
 

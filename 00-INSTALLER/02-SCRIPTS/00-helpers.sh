@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # HELPERS
 
 answer_is_yes(){

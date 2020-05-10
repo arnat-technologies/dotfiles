@@ -1,5 +1,3 @@
-#!/bin/bash
-
 print_info ">>> INSTALING BREW"
 [ ! -f "`which brew`" ] && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 print_info ">>> INSTALLING PYTHON"

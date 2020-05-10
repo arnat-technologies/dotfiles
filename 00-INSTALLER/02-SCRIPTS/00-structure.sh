@@ -1,4 +1,3 @@
-#!/bin/bash
 # GETTING USER NAME
 local current_user=$(whoami)
 
