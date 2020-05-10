@@ -1,5 +1,5 @@
 #!/bin/bash
 
 print_info ">>> INSTALLING..."
-source ./bootstrap.sh
+source ./00-bootstrap.sh
 
