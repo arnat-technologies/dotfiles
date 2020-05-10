@@ -17,6 +17,6 @@ mkdir $DOTFILES_DIR
 print_info ">>> COPYING FILE TO $DOTFILES_DIR"
 cd ../../
 PARENT_PATH=$(pwd)
-cp -R $(pwd) $DOTFILES_DIR
+cp -R $(pwd) "/$USER_DOTFILE"
 
 print_success ">>> CREATED USER STRUCTURE"

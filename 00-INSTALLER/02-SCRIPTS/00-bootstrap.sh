@@ -9,6 +9,6 @@ print_info ">>> GOING TO DOTFILES FOLDER"
 cd $DOTFILES_DIR
 
 print_info ">>> SYMLINKING DOTFILES"
-source ./00-symlink-files.sh
+source ./00-INSTALLER/02-SCRIPTS/00-symlink-files.sh
 
 print_success ">>> READY FOR INSTALLING..."
