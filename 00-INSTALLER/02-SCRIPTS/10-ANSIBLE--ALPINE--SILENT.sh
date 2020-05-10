@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ash
 
 source ./01-INSTALLER--ALPINE.sh
 
