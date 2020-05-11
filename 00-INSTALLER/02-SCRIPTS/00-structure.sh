@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 print_info ">>> GETTING USER NAME"
 export USER_DOTFILE=$(whoami)
 

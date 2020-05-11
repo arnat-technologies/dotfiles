@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 if [ -z "$VSCODE_CONTAINER" ]
 then
     echo ">>> NOT IS A VSCODE CONTANER ENVIRONMENT"

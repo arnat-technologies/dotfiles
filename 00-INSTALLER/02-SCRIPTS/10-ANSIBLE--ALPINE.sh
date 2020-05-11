@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 source ./00-INSTALLER--ALPINE.sh
 
 print_info ">>> RUNNING ANSIBLE FOR ALPINE..."

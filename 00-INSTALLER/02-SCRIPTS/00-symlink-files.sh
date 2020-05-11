@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 if [ -z "$SILENT_INSTALL" ]
 then
     while true; do

@@ -1,5 +1,7 @@
-# REGISTERING HELPERS
+#!/bin/zsh
+
 source ./00-helpers.sh
+print_success ">>> HELPERS REGISTERED"
 print_info ">>> BOOTSTRAPING"
 
 
