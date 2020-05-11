@@ -38,5 +38,7 @@ fi
 alias keyrepeaton="defaults write -g ApplePressAndHoldEnabled -bool false && defaults write NSGlobalDomain InitialKeyRepeat -int 20 && defaults write NSGlobalDomain KeyRepeat -int 1"
 alias keyrepeatoff="defaults write -g ApplePressAndHoldEnabled -bool true && defaults delete NSGlobalDomain KeyRepeat && defaults delete NSGlobalDomain InitialKeyRepeats"
 
-# fnm
-eval "$(fnm env --multi)"
+if [[ "$(is_installed node)" == "0" ]]; then
+  eval "$(fnm env --multi)"
+fi
+
