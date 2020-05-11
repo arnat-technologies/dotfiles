@@ -6,6 +6,8 @@ else
     cd "$(pwd)/00-INSTALLER/02-SCRIPTS"
 fi
 
+zsh
+
 export SILENT_INSTALL=true
 source "./01-INSTALLER--ALPINE.sh"
 
