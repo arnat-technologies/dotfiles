@@ -6,13 +6,13 @@ else
     cd "$(pwd)/00-INSTALLER/02-SCRIPTS"
 fi
 
+export SILENT_INSTALL=true
 if [ -n "$ZSH_VERSION" ]; then
-    echo ">>> RUNNING ZSH :)"
+  echo ">>> RUNNING ZSH :)"
+  source "./01-INSTALLER--ALPINE.sh"
 else
-    zsh
+  zsh "./01-INSTALLER--ALPINE.sh"
 fi
 
-export SILENT_INSTALL=true
-source "./01-INSTALLER--ALPINE.sh"
 
 print_success ">>> BOOTSTRAPING FINALIZED..."
