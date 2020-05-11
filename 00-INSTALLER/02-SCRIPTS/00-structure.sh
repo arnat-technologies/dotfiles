@@ -6,9 +6,6 @@ export USER_DOTFILE=$(whoami)
 print_info ">>> EXPORTING USER DOTFILES FOLDER"
 export DOTFILES_DIR="/$USER_DOTFILE/dotfiles"
 
-print_info ">>> CLEANING UP"
-rm -rf "$HOME/dotfiles"
-
 print_info ">>> CREATING FOLDER $USER_DOTFILE IF DOESN'T EXIST"
 [[ ! -d "/$USER_DOTFILE" ]] && mkdir "/$USER_DOTFILE"
 
