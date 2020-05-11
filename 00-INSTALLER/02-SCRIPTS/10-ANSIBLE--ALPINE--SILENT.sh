@@ -7,12 +7,6 @@ else
 fi
 
 export SILENT_INSTALL=true
-if [ -n "$ZSH_VERSION" ]; then
-  echo ">>> RUNNING ZSH :)"
-  source "./01-INSTALLER--ALPINE.sh"
-else
-  zsh "./01-INSTALLER--ALPINE.sh"
-fi
-
+source "./01-INSTALLER--ALPINE.sh"
 
 print_success ">>> BOOTSTRAPING FINALIZED..."
