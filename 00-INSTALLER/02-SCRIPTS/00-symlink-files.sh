@@ -1,4 +1,4 @@
-if [ -z "$SILENT_INSTALL" ]
+if [[ -z "$SILENT_INSTALL" ]];
 then
     while true; do
     read -p "Warning: this will overwrite your current dotfiles. Continue? [y/n] " yn
@@ -44,7 +44,7 @@ for filename in .* *; do
       print_success "$targetFile → $sourceFile"
     else
 
-      if [ -z "$SILENT_INSTALL" ]
+      if [[ -z "$SILENT_INSTALL" ]];
       then
             ask_for_confirmation "'$targetFile' already exists, do you want to overwrite it?"
             if answer_is_yes; then
