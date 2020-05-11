@@ -41,13 +41,15 @@ for filename in .* *; do
     targetFile="$HOME/$filename"
     # if directory or file
     if [ ! -e "$targetFile" ]; then
-      execute "ln -fs $sourceFile $HOME" "$targetFile → $sourceFile"
-    elif [ "$(readlink "$targetFile")" == "$sourceFile" ]; then
+      ln -fs $sourceFile $HOME
       print_success "$targetFile → $sourceFile"
+    # elif [ "$(readlink "$targetFile")" == "$sourceFile" ]; then
+    #   print_success "$targetFile → $sourceFile"
     else
 
       if [ -z "$SILENT_INSTALL" ]
       then
+            echo "SILENT INSTALL DISABLES"
             ask_for_confirmation "'$targetFile' already exists, do you want to overwrite it?"
             if answer_is_yes; then
               rm -rf "$targetFile"
@@ -71,4 +73,4 @@ for i in $HOME/bin/*; do
   chmod +rwx $HOME/bin/${i##*/}
 done
 
-print_sucess ">>> SYMLINK COMPLETED"
+print_success ">>> SYMLINK COMPLETED"
