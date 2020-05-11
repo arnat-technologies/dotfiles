@@ -2,6 +2,7 @@
 source ./00-helpers.sh
 print_info ">>> BOOTSTRAPING"
 
+
 print_info ">>> CREATING BASE STRUCTURE"
 source ./00-structure.sh
 
