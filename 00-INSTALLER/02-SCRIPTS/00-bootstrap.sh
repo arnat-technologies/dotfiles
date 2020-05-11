@@ -5,10 +5,10 @@ print_info ">>> BOOTSTRAPING"
 print_info ">>> CREATING BASE STRUCTURE"
 source ./00-structure.sh
 
-print_info ">>> GOING TO DOTFILES FOLDER"
+print_info ">>> GOING TO DOTFILES FOLDER $DOTFILES_DIR"
 cd $DOTFILES_DIR
 
 print_info ">>> SYMLINKING DOTFILES"
-source ./00-symlink-files.sh
+source "$DOTFILES_DIR/00-INSTALLER/02-SCRIPTS/00-symlink-files.sh"
 
 print_success ">>> READY FOR INSTALLING..."
