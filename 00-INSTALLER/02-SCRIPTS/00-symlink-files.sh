@@ -9,7 +9,7 @@ then
     esac
     done
 else
-    print_info ">>> STARTING SYMLINKING"
+    print_info ">>> STARTING SYMLINKING SILENTLY"
 fi
 print_info ">>> SYMLINKING FILES..."
 
