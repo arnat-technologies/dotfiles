@@ -1,0 +1,7 @@
+---
+- name: brew tap homebrew/core
+  shell: brew tap homebrew/core
+- name: brew tap homebrew/cask-versions
+  shell: brew tap homebrew/cask-versions
+- name: brew tap homebrew/cask-fonts
+  shell: brew tap homebrew/cask-fonts

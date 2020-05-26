@@ -1,0 +1,51 @@
+---
+- name: brew cask android-studio
+  shell: brew cask install android-studio
+- name: brew cask barrier
+  shell: brew cask install barrier
+- name: brew cask chromium
+  shell: brew cask install chromium
+- name: brew cask docker
+  shell: brew cask install docker
+- name: brew cask font-hack-nerd-font
+  shell: brew cask install font-hack-nerd-font
+- name: brew cask google-chrome
+  shell: brew cask install google-chrome
+- name: brew cask google-hangouts
+  shell: brew cask install google-hangouts
+- name: brew cask intellij-idea
+  shell: brew cask install intellij-idea
+- name: brew cask iterm2
+  shell: brew cask install iterm2
+- name: brew cask karabiner-elements
+  shell: brew cask install karabiner-elements
+- name: brew cask now
+  shell: brew cask install now
+- name: brew cask skype
+  shell: brew cask install skype
+- name: brew cask slack
+  shell: brew cask install slack
+- name: brew cask spotify
+  shell: brew cask install spotify
+- name: brew cask telegram
+  shell: brew cask install telegram
+- name: brew cask vlc
+  shell: brew cask install vlc
+- name: brew cask webstorm
+  shell: brew cask install webstorm
+- name: brew cask visual-studio-code
+  shell: brew cask install visual-studio-code
+- name: brew cask docker-compose
+  shell: brew cask install docker-compose
+- name: brew cask notion
+  shell: brew cask install notion
+- name: brew cask iterm2
+  shell: brew cask install iterm2
+- name: brew cask microsoft-edge-dev
+  shell: brew cask install microsoft-edge-dev
+- name: brew cask microsoft-teams
+  shell: brew cask install microsoft-teams
+- name: brew cask microsoft-office
+  shell: brew cask install microsoft-office
+- name: brew cask hammerspoon
+  shell: brew cask install hammerspoon # https://github.com/peterklijn/hammerspoon-shiftit#spooninstall

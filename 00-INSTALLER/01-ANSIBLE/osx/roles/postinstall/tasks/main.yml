@@ -1,3 +1,2 @@
-
-- name: Execute the POSTINSTALL SCRIPT
-  command: sh postinstall.sh
+# - name: Running POSTINSTALL...
+#   command: sh postinstall.sh

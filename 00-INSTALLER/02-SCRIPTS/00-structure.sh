@@ -1,21 +1,19 @@
 #!/bin/zsh
 
 print_info ">>> GETTING USER NAME"
-export USER_DOTFILE=$(whoami)
+export USER_DOTFILE=rsurj
 
 print_info ">>> EXPORTING USER DOTFILES FOLDER"
-export DOTFILES_DIR="/$USER_DOTFILE/dotfiles"
+export DOTFILES_DIR="$HOME/$USER_DOTFILE/dotfiles"
 
 print_info ">>> CREATING FOLDER $USER_DOTFILE IF DOESN'T EXIST"
-[[ ! -d "/$USER_DOTFILE" ]] && mkdir "/$USER_DOTFILE"
+[[ ! -d "$HOME/$USER_DOTFILE" ]] && mkdir "$HOME/$USER_DOTFILE"
 
-print_info ">>> ASSIGNING PERMISSIONS "
-chown -R "$USER_DOTFILE:$USER_DOTFILE" "/$USER_DOTFILE"
+print_info ">>> CREATING DOTFILES FOLDER"
 mkdir $DOTFILES_DIR
 
 print_info ">>> COPYING FILE TO $DOTFILES_DIR"
 cd ../../
-PARENT_PATH=$(pwd)
-cp -R $(pwd) "/$USER_DOTFILE"
+cp -R $(pwd) "$HOME/$USER_DOTFILE"
 
 print_success ">>> CREATED USER STRUCTURE"
