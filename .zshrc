@@ -23,7 +23,9 @@ bindkey "^[[3~" delete-char
 bindkey "^[3;5~" delete-char
 
 [ -s "$HOME/.zprezto/init.zsh" ] && \. "$HOME/.zprezto/init.zsh"
-eval "$(starship init zsh)"
+if [[ "$(is_installed starship)" != "0" ]]; then
+  eval "$(starship init zsh)"
+fi
 
 # dircolors
 if [ -x "$(command -v dircolors)" ]; then

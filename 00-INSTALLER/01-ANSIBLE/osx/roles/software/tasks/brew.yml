@@ -61,5 +61,7 @@
   shell: brew install starship
 - name: brew powerline-go
   shell: brew install powerline-go
+- name: brew mas
+  shell: brew install mas
 - name: brew Schniz/tap/fnm # curl -fsSL https://github.com/Schniz/fnm/raw/master/.ci/install.sh | bash
   shell: brew install Schniz/tap/fnm # curl -fsSL https://github.com/Schniz/fnm/raw/master/.ci/install.sh | bash

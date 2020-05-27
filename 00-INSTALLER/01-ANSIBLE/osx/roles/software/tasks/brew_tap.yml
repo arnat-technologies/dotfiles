@@ -5,3 +5,5 @@
   shell: brew tap homebrew/cask-versions
 - name: brew tap homebrew/cask-fonts
   shell: brew tap homebrew/cask-fonts
+- name: brew tap AdoptOpenJDK/openjdk
+  shell: brew tap AdoptOpenJDK/openjdk

@@ -1,6 +1,8 @@
 ---
 - name: brew cask android-studio
   shell: brew cask install android-studio
+- name: brew cask android-sdk
+  shell: brew cask install android-sdk
 - name: brew cask barrier
   shell: brew cask install barrier
 - name: brew cask chromium
@@ -43,6 +45,8 @@
   shell: brew cask install microsoft-edge-dev
 - name: brew cask microsoft-teams
   shell: brew cask install microsoft-teams
+- name: brew cask install adoptopenjdk/openjdk/adoptopenjdk8
+  shell: brew cask install adoptopenjdk/openjdk/adoptopenjdk8
 - name: brew cask microsoft-office
   shell: brew cask install microsoft-office
 - name: brew cask hammerspoon
