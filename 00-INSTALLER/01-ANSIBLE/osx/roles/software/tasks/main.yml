@@ -6,5 +6,5 @@
     msg: ">>> INSTALLING BREW"
 - include: brew.yml
 - debug:
-    msg: ">>> INSTALLING CASK"
+    msg: ">>> INSTALLING BREW CASK"
 - include: brew_cask.yml

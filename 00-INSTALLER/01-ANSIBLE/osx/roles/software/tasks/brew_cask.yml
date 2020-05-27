@@ -35,8 +35,6 @@
   shell: brew cask install webstorm
 - name: brew cask visual-studio-code
   shell: brew cask install visual-studio-code
-- name: brew cask docker-compose
-  shell: brew cask install docker-compose
 - name: brew cask notion
   shell: brew cask install notion
 - name: brew cask iterm2
