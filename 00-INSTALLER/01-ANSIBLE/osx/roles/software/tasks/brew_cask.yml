@@ -19,8 +19,6 @@
   shell: brew cask install intellij-idea
 - name: brew cask iterm2
   shell: brew cask install iterm2
-- name: brew cask karabiner-elements
-  shell: brew cask install karabiner-elements
 - name: brew cask now
   shell: brew cask install now
 - name: brew cask skype

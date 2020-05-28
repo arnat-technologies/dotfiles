@@ -11,6 +11,8 @@ export PATH=$PATH:/flutter/bin
 export PATH=$PATH:$HOME/.fnm
 export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+export ANDROID_HOME=/usr/local/share/android-sdk
 
 #MAC
 export PATH=$PATH:$HOME/.composer/vendor/bin

@@ -14,3 +14,5 @@ bind main P !git push
 #bind refs n !@git checkout -b "%(prompt Enter branch name: )"
 
 bind status C !git commit -v
+
+set refresh-mode = auto

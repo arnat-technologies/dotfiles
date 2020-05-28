@@ -55,6 +55,7 @@ fi
 
 if [[ "$(is_installed tig)" != "0" ]]; then
   alias grf='git reflog --pretty=raw | tig --pretty=raw'
+  alias tigs='tig status'
 fi
 
 
