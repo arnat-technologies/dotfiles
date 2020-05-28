@@ -47,5 +47,7 @@
   shell: brew cask install adoptopenjdk/openjdk/adoptopenjdk8
 - name: brew cask microsoft-office
   shell: brew cask install microsoft-office
+- name: brew cask install the-unarchiver
+  shell: brew cask install the-unarchiver
 - name: brew cask hammerspoon
   shell: brew cask install hammerspoon # https://github.com/peterklijn/hammerspoon-shiftit#spooninstall
