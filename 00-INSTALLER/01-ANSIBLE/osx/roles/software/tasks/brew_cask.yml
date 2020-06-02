@@ -51,5 +51,7 @@
   shell: brew cask install the-unarchiver
 - name: brew cask install figma
   shell: brew cask install figma
+- name: brew cask install openvpn-connect
+  shell: brew cask install openvpn-connect
 - name: brew cask hammerspoon
   shell: brew cask install hammerspoon # https://github.com/peterklijn/hammerspoon-shiftit#spooninstall
