@@ -1,13 +1,3 @@
-xcode-select --install
-
-## brew
-
-```shell
-#/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
-
-sudo easy_install Pygments
-
 ###############################################################################
 # PREINSTALL
 ###############################################################################
@@ -27,21 +17,15 @@ osascript -e 'tell application "System Preferences" to quit'
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock autohide-delay -float 0.05
 defaults write com.apple.dock autohide-time-modifier -float 0.25
-defaults write com.apple.dock magnification -bool true
-defaults write com.apple.dock tilesize -int 54
-defaults write com.apple.dock largesize -int 64
+defaults write com.apple.dock magnification -bool false
+defaults write com.apple.dock tilesize -int 32
+defaults write com.apple.dock largesize -int 128
 defaults write com.apple.dock minimize-to-application -bool true
 defaults write com.apple.dock mineffect -string "scale"
 defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
 defaults write com.apple.dock showhidden -bool true
 defaults write com.apple.dock show-recents -bool false
 defaults write com.apple.dock show-process-indicators -bool true
-
-# Add a spacer to the left side of the Dock (where the applications are)
-#defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'
-# Add a spacer to the right side of the Dock (where the Trash is)
-#defaults write com.apple.dock persistent-others -array-add '{tile-data={}; tile-type="spacer-tile";}'
-
 
 ###############################################################################
 # 🎛 Mission Control
@@ -91,7 +75,7 @@ killall Dock
 
 defaults write -g KeyRepeat -int 1
 defaults write -g InitialKeyRepeat -int 10
-adkjasjkdaskj
+
 # Disable press-and-hold for keys in favour of key repeat
 defaults write -g ApplePressAndHoldEnabled -bool false
 
@@ -111,13 +95,13 @@ defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
 ###############################################################################
 
 # Increase speed
-defaults write -g com.apple.mouse.scaling 5
+#defaults write -g com.apple.mouse.scaling 5
 
 # Enable secondary button on click
-defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseButtonMode TwoButton
+#defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseButtonMode TwoButton
 
 # Enable swipe with one single finger gesture to go back while browsing
-defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseOneFingerDoubleTapGesture 1
+#defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseOneFingerDoubleTapGesture 1
 
 ###############################################################################
 # 💻 Trackpad
@@ -172,29 +156,6 @@ defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
 defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
 defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 
-# Show item info near icons on the desktop and in other icon views
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
-
-# Show item info to the right of the icons on the desktop
-/usr/libexec/PlistBuddy -c "Set DesktopViewSettings:IconViewSettings:labelOnBottom false" ~/Library/Preferences/com.apple.finder.plist
-
-# Enable snap-to-grid for icons on the desktop and in other icon views
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-
-# Increase grid spacing for icons on the desktop and in other icon views
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:gridSpacing 100" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:gridSpacing 100" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:gridSpacing 100" ~/Library/Preferences/com.apple.finder.plist
-
-# Increase the size of icons on the desktop and in other icon views
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 80" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:iconSize 80" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:iconSize 80" ~/Library/Preferences/com.apple.finder.plist
-
 # Expand the following File Info panes:
 # “General”, “Open with”, and “Sharing & Permissions”
 defaults write com.apple.finder FXInfoPanesExpanded -dict \
@@ -215,46 +176,6 @@ killall Finder
 # Show Sidebar, but remove the Tags section.
 defaults write com.apple.finder ShowSidebar -bool true
 defaults write com.apple.finder ShowRecentTags -bool false
-
-###############################################################################
-# 🔍 Spotlight
-###############################################################################
-
-# Limit number of things to index
-defaults write com.apple.spotlight orderedItems -array \
-	'{"enabled" = 1;"name" = "APPLICATIONS";}' \
-	'{"enabled" = 1;"name" = "MENU_CONVERSION";}' \
-	'{"enabled" = 1;"name" = "MENU_EXPRESSION";}' \
-	'{"enabled" = 1;"name" = "SYSTEM_PREFS";}' \
-	'{"enabled" = 1;"name" = "DOCUMENTS";}' \
-	'{"enabled" = 1;"name" = "DIRECTORIES";}' \
-	'{"enabled" = 1;"name" = "PRESENTATIONS";}' \
-	'{"enabled" = 1;"name" = "SPREADSHEETS";}' \
-	'{"enabled" = 1;"name" = "PDF";}' \
-	'{"enabled" = 1;"name" = "IMAGES";}' \
-	'{"enabled" = 0;"name" = "MENU_SPOTLIGHT_SUGGESTIONS";}' \
-	'{"enabled" = 0;"name" = "MENU_DEFINITION";}' \
-	'{"enabled" = 0;"name" = "MESSAGES";}' \
-	'{"enabled" = 0;"name" = "CONTACT";}' \
-	'{"enabled" = 0;"name" = "EVENT_TODO";}' \
-	'{"enabled" = 0;"name" = "BOOKMARKS";}' \
-	'{"enabled" = 0;"name" = "MUSIC";}' \
-	'{"enabled" = 0;"name" = "MOVIES";}' \
-	'{"enabled" = 0;"name" = "FONTS";}' \
-	'{"enabled" = 0;"name" = "MENU_OTHER";}' \
-	'{"enabled" = 0;"name" = "SOURCE";}' \
-	'{"enabled" = 0;"name" = "MENU_WEBSEARCH";}'
-
-# Load new settings before rebuilding the index
-killall mds > /dev/null 2>&1
-
-# Make sure indexing is enabled for the main volume
-sudo mdutil -i on / > /dev/null
-
-# Rebuild the index from scratch
-sudo mdutil -E / > /dev/null
-
-# Do not search inside external drives (WIP)
 
 ###############################################################################
 # 🌍 Safari & WebKit
@@ -292,14 +213,11 @@ defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 1
 # 🎚️ Others
 ###############################################################################
 
-# Disable the sound effects on boot
-sudo nvram SystemAudioVolume=" "
-
-defaults write -g AppleShowScrollBars -string "Always"
-defaults write -g NSWindowResizeTime -float 0.001
+# defaults write -g AppleShowScrollBars -string "Always"
+# defaults write -g NSWindowResizeTime -float 0.001
 
 # Restart automatically if the computer freezes
-sudo systemsetup -setrestartfreeze on
+#sudo systemsetup -setrestartfreeze on
 
 # Avoid creating .DS_Store files on network or USB volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
@@ -309,7 +227,7 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 defaults write -g CGFontRenderingFontSmoothingDisabled -bool false
 
 # Set computer name (as done via System Preferences → Sharing)
-COMPUTER_NAME="RoySurjano"
+COMPUTER_NAME="MacBook-Pro-Roy"
 
 sudo scutil --set ComputerName $COMPUTER_NAME
 sudo scutil --set HostName $COMPUTER_NAME
