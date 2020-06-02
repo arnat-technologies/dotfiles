@@ -484,6 +484,8 @@ fi
 
 if [[ "$(is_installed npm)" != "0" ]]; then
   alias npmg="npm list -g --depth=0"
+  alias npmverdaccio="npm set registry http://localhost:4873/"
+  alias npmdefault="npm set registry https://registry.npmjs.org"
 fi
 
 
@@ -492,7 +494,8 @@ fi
 #--------------------------------------------------
 
 if [[ "$(is_installed yarn)" != "0" ]]; then
-#
+  alias yarnverdaccio="yarn config set registry http://localhost:4873"
+  alias yarndefault="yarn config set registry http://registry.yarnpkg.com"
 fi
 
 
