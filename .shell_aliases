@@ -95,7 +95,7 @@ if [[ "$(is_installed git)" != "0" ]]; then
 
   # Git
   alias g='git'
-  alias gitcz='git cz'
+  alias gitcz='git cz -S'
 
   # Branch (b)
   alias gb='git branch'
