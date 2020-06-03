@@ -19,3 +19,12 @@ alias flush_dns="sudo killall -HUP mDNSResponder"
 alias upda='brew update; brew outdated; brew upgrade; brew cleanup; mas upgrade'
 
 # [ -s "$(brew --prefix nvm)/nvm.sh" ] && \. "$(brew --prefix nvm)/nvm.sh";
+
+
+# --------------------------------------------------
+# GPG
+#--------------------------------------------------
+
+if [[ "$(is_installed gpg)" != "0" ]] ; then
+  alias gpgreset="gpgconf --kill all"
+fi
