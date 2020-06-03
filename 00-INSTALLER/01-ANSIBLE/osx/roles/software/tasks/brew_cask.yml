@@ -53,5 +53,7 @@
   shell: brew cask install figma
 - name: brew cask install openvpn-connect
   shell: brew cask install openvpn-connect
+- name: brew cask install gpg-suite
+  shell: brew cask install gpg-suite
 - name: brew cask hammerspoon
   shell: brew cask install hammerspoon # https://github.com/peterklijn/hammerspoon-shiftit#spooninstall
