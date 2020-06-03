@@ -23,3 +23,6 @@ export I3BLOCKS=$HOME/i3blocks-contrib
 # Defaults
 export SHELL=/usr/bin/zsh
 export EDITOR='nano'
+
+# GPG
+export GPG_TTY=$(tty)
