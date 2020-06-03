@@ -82,6 +82,5 @@
 # INCLUDING PERSONAL GITCONFIG
 [include]
   path = .gitconfig.local
-
-[commit]
-	gpgsign = true
+[gpg]
+	program = gpg
