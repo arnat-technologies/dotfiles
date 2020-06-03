@@ -151,7 +151,7 @@
   "workbench.editor.openPositioning": "right",
   "workbench.editor.tabCloseButton": "left",
   "workbench.sideBar.location": "left",
-  "git.enabled": false,
+  "git.enabled": true,
   "workbench.startupEditor": "newUntitledFile",
   "workbench.statusBar.visible": true,
   "[yaml]": {
