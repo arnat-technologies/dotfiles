@@ -151,6 +151,7 @@
   "workbench.editor.openPositioning": "right",
   "workbench.editor.tabCloseButton": "left",
   "workbench.sideBar.location": "left",
+  "git.enabled": false,
   "workbench.startupEditor": "newUntitledFile",
   "workbench.statusBar.visible": true,
   "[yaml]": {
@@ -167,5 +168,6 @@
   },
   "terminal.integrated.shellArgs.linux": ["-i"],
   "nativescript.analytics.enabled": false,
-  "vsonline.accountProvider": "Microsoft"
+  "vsonline.accountProvider": "Microsoft",
+  "liveshare.accountProvider": ""
 }
