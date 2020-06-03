@@ -17,4 +17,4 @@ bind status C !git commit -v
 
 set refresh-mode = auto
 
-bind generic + !git cz
+bind generic + !git cz -S
