@@ -1,10 +1,11 @@
 [cola]
   spellcheck = false
 [user]
-	email = roy@surjano.xyz
-	name = Roy Surjano
-  useConfigOnly = true
 	signingkey = 158642D9E3B3DBE0
+	name = Roy Surjano
+	email = roy@surjano.xyz
+[commit]
+	gpgsign = true
 [core]
   attributesfile = ~/.gitattributes
   excludesfile = ~/.gitignore
