@@ -21,6 +21,18 @@ if [[ "$(is_installed tmux)" != "0" ]]; then
   alias td='tmux detach -a'
 fi
 
+# --------------------------------------------------
+# PINENTRY
+#--------------------------------------------------
+
+if [[ "$(is_installed pinentry)" != "0" ]]; then
+# ~/.gnupg/gpg-agent.conf:
+# pinentry-program /usr/local/bin/pinentry
+# echo "test" | gpg --clearsign
+# killall gpg-agent
+# gpg-agent --daemon
+fi
+
 
 # --------------------------------------------------
 # light
