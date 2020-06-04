@@ -169,5 +169,6 @@
   "terminal.integrated.shellArgs.linux": ["-i"],
   "nativescript.analytics.enabled": false,
   "vsonline.accountProvider": "Microsoft",
-  "liveshare.accountProvider": ""
+"liveshare.accountProvider": "",
+"codespaces.accountProvider": "Microsoft"
 }
