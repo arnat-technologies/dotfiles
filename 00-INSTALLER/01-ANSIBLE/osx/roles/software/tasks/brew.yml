@@ -63,6 +63,10 @@
   shell: brew install powerline-go
 - name: brew mas
   shell: brew install mas
+- name: brew httpie
+  shell: brew install httpie
+- name: brew jq
+  shell: brew install jq
 - name: brew pinentry-mac
   shell: brew install pinentry-mac
 - name: brew Schniz/tap/fnm # curl -fsSL https://github.com/Schniz/fnm/raw/master/.ci/install.sh | bash
