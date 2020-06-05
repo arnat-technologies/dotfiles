@@ -11,6 +11,15 @@ export PATH=$PATH:/flutter/bin
 export PATH=$PATH:$HOME/.fnm
 export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 
+# PYTHON
+export PATH="/usr/local/opt/python@3.8/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/python@3.8/lib"
+
+# SQLITE
+export PATH="/usr/local/opt/sqlite/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/sqlite/lib"
+export CPPFLAGS="-I/usr/local/opt/sqlite/include"
+
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 export ANDROID_HOME=/usr/local/share/android-sdk
 
