@@ -344,7 +344,11 @@ if [[ "$(is_installed git)" != "0" ]]; then
   alias grsh="git reset --soft HEAD^" # Undo your last commit, but don't throw away your changes
   alias gbl='git blame -b -w'
 
-  alias gfbranches="for brname in `git branch -r | grep origin | grep -v master | grep -v HEAD | awk '{gsub(/^[^\/]+\//,"",$1); print $1}'`; do git branch --track $brname origin/$brname || true; done 2>/dev/null"
+  gfbranches() {
+    for branch in $(git branch --all | grep '^\s*remotes' | egrep --invert-match '(:?HEAD|master)$'); do
+        git branch --track "${branch##*/}" "$branch"
+    done
+  }
 
   alias gopen="open \`git remote -v | grep fetch | head -1 | cut -f2 | cut -d' ' -f1 | sed -e's/git@/http:\/\//' -e's/\.git$//' | sed -E 's/(\/\/[^:]*):/\1\//'\`"
 
