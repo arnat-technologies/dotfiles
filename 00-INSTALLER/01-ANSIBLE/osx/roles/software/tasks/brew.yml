@@ -67,6 +67,8 @@
   shell: brew install httpie
 - name: brew jq
   shell: brew install jq
+- name: brew subversion
+  shell: brew install subversion
 - name: brew pinentry-mac
   shell: brew install pinentry-mac
 - name: brew Schniz/tap/fnm # curl -fsSL https://github.com/Schniz/fnm/raw/master/.ci/install.sh | bash
