@@ -29,6 +29,7 @@ if [[ "$(is_installed pinentry)" != "0" ]]; then
 # ~/.gnupg/gpg-agent.conf:
 # pinentry-program /usr/local/bin/pinentry
 # echo "test" | gpg --clearsign
+# gpgconf --kill all
 # killall gpg-agent
 # gpg-agent --daemon
 fi
@@ -264,7 +265,7 @@ if [[ "$(is_installed git)" != "0" ]]; then
   # Pull
   alias gpp='git pull origin "$(git-branch-current 2> /dev/null)" && git push origin "$(git-branch-current 2> /dev/null)"'
   alias gplh='git pull origin "$(git-branch-current 2> /dev/null)" --prune'
-  alias gplr='git pull --rebase origin'
+  alias gplr='git pull --rebase'
   alias gPl='git pull origin "$(git-branch-current 2> /dev/null)" --prune'
 
   # Rebase (r)

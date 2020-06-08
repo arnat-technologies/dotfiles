@@ -43,4 +43,3 @@ alias keyrepeatoff="defaults write -g ApplePressAndHoldEnabled -bool true && def
 if [[ "$(is_installed node)" == "0" ]]; then
   eval "$(fnm env --multi)"
 fi
-
