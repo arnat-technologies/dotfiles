@@ -170,5 +170,6 @@
   "nativescript.analytics.enabled": false,
   "vsonline.accountProvider": "Microsoft",
 "liveshare.accountProvider": "",
-"codespaces.accountProvider": "Microsoft"
+"codespaces.accountProvider": "Microsoft",
+"ansible.azureRestSpec": "/Users/roycarlossurjanozelaya/.vscode/rest"
 }
