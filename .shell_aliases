@@ -129,6 +129,9 @@ if [[ "$(is_installed git)" != "0" ]]; then
   alias gbX='git branch --delete --force'
   alias gbnm="git branch --no-merged"
   alias gbr="git branch --remote"
+  alias gbsd='git branch --sort=-committerdate'  # DESC
+  alias gbsa='git branch --sort=committerdate'  # ASC'
+  alias gbst="git for-each-ref --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short=9)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'"
 
   # Commit (c)
   alias gc='git commit --verbose'
