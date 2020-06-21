@@ -163,7 +163,7 @@ if [[ "$(is_installed git)" != "0" ]]; then
   alias wip="git add . && git commit -m 'WIP' . && git push origin HEAD"
 
   # Cherry & Cherry-Pick
-  alias gcp='git cherry-pick --ff'
+  alias gcp='git cherry-pick'
   alias gcP='git cherry-pick --no-commit'
   alias gcy='git cherry -v --abbrev'
   alias gcY='git cherry -v'

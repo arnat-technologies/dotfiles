@@ -33,3 +33,5 @@ thumbs.db
 
 ## PACKAGES
 .vim/bundle
+
+bin/JDownloader*

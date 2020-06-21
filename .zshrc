@@ -43,3 +43,12 @@ alias keyrepeatoff="defaults write -g ApplePressAndHoldEnabled -bool true && def
 if [[ "$(is_installed node)" == "0" ]]; then
   eval "$(fnm env --multi)"
 fi
+
+# GPG DAEMON
+# Add the following to your shell init to set up gpg-agent automatically for every shell
+if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
+    source ~/.gnupg/.gpg-agent-info
+    export GPG_AGENT_INFO
+else
+    eval $(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)
+fi
