@@ -73,5 +73,7 @@
   shell: brew install pinentry-mac
 - name: brew postman
   shell: brew install postman
+- name: brew awscli
+  shell: brew install awscli
 - name: brew Schniz/tap/fnm # curl -fsSL https://github.com/Schniz/fnm/raw/master/.ci/install.sh | bash
   shell: brew install Schniz/tap/fnm # curl -fsSL https://github.com/Schniz/fnm/raw/master/.ci/install.sh | bash

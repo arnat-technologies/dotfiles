@@ -1,8 +1,22 @@
 #!/bin/bash
 
-# --------------------------------------------------
-# HTTPIE
-#--------------------------------------------------
+#              .d8888.  .d88b.  d88888b d888888b db   d8b   db  .d8b.  d8888b. d88888b
+#              88'  YP .8P  Y8. 88'     `~~88~~' 88   I8I   88 d8' `8b 88  `8D 88'
+#              `8bo.   88    88 88ooo      88    88   I8I   88 88ooo88 88oobY' 88ooooo
+#                `Y8b. 88    88 88~~~      88    Y8   I8I   88 88~~~88 88`8b   88~~~~~
+#              db   8D `8b  d8' 88         88    `8b d8'8b d8' 88   88 88 `88. 88.
+#              `8888Y'  `Y88P'  YP         YP     `8b8' `8d8'  YP   YP 88   YD Y88888P
+
+
+# _     _   _         _
+#| |   | | | |       (_)
+#| |__ | |_| |_ _ __  _  ___
+#| '_ \| __| __| '_ \| |/ _ \
+#| | | | |_| |_| |_) | |  __/
+#|_| |_|\__|\__| .__/|_|\___|
+#              | |
+#              |_|
+
 
 if [[ "$(is_installed http)" != "0" ]]; then
 #
@@ -13,7 +27,7 @@ fi
 #--------------------------------------------------
 
 if [[ "$(is_installed tmux)" != "0" ]]; then
-  alias tmux='tmux -2'
+  alias tmux='tmux -2'we
   alias ta='tmux attach -t'
   alias tnew='tmux new -s'
   alias tls='tmux ls'
@@ -312,8 +326,10 @@ if [[ "$(is_installed git)" != "0" ]]; then
   alias gwR='git reset --hard'
 
   # Clean
-  alias gwc='git clean -n'
-  alias gwC='git clean -f'
+  alias gclc='git clean -n'
+  alias gclC='git clean -f'
+  alias gcln='git clean -df'
+  alias gclN='git clean -xfd' # remove ALL untracked files
 
   # rm -rf
   alias gwx='git rm -r'
@@ -333,7 +349,6 @@ if [[ "$(is_installed git)" != "0" ]]; then
 
   alias gchp='git cherry-pick' # cherry pick the committed code in your own branch (gchp [hash])
   alias gcl='git clone'
-  alias gcln='git clean -xfd' # remove untracked files
   alias gcz="git archive --format=zip HEAD > latest-commit.zip" # create a .zip of latest commit
   alias gd='git diff'
   alias gf='git reflog' # allows you to see every step you have made with git allowing you to retract and reinstate your steps
@@ -497,7 +512,7 @@ fi
 #--------------------------------------------------
 
 if [[ "$(is_installed docker)" != "0" ]] ; then
-#
+  . "$DOTFILES/.shell/shell-docker.sh"
 fi
 
 
@@ -510,14 +525,19 @@ if [[ "$(is_installed hg)" != "0" ]]; then
 fi
 
 
-# --------------------------------------------------
-# NPM
-#--------------------------------------------------
+# _ __  _ __  _ __ ___
+#| '_ \| '_ \| '_ ` _ \
+#| | | | |_) | | | | | |
+#|_| |_| .__/|_| |_| |_|
+#      | |
+#      |_|
+
 
 if [[ "$(is_installed npm)" != "0" ]]; then
   alias npmg="npm list -g --depth=0"
   alias npmverdaccio="npm set registry http://localhost:4873/"
   alias npmdefault="npm set registry https://registry.npmjs.org"
+  alias npmnexus="npm set registry http://localhost:8081/repository/npm-group"
 fi
 
 
@@ -526,8 +546,40 @@ fi
 #--------------------------------------------------
 
 if [[ "$(is_installed yarn)" != "0" ]]; then
-  alias yarnverdaccio="yarn config set registry http://localhost:4873"
   alias yarndefault="yarn config set registry http://registry.yarnpkg.com"
+  alias yarnverdaccio="yarn config set registry http://localhost:4873"
+  alias yarnnexus="yarn config set registry http://npm:npm@localhost:8081/repository/npm-group"
+fi
+
+
+
+# --------------------------------------------------
+# FIGLET
+#--------------------------------------------------
+
+if [[ "$(is_installed figlet)" != "0" ]]; then
+  alias asciit="figlet -f basic -w100  -c $1"
+  alias asciis="figlet -f doom $1"
+  alias asciip="figlet -f cybermedium $1"
+
+  asciitb() { figlet -f basic -w100  -c $1 | sed -e 's/^/# /;'; }
+  asciisb() { figlet -f doom $1 | sed -e 's/^/# /;'; }
+  asciipb() { figlet -f cybermedium $1 | sed -e 's/^/# /;'; }
+
+  asciitc(){ echo "/*\n$(figlet -f basic -w100  -c $1)\n*/"; }
+  asciisc(){ echo "/*\n$(figlet -f doom $1)\n*/"; }
+  asciipc(){ echo "/*\n$(figlet -f cybermedium $1)\n*/"; }
+
+fi
+
+
+
+# --------------------------------------------------
+# YTDL
+#--------------------------------------------------
+
+if [[ "$(is_installed ytdl)" != "0" ]]; then
+  alias ytdll="ytdl $1 -o {title}"
 fi
 
 

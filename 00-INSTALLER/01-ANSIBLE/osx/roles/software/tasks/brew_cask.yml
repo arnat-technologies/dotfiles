@@ -7,7 +7,7 @@
   shell: brew cask install barrier
 - name: brew cask chromium
   shell: brew cask install chromium
-- name: brew cask docker
+- name: brew cask install docker
   shell: brew cask install docker
 - name: brew cask font-hack-nerd-font
   shell: brew cask install font-hack-nerd-font
@@ -55,5 +55,7 @@
   shell: brew cask install openvpn-connect
 - name: brew cask install gpg-suite
   shell: brew cask install gpg-suite
+- name: brew cask install use-engine
+  shell: brew cask install use-engine
 - name: brew cask hammerspoon
   shell: brew cask install hammerspoon # https://github.com/peterklijn/hammerspoon-shiftit#spooninstall
