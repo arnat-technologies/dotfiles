@@ -21,17 +21,17 @@ thumbs.db
 /.config/
 .vscode/extensions
 
-
 # PRIVATE FILES
 .aws/credentials
-
 
 # PERSONAL SHELL
 .shell_user
 .shell_work
 
-
 ## PACKAGES
 .vim/bundle
 
 bin/JDownloader*
+.npmrc
+.yarnrc
+yarn.lock
