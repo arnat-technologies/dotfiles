@@ -57,5 +57,11 @@
   shell: brew cask install gpg-suite
 - name: brew cask install use-engine
   shell: brew cask install use-engine
+- name: brew cask install soapui
+  shell: brew cask install soapui
+- name: brew cask install anydesk
+  shell: brew cask install anydesk
+- name: brew cask install xquartz
+  shell: brew cask install xquartz
 - name: brew cask hammerspoon
   shell: brew cask install hammerspoon # https://github.com/peterklijn/hammerspoon-shiftit#spooninstall

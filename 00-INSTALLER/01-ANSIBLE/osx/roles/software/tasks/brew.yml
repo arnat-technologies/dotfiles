@@ -75,5 +75,21 @@
   shell: brew install postman
 - name: brew awscli
   shell: brew install awscli
+- name: brew mutt
+  shell: brew install mutt
+- name: brew install neomutt
+  shell: brew install neomutt
+- name: brew install mutt
+  shell: brew install mutt
+- name: brew install pass
+  shell: brew install pass
+- name: brew install isync
+  shell: brew install isync
+- name: brew install msmtp
+  shell: brew install msmtp
+- name: brew install lynx
+  shell: brew install lynx
+- name: brew install feh
+  shell: brew install feh
 - name: brew Schniz/tap/fnm # curl -fsSL https://github.com/Schniz/fnm/raw/master/.ci/install.sh | bash
   shell: brew install Schniz/tap/fnm # curl -fsSL https://github.com/Schniz/fnm/raw/master/.ci/install.sh | bash

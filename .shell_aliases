@@ -27,12 +27,12 @@ fi
 #--------------------------------------------------
 
 if [[ "$(is_installed tmux)" != "0" ]]; then
-  alias tmux='tmux -2'we
-  alias ta='tmux attach -t'
-  alias tnew='tmux new -s'
-  alias tls='tmux ls'
-  alias tkill='tmux kill-session -t'
-  alias td='tmux detach -a'
+  # alias tmux='tmux -2'we
+  # alias ta='tmux attach -t'
+  # alias tnew='tmux new -s'
+  # alias tls='tmux ls'
+  # alias tkill='tmux kill-session -t'
+  # alias td='tmux detach -a'
 fi
 
 # --------------------------------------------------
@@ -271,9 +271,9 @@ if [[ "$(is_installed git)" != "0" ]]; then
   alias gp='git push -u origin HEAD'
   alias gpf='git push --force-with-lease'
   alias gpF='git push --force'
-  alias gpa='git push --all'
+  alias gpa='git push --all -u origin HEAD'
   alias gpA='git push --all && git push --tags'
-  alias gpt='git push --tags'
+  alias gpt='git push --tags -u origin HEAD'
   #alias gpc='git push --set-upstream origin "$(git-branch-current 2> /dev/null)"'
   #alias gp="git push -u origin "$(git-branch-current 2> /dev/null)""
   #alias gpt="git push -u origin "$(git-branch-current 2> /dev/null)" && git push --tags"
@@ -549,6 +549,8 @@ if [[ "$(is_installed yarn)" != "0" ]]; then
   alias yarndefault="yarn config set registry http://registry.yarnpkg.com"
   alias yarnverdaccio="yarn config set registry http://localhost:4873"
   alias yarnnexus="yarn config set registry http://npm:npm@localhost:8081/repository/npm-group"
+
+  alias ybu="yarn build && yarn update"
 fi
 
 
@@ -824,5 +826,5 @@ cd () { builtin cd "$@" }
 
 killport() {
   local PORT=${1:-4200}
-  sudo kill $(sudo lsof -t -i:$PORT)
+  sudo kill $(sudo lsof -t -i:4200)
 }
