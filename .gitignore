@@ -35,3 +35,6 @@ bin/JDownloader*
 .npmrc
 .yarnrc
 yarn.lock
+
+# NEOVIM
+.vim/plugged

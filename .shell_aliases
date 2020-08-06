@@ -169,6 +169,7 @@ if [[ "$(is_installed git)" != "0" ]]; then
   alias gcO='git checkout --patch'
   alias gc='git checkout'
   alias ggmp='git checkout -' # jump back to to your last branch
+  alias gcg="git checkout -- ."
 
   # Commit
   alias gcf='git commit --amend --reuse-message HEAD'
@@ -827,4 +828,39 @@ cd () { builtin cd "$@" }
 killport() {
   local PORT=${1:-4200}
   sudo kill $(sudo lsof -t -i:4200)
+}
+
+
+# GIT
+
+c_refactor() {
+  git commit -m "refactor($1): ♻️ $2"
+}
+
+c_feat() {
+  git commit -m "feat($1): ✨ $2"
+}
+
+c_style() {
+  git commit -m "style($1): 💅 $2"
+}
+
+c_fix() {
+  git commit -m "fix($1): 🐛 $2"
+}
+
+c_docs() {
+  git commit -m "docs($1): 📝 $2"
+}
+
+c_test() {
+  git commit -m "test($1): ✅ $2"
+}
+
+c_chore() {
+  git commit -m "chore($1): 👷‍♂️ $2"
+}
+
+c_perf() {
+  git commit -m "perf($1): ⚡️ $2"
 }
