@@ -1,6 +1,6 @@
 {
-  "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
-  "editor.fontFamily": "Hack Nerd Font",
+  "terminal.integrated.fontFamily": "Jetbrains Mono",
+  "editor.fontFamily": "Jetbrains Mono",
   "workbench.fontAliasing": "antialiased",
   "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
   "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
@@ -13,13 +13,11 @@
   "editor.detectIndentation": false,
   "terminal.integrated.fontSize": 12,
   "editor.fontLigatures": true,
-  "editor.fontSize": 12,
+  "editor.fontSize": 13,
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
   "editor.minimap.enabled": false,
-  "editor.rulers": [
-    100
-  ],
+  "editor.rulers": [100],
   "editor.scrollBeyondLastLine": false,
   "git.inputValidationLength": 0,
   "editor.showFoldingControls": "always",
@@ -186,9 +184,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "terminal.integrated.shellArgs.linux": [
-    "-i"
-  ],
+  "terminal.integrated.shellArgs.linux": ["-i"],
   "nativescript.analytics.enabled": false,
   "vsonline.accountProvider": "Microsoft",
   "liveshare.accountProvider": "",
