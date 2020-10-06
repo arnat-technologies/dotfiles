@@ -93,5 +93,7 @@
   shell: brew install feh
 - name: brew install ranger
   shell: brew install ranger
+- name: brew install racket
+  shell: brew install racket
 - name: brew Schniz/tap/fnm # curl -fsSL https://github.com/Schniz/fnm/raw/master/.ci/install.sh | bash
   shell: brew install Schniz/tap/fnm # curl -fsSL https://github.com/Schniz/fnm/raw/master/.ci/install.sh | bash

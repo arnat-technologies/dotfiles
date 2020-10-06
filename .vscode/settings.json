@@ -201,5 +201,6 @@
   },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "latex-workshop.view.pdf.viewer": "tab"
 }

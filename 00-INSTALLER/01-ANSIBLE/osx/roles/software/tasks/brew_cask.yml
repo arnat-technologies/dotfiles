@@ -63,5 +63,15 @@
   shell: brew cask install anydesk
 - name: brew cask install xquartz
   shell: brew cask install xquartz
+- name: brew cask install dropbox
+  shell: brew cask install dropbox
+- name: brew cask install mactex-no-gui
+  shell: brew cask install mactex-no-gui
+# after update: sudo tlmgr update --self && sudo tlmgr update --all
+# sudo cpan Log::Log4perl
+# sudo cpan Log::Dispatch
+# sudo cpan YAML::Tiny
+# sudo cpan File::HomeDir
+# sudo cpan Unicode::GCString
 - name: brew cask hammerspoon
   shell: brew cask install hammerspoon # https://github.com/peterklijn/hammerspoon-shiftit#spooninstall
