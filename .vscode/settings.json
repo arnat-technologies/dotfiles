@@ -14,6 +14,8 @@
   "terminal.integrated.fontSize": 12,
   "editor.fontLigatures": true,
   "editor.fontSize": 13,
+  "plantuml.server": "http://192.168.100.40:8080",
+  "plantuml.render": "PlantUMLServer",
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
   "editor.minimap.enabled": false,
@@ -42,7 +44,7 @@
   "explorer.confirmDragAndDrop": false,
   "explorer.openEditors.visible": 0,
   "explorer.sortOrder": "type",
-  "extensions.showRecommendationsOnlyOnDemand": true,
+  "extensions.ignoreRecommendations": true,
   "files.associations": {
     "*.page": "js",
     ".bash_*": "shellscript",
@@ -155,7 +157,6 @@
   "typescript.tsdk": "./node_modules/typescript/lib",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "typescript.validate.enable": false,
-  "window.menuBarVisibility": "toggle",
   "window.restoreFullscreen": true,
   "window.restoreWindows": "all",
   "window.title": "${dirty}${activeEditorLong}",
@@ -202,5 +203,9 @@
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "latex-workshop.view.pdf.viewer": "tab"
+  "latex-workshop.view.pdf.viewer": "tab",
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "plantuml.exportFormat": "png"
 }

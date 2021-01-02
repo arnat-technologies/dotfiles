@@ -65,6 +65,10 @@
   shell: brew cask install xquartz
 - name: brew cask install dropbox
   shell: brew cask install dropbox
+- name: brew cask install termius
+  shell: brew cask install termius
+- name: brew cask install pluralsight
+  shell: brew cask install pluralsight
 - name: brew cask install mactex-no-gui
   shell: brew cask install mactex-no-gui
 # after update: sudo tlmgr update --self && sudo tlmgr update --all

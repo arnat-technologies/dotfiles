@@ -540,6 +540,10 @@ if [[ "$(is_installed npm)" != "0" ]]; then
   alias npmverdaccio="npm set registry http://localhost:4873/"
   alias npmdefault="npm set registry https://registry.npmjs.org"
   alias npmnexus="npm set registry http://localhost:8081/repository/npm-group"
+  alias npmv="npm view $1 versions --json"
+  alias npms="npm start"
+
+  alias clean_modules="find . -name 'node_modules' -type d -prune -print -exec rm -rf '{}' \;"
 fi
 
 
@@ -555,6 +559,15 @@ if [[ "$(is_installed yarn)" != "0" ]]; then
   alias ybu="yarn build && yarn update"
 fi
 
+
+
+# --------------------------------------------------
+# ANGULAR NG
+#--------------------------------------------------
+
+if [[ "$(is_installed ng)" != "0" ]]; then
+  alias ngy="ng config -g cli.packageManager yarn"
+fi
 
 
 # --------------------------------------------------
@@ -584,7 +597,15 @@ fi
 
 if [[ "$(is_installed ytdl)" != "0" ]]; then
   alias ytdlv="ytdl $1 -o {title}"
-  alias ytdlp="youtube-dl -o '%(playlist)s/%(playlist_index)s - %(title)s' $1"
+fi
+
+# --------------------------------------------------
+# YOUTUBE-DLC
+#--------------------------------------------------
+
+if [[ "$(is_installed youtube-dlc)" != "0" ]]; then
+  alias ytdlp="youtube-dlc -o '%(playlist)s/%(playlist_index)s - %(title)s' $1"
+  alias ytdlc="youtube-dlc -f best -ciw -o '%(channel)s/%(title)s.%(ext)s' -v $1"
 fi
 
 
