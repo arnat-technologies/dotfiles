@@ -888,6 +888,10 @@ c_perf() {
   git commit -m "perf($1): ⚡️ $2"
 }
 
+delete_node_modules() {
+  find . -name 'node_modules' -type d -prune -print -exec rm -rf '{}' \;
+}
+
 
 # let jspdf = document.createElement("script");
 
