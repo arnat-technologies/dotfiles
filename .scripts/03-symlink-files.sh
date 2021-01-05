@@ -1,4 +1,5 @@
 #!/bin/zsh
+print_info ">>> SYMLINKING DOTFILES"
 
 if [ -z "$SILENT_INSTALL" ]
 then
@@ -21,7 +22,8 @@ ignored_files=(
   .git
   .vscode
   .vscode.rsurj
-  00-INSTALLER
+  .vim
+  .00-SCRIPTS
   bootstrap.sh
   config
   files
@@ -39,12 +41,9 @@ for filename in .* *; do
   else
     sourceFile="$DOTFILES_DIR/$filename"
     targetFile="$HOME/$filename"
-    # if directory or file
     if [ ! -e "$targetFile" ]; then
       ln -fs $sourceFile $HOME
       print_success "$targetFile → $sourceFile"
-    # elif [ "$(readlink "$targetFile")" == "$sourceFile" ]; then
-    #   print_success "$targetFile → $sourceFile"
     else
 
       if [ -z "$SILENT_INSTALL" ]
