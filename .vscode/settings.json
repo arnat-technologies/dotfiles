@@ -1,7 +1,7 @@
 {
   "workbench.fontAliasing": "antialiased",
   "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
-  "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
+  "workbench.iconTheme": "vscode-icons",
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.acceptSuggestionOnEnter": "smart",
   "editor.renderWhitespace": "all",

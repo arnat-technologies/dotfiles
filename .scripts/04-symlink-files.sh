@@ -40,9 +40,9 @@ for filename in .* *; do
     print_info "no symlink for → $filename";
   else
     sourceFile="$DOTFILES_DIR/$filename"
-    targetFile="$HOME/$filename"
+    targetFile="$TARGET_HOME/$filename"
     if [ ! -e "$targetFile" ]; then
-      ln -fs $sourceFile $HOME
+      ln -fs $sourceFile $TARGET_HOME
       print_success "$targetFile → $sourceFile"
     else
 
@@ -67,9 +67,9 @@ for filename in .* *; do
     fi
   fi
 done
-for i in $HOME/bin/*; do
+for i in $TARGET_HOME/bin/*; do
   echo "Changing access permissions for binary script :: ${i##*/}"
-  chmod +rwx $HOME/bin/${i##*/}
+  chmod +rwx $TARGET_HOME/bin/${i##*/}
 done
 
 print_success ">>> SYMLINK COMPLETED"

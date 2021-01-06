@@ -5,9 +5,9 @@ export SCRIPTS_DIR="$DOTFILES_DIR/.scripts"
 export TARGET_HOME='/home/node'
 
 echo ">>> Linking Files & Setting initial variables"
-. "$SCRIPTS_DIR/01-config.sh"
-. "$SCRIPTS_DIR/03-helpers.sh"
-. "$SCRIPTS_DIR/04-symlink-files.sh"
+sh "$SCRIPTS_DIR/01-config.sh"
+sh "$SCRIPTS_DIR/03-helpers.sh"
+sh "$SCRIPTS_DIR/04-symlink-files.sh"
 
 print_success ">>> READY FOR INSTALLING..."
 
