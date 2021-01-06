@@ -35,6 +35,8 @@ ignored_files=(
 local i=''
 local sourceFile=''
 local targetFile=''
+cd $DOTFILES_DIR
+
 for filename in .* *; do
   if [[ " ${ignored_files[*]} " == *" $filename "* ]]; then
     print_info "no symlink for → $filename";
