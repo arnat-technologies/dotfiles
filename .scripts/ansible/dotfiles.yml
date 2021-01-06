@@ -1,0 +1,28 @@
+# ---
+# - name: Playbook to deploy dotfiles
+#   hosts: localhost
+#   connection: local
+#   roles:
+#     - archlinux
+#     - darwin
+
+
+#   tasks:
+#     - name: make sure dotfiles are present
+#       git: repo=https://github.com/rsurjano/dotfiles.git dest=~/.user/dotfiles
+
+#     - include: tasks/link_files.yml
+#       tags:
+#         - links
+- name: Setup Local Dotfiles
+  hosts: local
+  connection: local
+
+  vars_files:
+    - vars.yml
+
+  roles:
+
+    - role: zsh
+      tags:
+        - zsh

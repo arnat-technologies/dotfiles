@@ -1,0 +1,13 @@
+---
+- name: Playbook to deploy dotfiles
+  tasks:
+
+    - name: Allow sudo without password
+      lineinfile: 'dest=/etc/sudoers state=present line="{{ user_name }} ALL=(ALL) NOPASSWD: ALL" validate="visudo -cf %s"'
+      become: yes
+      when: sudo_without_password and ansible_os_family == "Darwin"
+
+    - name: Enable tty_tickets
+      lineinfile: 'dest=/etc/sudoers state=present line="Defaults tty_tickets" validate="visudo -cf %s"'
+      become: yes
+      when: ansible_os_family == "Darwin"

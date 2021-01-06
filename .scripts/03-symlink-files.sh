@@ -23,7 +23,7 @@ ignored_files=(
   .vscode
   .vscode.rsurj
   .vim
-  .00-SCRIPTS
+  .scripts
   bootstrap.sh
   config
   files

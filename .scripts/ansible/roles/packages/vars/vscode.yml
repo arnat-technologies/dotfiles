@@ -1,0 +1,30 @@
+---
+vscode:
+  andyyaldoo.vscode-json:
+  bungcip.better-toml:
+  chrmarti.ssh:
+  Compilenix.vscode-zonefile:
+  coolbear.systemd-unit-file:
+  donjayamanne.githistory:
+  dunstontc.viml:
+  eamodio.gitlens:
+  EditorConfig.EditorConfig:
+  fallenwood.vimL:
+  felixfbecker.php-debug:
+  felixfbecker.php-intellisense:
+  GrapeCity.gc-excelviewer:
+  korekontrol.saltstack:
+  mechatroner.rainbow-csv:
+  MS-CEINTL.vscode-language-pack-de:
+  ms-kubernetes-tools.vscode-kubernetes-tools:
+  ms-python.python:
+  ms-vscode.atom-keybindings:
+  ms-azuretools.vscode-docker:
+  RandomChance.logstash:
+  redhat.vscode-yaml:
+  searKing.preview-vscode:
+  sidneys1.gitconfig:
+  skyapps.fish-vscode:
+  whatwedo.twig:
+  yzane.markdown-pdf:
+  zhouronghui.propertylist:

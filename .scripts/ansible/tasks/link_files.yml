@@ -1,0 +1,59 @@
+---
+- name: link dotfiles
+  file: src={{ item.src }} dest={{ item.dest }} state=link
+  with_items:
+    - { src: "~/.user/dotfiles/.aria2", dest: "~/.aria2"}
+    - { src: "~/.user/dotfiles/.aws", dest: "~/.aws"}
+    - { src: "~/.user/dotfiles/.babelrc", dest: "~/.babelrc"}
+    - { src: "~/.user/dotfiles/.bash_profile", dest: "~/.bash_profile"}
+    - { src: "~/.user/dotfiles/.bash_prompt", dest: "~/.bash_prompt"}
+    - { src: "~/.user/dotfiles/.bashrc", dest: "~/.bashrc"}
+    - { src: "~/.user/dotfiles/.compton.conf", dest: "~/.compton.conf"}
+    - { src: "~/.user/dotfiles/.conkyrc", dest: "~/.conkyrc"}
+    - { src: "~/.user/dotfiles/.czrc", dest: "~/.czrc"}
+    - { src: "~/.user/dotfiles/.dircolors", dest: "~/.dircolors"}
+    - { src: "~/.user/dotfiles/.editorconfig", dest: "~/.editorconfig"}
+    - { src: "~/.user/dotfiles/.eslintrc.js", dest: "~/.eslintrc.js"}
+    - { src: "~/.user/dotfiles/.fxrc", dest: "~/.fxrc"}
+    - { src: "~/.user/dotfiles/.gemrc", dest: "~/.gemrc"}
+    - { src: "~/.user/dotfiles/.gitatributes", dest: "~/.gitatributes"}
+    - { src: "~/.user/dotfiles/.gitconfig", dest: "~/.gitconfig"}
+    - { src: "~/.user/dotfiles/.gitignore", dest: "~/.gitignore"}
+    - { src: "~/.user/dotfiles/.gnugp", dest: "~/.gnugp"}
+    - { src: "~/.user/dotfiles/.httpie", dest: "~/.httpie"}
+    - { src: "~/.user/dotfiles/.i3", dest: "~/.i3"}
+    - { src: "~/.user/dotfiles/.i3blocks", dest: "~/.i3blocks"}
+    - { src: "~/.user/dotfiles/.i3status.conf", dest: "~/.i3status.conf"}
+    - { src: "~/.user/dotfiles/.inputrc", dest: "~/.inputrc"}
+    - { src: "~/.user/dotfiles/.mongorc.js", dest: "~/.mongorc.js"}
+    - { src: "~/.user/dotfiles/.muttrc", dest: "~/.muttrc"}
+    - { src: "~/.user/dotfiles/.profile", dest: "~/.profile"}
+    - { src: "~/.user/dotfiles/.shell_aliases", dest: "~/.shell_aliases"}
+    - { src: "~/.user/dotfiles/.shell_common", dest: "~/.shell_common"}
+    - { src: "~/.user/dotfiles/.shell_exports", dest: "~/.shell_exports"}
+    - { src: "~/.user/dotfiles/.shell_linux", dest: "~/.shell_linux"}
+    - { src: "~/.user/dotfiles/.shell_osx", dest: "~/.shell_osx"}
+    - { src: "~/.user/dotfiles/.shell_tools", dest: "~/.shell_tools"}
+    - { src: "~/.user/dotfiles/.shell", dest: "~/.shell"}
+    - { src: "~/.user/dotfiles/.tigrc", dest: "~/.tigrc"}
+    - { src: "~/.user/dotfiles/.tmux.conf", dest: "~/.tmux.conf"}
+    - { src: "~/.user/dotfiles/.tmux.remote.conf", dest: "~/.tmux.remote.conf"}
+    - { src: "~/.user/dotfiles/.tmux", dest: "~/.tmux"}
+    - { src: "~/.user/dotfiles/.vimrc", dest: "~/.vimrc"}
+    - { src: "~/.user/dotfiles/.wgetrc", dest: "~/.wgetrc"}
+    - { src: "~/.user/dotfiles/.Xdefaults", dest: "~/.Xdefaults"}
+    - { src: "~/.user/dotfiles/.xinitrc", dest: "~/.xinitrc"}
+    - { src: "~/.user/dotfiles/.xprofile", dest: "~/.xprofile"}
+    - { src: "~/.user/dotfiles/.Xresources", dest: "~/.Xresources"}
+    - { src: "~/.user/dotfiles/.xsession", dest: "~/.xsession"}
+    - { src: "~/.user/dotfiles/.zpreztorc", dest: "~/.zpreztorc"}
+    - { src: "~/.user/dotfiles/.zprofile", dest: "~/.zprofile"}
+    - { src: "~/.user/dotfiles/.zshrc", dest: "~/.zshrc"}
+    - { src: "~/.user/dotfiles/.zshrc", dest: "~/.zshrc"}
+    - { src: "~/.user/dotfiles/bin", dest: "~/bin"}
+    - { src: "~/.user/dotfiles/IntelliJ IDEA.app.vmoptions", dest: "~/IntelliJ IDEA.app.vmoptions"}
+    - { src: "~/.user/dotfiles/LICENCE", dest: "~/LICENCE"}
+    - { src: "~/.user/dotfiles/README.md", dest: "~/README.md"}
+    - { src: "~/.user/dotfiles/screenrc", dest: "~/screenrc"}
+    - { src: "~/.user/dotfiles/scripts", dest: "~/scripts"}
+    - { src: "~/.user/dotfiles/tools", dest: "~/tools"}

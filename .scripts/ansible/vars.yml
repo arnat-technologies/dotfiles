@@ -1,0 +1,21 @@
+---
+# SOFTWARE
+gradle_version: "4.1"
+kubernetes-cli-version: "1.7.6"
+
+ansible_ssh_user: root
+
+user_name: rsur
+dotfiles_dir: "~/.user/dotfiles"
+
+dock_icon_size: 40
+keyboard_initial_key_repeat_delay: 20
+keyboard_key_repeat_rate: 1
+login_shell: /usr/local/bin/zsh
+login_window_text: Enter any 11-digit prime number to continue.
+macos_auto_correct: "false"
+sudo_without_password: true
+use_dnscrypt: false
+
+# PACKAGES INSTALLATION
+INSTALL_VSCODE: true
