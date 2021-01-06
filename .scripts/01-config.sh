@@ -1,5 +1,5 @@
 echo ">>> EXPORTING VARIABLES"
-export DOTFILES_DIR="~/.user/dotfiles"
+export DOTFILES_DIR="$HOME/.user/dotfiles"
 export SCRIPTS_DIR="$DOTFILES_DIR/.scripts"
 
 # > npm config set cache C:\Devel\nodejs\npm-cache --global 

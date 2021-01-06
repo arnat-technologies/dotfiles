@@ -1,6 +1,6 @@
 #!/bin/zsh
 echo ">>> EXPORTING VARIABLES"
-export DOTFILES_DIR="~/.user/dotfiles"
+export DOTFILES_DIR="$HOME/.user/dotfiles"
 export SCRIPTS_DIR="$DOTFILES_DIR/.scripts"
 
 echo ">>> Linking Files & Setting initial variables"
