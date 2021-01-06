@@ -1,4 +1,5 @@
 #!/bin/zsh
 
-source "$SCRIPTS_DIR/01-config.sh"
-source "$SCRIPTS_DIR/02-bootstrap.sh"
+echo ">>> Linking Files & Setting initial variables"
+source "~/.user/dotfiles/.scripts/01-config.sh"
+source "~/.user/dotfiles/.scripts/02-bootstrap.sh"
