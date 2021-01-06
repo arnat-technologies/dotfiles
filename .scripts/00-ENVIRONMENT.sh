@@ -11,7 +11,7 @@ echo "SILENT_INSTALL $SILENT_INSTALL"
 
 echo ">>> Linking Files & Setting initial variables"
 . "$SCRIPTS_DIR/03-helpers.sh"
-# . "$SCRIPTS_DIR/04-symlink-files.sh"
+. "$SCRIPTS_DIR/04-symlink-files.sh"
 
 print_success ">>> READY FOR INSTALLING..."
 
