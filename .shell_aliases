@@ -514,7 +514,7 @@ fi
 #--------------------------------------------------
 
 if [[ "$(is_installed docker)" != "0" ]] ; then
-  . "$DOTFILES/.shell/shell-docker.sh"
+  . "$HOME/.shell/shell-docker.sh"
 fi
 
 

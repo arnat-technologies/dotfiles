@@ -11,7 +11,7 @@ export PATH=$PATH:/flutter/bin
 export PATH=$PATH:$HOME/.fnm
 export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+# export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
 #MAC
 export PATH=$PATH:$HOME/.composer/vendor/bin
@@ -38,4 +38,5 @@ export GPG_TTY=$(tty)
 export HOMEUSER="~/.user"
 export PROJECTS="$HOMEUSER/projects"
 export DATA="$HOMEUSER/data"
+export CONCEPTS="$HOMEUSER/concepts"
 export DOTFILES="$HOMEUSER/dotfiles"

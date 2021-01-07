@@ -1,11 +1,11 @@
 [cola]
   spellcheck = false
-[user]
-	signingkey = 158642D9E3B3DBE0
-	name = Roy Surjano
-	email = roy@surjano.xyz
-[commit]
-	gpgsign = true
+# [user]
+# 	signingkey = 158642D9E3B3DBE0
+# 	name = Roy Surjano
+# 	email = roy@surjano.xyz
+# [commit]
+# 	gpgsign = true
 [core]
   attributesfile = ~/.gitattributes
   excludesfile = ~/.gitignore
@@ -83,5 +83,8 @@
 # INCLUDING PERSONAL GITCONFIG
 [include]
   path = .gitconfig.local
-[gpg]
-	program = gpg
+# [gpg]
+# 	program = gpg
+[user]
+	email = roy@surjano.xyz
+	name = Roy Surjano
