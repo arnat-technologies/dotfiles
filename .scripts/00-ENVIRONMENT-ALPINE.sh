@@ -1,5 +1,5 @@
 #!/bin/zsh
-export TARGET_HOME='/home/node'
+export TARGET_HOME="/home/$(whoami)"
 export DOTFILES_DIR="$TARGET_HOME/.user/dotfiles"
 export SCRIPTS_DIR="$DOTFILES_DIR/.scripts"
 export SILENT_INSTALL=true
