@@ -1,3 +1,5 @@
+echo '>>> reseting LxssManager'
+net stop lxssmanager && net start lxssmanager
 
 echo '>>> Installing yay'
 git clone https://aur.archlinux.org/yay.git
