@@ -15,12 +15,12 @@ HISTFILESIZE=2000
 HISTTIMEFORMAT='%s'
 TERM=xterm-256color
 
-bindkey "\e[7~" beginning-of-line
-bindkey "\e[8~" end-of-line
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
-bindkey "^[[3~" delete-char
-bindkey "^[3;5~" delete-char
+# bindkey "\e[7~" beginning-of-line
+# bindkey "\e[8~" end-of-line
+# bindkey "^[[1;5C" forward-word
+# bindkey "^[[1;5D" backward-word
+# bindkey "^[[3~" delete-char
+# bindkey "^[3;5~" delete-char
 
 [ -s "$HOME/.zprezto/init.zsh" ] && \. "$HOME/.zprezto/init.zsh"
 if [[ "$(is_installed starship)" != "0" ]]; then
