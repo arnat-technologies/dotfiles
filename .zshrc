@@ -46,12 +46,19 @@ fi
 
 # GPG DAEMON
 # Add the following to your shell init to set up gpg-agent automatically for every shell
-if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
-  source ~/.gnupg/.gpg-agent-info
-  export GPG_AGENT_INFO
-else
+# if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
+#   source ~/.gnupg/.gpg-agent-info
+#   export GPG_AGENT_INFO
+# else
   # eval $(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)
-fi
+# fi
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+# SSH AGENT
+keychain --nogui $HOME/.ssh/id_rsa
+source $HOME/.keychain/rsurj-desk-sh
+
+# FNM
+eval "$(fnm env)"
+
+# STARSHIP PROMPT
+eval "$(starship init zsh)"

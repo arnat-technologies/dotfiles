@@ -272,7 +272,7 @@ if [[ "$(is_installed git)" != "0" ]]; then
   alias gp='git push -u origin HEAD'
   alias gpf='git push --force-with-lease'
   alias gpF='git push --force'
-  alias gpa='git push --all origin HEAD'
+  # alias gpa='git push --all origin HEAD'
   alias gpA='git push --all && git push --tags'
   alias gpt='git push --tags -u origin HEAD'
   #alias gpc='git push --set-upstream origin "$(git-branch-current 2> /dev/null)"'
@@ -487,6 +487,24 @@ if [[ "$(is_installed gpg)" != "0" ]] ; then
   alias gpgkey="gpg --armor --export"
   alias gpglist="gpg --list-secret-keys --keyid-format LONG"
   alias gpgexport="gpg --armor --export $1" # export sfter 4096/######
+  alias gpgkill="gpgconf --kill gpg-agent"
+
+gpgen() {
+local EMAIL=${1:-"roy@surjano.xyz"}
+local USER=${2:-"Roy Surjano"}
+echo ">>> USING USER: $USER"
+echo ">>> USING EMAIL: $EMAIL"
+gpg --batch --gen-key <<EOF
+Key-Type: 1
+Key-Length: 2048
+Subkey-Type: 1
+Subkey-Length: 2048
+Name-Real: $USER
+Name-Email: $EMAIL
+Expire-Date: 0
+EOF
+}
+
 fi
 
 
@@ -496,7 +514,6 @@ fi
 
 if [[ "$(is_installed puttygen)" != "0" ]] ; then
   alias tossh="puttygen id_dsa.ppk -O private-openssh -o id_dsa"
-
 fi
 
 

@@ -40,3 +40,6 @@ yarn.lock
 .vim/plugged
 
 ## FOLDERS
+
+# Always ignore official files #
+*[oO][fF][fF][iI][cC][iI][aA][lL]*

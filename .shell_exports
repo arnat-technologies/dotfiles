@@ -35,8 +35,14 @@ export EDITOR='nano'
 export GPG_TTY=$(tty)
 
 # User
-export HOMEUSER="~/.user"
+export HOMEUSER="$HOME/.user"
 export PROJECTS="$HOMEUSER/projects"
 export DATA="$HOMEUSER/data"
 export CONCEPTS="$HOMEUSER/concepts"
 export DOTFILES="$HOMEUSER/dotfiles"
+
+# PASS
+# Where to keep my encrypted passwords
+# export PASSWORD_STORE_DIR=$DOTFILES/pass
+# Where to keep encryption keys
+export GNUPGHOME=$DOTFILES/.gnupg
