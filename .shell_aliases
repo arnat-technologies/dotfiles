@@ -632,6 +632,9 @@ fi
 
 if [[ "$(is_installed yarn)" != "0" ]]; then
   c() { [ $# -eq 0 ] && code . || code "$@"; }  # VSCODE
+
+  alias devcontainer=". $DOTFILES/.generators/devcontainer.sh"
+
 fi
 
 
