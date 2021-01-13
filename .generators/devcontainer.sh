@@ -1,5 +1,24 @@
 #!/bin/zsh
 
+echo '
+______ _____ _   _ _____ _____ _   _ _____ ___  _____ _   _  ___________ 
+|  _  \  ___| | | /  __ \  _  | \ | |_   _/ _ \|_   _| \ | ||  ___| ___ \
+| | | | |__ | | | | /  \/ | | |  \| | | |/ /_\ \ | | |  \| || |__ | |_/ /
+| | | |  __|| | | | |   | | | | . ` | | ||  _  | | | | . ` ||  __||    / 
+| |/ /| |___\ \_/ / \__/\ \_/ / |\  | | || | | |_| |_| |\  || |___| |\ \ 
+|___/ \____/ \___/ \____/\___/\_| \_/ \_/\_| |_/\___/\_| \_/\____/\_| \_|
+                                                                         
+                                                                         
+ _____  _____ _   _  ___________  ___ _____ ___________                  
+|  __ \|  ___| \ | ||  ___| ___ \/ _ \_   _|  _  | ___ \                 
+| |  \/| |__ |  \| || |__ | |_/ / /_\ \| | | | | | |_/ /                 
+| | __ |  __|| . ` ||  __||    /|  _  || | | | | |    /                  
+| |_\ \| |___| |\  || |___| |\ \| | | || | \ \_/ / |\ \                  
+ \____/\____/\_| \_/\____/\_| \_\_| |_/\_/  \___/\_| \_|                 
+                                                                         
+                                                                         
+'
+
 export GENERATOR_FOLDER=$DOTFILES/.generators
 
 if [[ "$(is_installed npm)" == "0" ]]; then
@@ -20,6 +39,7 @@ HYGEN_OVERWRITE=1 HYGEN_TMPLS=$GENERATOR_FOLDER hygen devcontainer new \
   --shell $DEVCONTAINER_SHELL \
   --repository $DEVCONTAINER_DOTFILES \
   --ramFolder $DEVCONTAINER_RAM_FOLDER \
+  --extensions $DEVCONTAINER_EXTENSIONS \
   --targetPath $DEVCONTAINER_TARGET
 
 echo " 
@@ -30,15 +50,7 @@ DEVCONTAINER_SHELL -> $DEVCONTAINER_SHELL
 DEVCONTAINER_DOTFILES -> $DEVCONTAINER_DOTFILES
 DEVCONTAINER_RAM_FOLDER -> $DEVCONTAINER_RAM_FOLDER
 DEVCONTAINER_TARGET -> $DEVCONTAINER_TARGET
+DEVCONTAINER_EXTENSIONS -> $DEVCONTAINER_EXTENSIONS
 "
 
 unset DEVCONTAINER_RAM_FOLDER DEVCONTAINER_DOTFILES DEVCONTAINER_TARGET DEVCONTAINER_SHELL DEVCONTAINER_DOCKERFILE
-
-# echo ">>> Creating folder"
-# mkdir .devcontainer
-
-# echo ">>> Setting variables"
-# # . $DEVCONTAINER/environment
-
-# echo ">> Generating devcontainer.json"
-# cat $DEVCONTAINER/devcontainer.json | gomplate -d env=$DEVCONTAINER/environment.json

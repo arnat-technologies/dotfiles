@@ -18,10 +18,12 @@ to: .devcontainer/devcontainer.json
     "dotfiles.repository": "<%= repository %>",
     "dotfiles.targetPath": "<%= targetPath %>"
   },
-  "postStartCommand": "/bin/zsh .devcontainer/postinstall.sh",
-  "initializeCommand": "/bin/zsh .devcontainer/preinstall.sh",
-  "extensions": [
-    "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode"
+  "postStartCommand": "/bin/zsh .devcontainer/start.sh",
+  "initializeCommand": "/bin/zsh .devcontainer/initialize.sh",
+  "postAttachCommand": "/bin/zsh .devcontainer/attach.sh",
+  "postCreateCommand": "/bin/zsh .devcontainer/create.sh",
+  "extensions": [<% extensions.split(' ').forEach(function(extension, idx){ %>
+    "<%= extension %>"<% if (idx +1 !== extensions.split(' ').length) { %> , <% } else {  %><% }  %>
+    <% }); %>
   ]
 }
