@@ -1,0 +1,9 @@
+# SSH AGENT
+# keychain --nogui $HOME/.ssh/id_rsa
+# source $HOME/.keychain/rsurj-desk-sh
+
+# FNM
+eval "$(fnm env)"
+
+# STARSHIP PROMPT
+eval "$(starship init zsh)"
