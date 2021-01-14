@@ -1,0 +1,13 @@
+wget
+openssh
+keychain
+powerline-fonts
+otf-nerd-fonts-fira-code
+starship-bin
+fnm-bin
+exa
+tig
+httpie
+pass
+gomplate-bin
+unzip
