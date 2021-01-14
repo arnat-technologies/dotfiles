@@ -1,8 +1,6 @@
 wget
 openssh
 keychain
-powerline-fonts
-otf-nerd-fonts-fira-code
 starship-bin
 fnm-bin
 exa
