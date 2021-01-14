@@ -2,8 +2,13 @@
 to: .devcontainer/devcontainer.json
 ---
 {
-  "name": "${containerWorkspaceFolderBasename} Container",
-  "dockerFile": "<%= dockerFile %>",
+  "name": "${localWorkspaceFolderBasename}",
+  "dockerComposeFile": [<% dockerComposeFile.split(' ').forEach(function(extension, idx){ %>
+    "<%= extension %>"<% if (idx +1 !== dockerComposeFile.split(' ').length) { %> , <% } else {  %><% }  %>
+    <% }); %>
+  ],
+  "service": "app",
+  "workspaceFolder": "/workspace",
   "appPort": [],
   "runArgs": [<% ramFolder.split(' ').forEach(function(folder){ %>
     "--tmpfs",
