@@ -28,5 +28,10 @@ to: .devcontainer/devcontainer.json
   "extensions": [<% extensions.split(' ').forEach(function(extension, idx){ %>
     "<%= extension %>"<% if (idx +1 !== extensions.split(' ').length) { %> , <% } else {  %><% }  %>
     <% }); %>
-  ]
+  ],
+  "remoteEnv": {
+    "NODE_VERSION": "<%= nodeVersion %>",
+    "YARN_VERSION": "<%= yarnVersion %>",
+    "NPM_VERSION": "<%= npmVersion %>"
+  }
 }

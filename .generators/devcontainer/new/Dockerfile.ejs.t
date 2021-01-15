@@ -17,7 +17,8 @@ ARG NPM_VERSION=<%= npmVersion %>
 # 
 
 ## NODE & NPM & YARN
-# RUN zsh -c "source ~/.zshrc && \
+# RUN source ~/.zshrc && \
 #     fnm install v$NODE_VERSION && \
 #     npm install --global npm@$NPM_VERSION && \
-#     npm install --global yarn@$YARN_VERSION"
+#     npm install --global yarn@$YARN_VERSION
+

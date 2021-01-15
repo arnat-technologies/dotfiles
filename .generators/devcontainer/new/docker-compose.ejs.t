@@ -10,8 +10,6 @@ services:
       dockerfile: <%= dockerFile %>
     volumes:
       - ..:<%= workspace %>
-      - ~/.ssh:/home/vscode/.ssh:ro
-      - ~/.ssh:/root/.ssh:ro
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - TZ=America/Lima

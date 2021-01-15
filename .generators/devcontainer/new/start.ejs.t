@@ -9,7 +9,7 @@ echo ">>> Sourcing ~/.zshrc"
 source ~/.zshrc
 
 echo ">>> Setting Dotfiles"
-source /home/$(whoami)/.user/dotfiles/.scripts/00-ENVIRONMENT.sh
+TMP=$(pwd) && source /home/$(whoami)/.user/dotfiles/.scripts/00-ENVIRONMENT.sh && cd $TMP
 
 #
 #
