@@ -1,9 +1,9 @@
 ---
 to: .devcontainer/create.sh
 ---
-echo ">>> RUNNING create.sh"
+#!/bin/zsh
 
-chmod -R 700 .git
+echo ">>> RUNNING create.sh"
 
 # 
 # 

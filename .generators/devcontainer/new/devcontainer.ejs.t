@@ -8,11 +8,9 @@ to: .devcontainer/devcontainer.json
     <% }); %>
   ],
   "service": "app",
-  "workspaceFolder": "/workspace",
+  "workspaceFolder": "<%= workspace %>",
   "appPort": [],
-  "runArgs": [<% ramFolder.split(' ').forEach(function(folder){ %>
-    "--tmpfs",
-    "${containerWorkspaceFolder}/<%= folder %>:exec",<% }); %>
+  "runArgs": [
     "-u",
     "vscode",
     "--env-file",

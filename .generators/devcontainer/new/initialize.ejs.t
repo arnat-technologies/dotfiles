@@ -1,6 +1,8 @@
 ---
 to: .devcontainer/initialize.sh
 ---
+#!/bin/zsh
+
 echo ">>> RUNNING initialize.sh"
 
 echo ">>> getting ENVIRONMENT from devcontainer.env"
