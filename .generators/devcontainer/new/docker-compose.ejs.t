@@ -12,7 +12,7 @@ services:
       - ..:<%= workspace %>
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      - TZ=America/Lima
+      - TZ=<%= timezone %>
     cap_add:
       - SYS_PTRACE
     security_opt:

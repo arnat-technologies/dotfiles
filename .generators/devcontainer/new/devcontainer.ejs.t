@@ -30,6 +30,7 @@ to: .devcontainer/devcontainer.json
     <% }); %>
   ],
   "remoteEnv": {
+    "TZ": "<%= timezone %>",
     "NODE_VERSION": "<%= nodeVersion %>",
     "YARN_VERSION": "<%= yarnVersion %>",
     "NPM_VERSION": "<%= npmVersion %>"
