@@ -17,4 +17,4 @@ TMP=$(pwd) && source /home/$(whoami)/.user/dotfiles/.scripts/00-ENVIRONMENT.sh &
 #
 #
 
-# fnm use v<%= nodeVersion %>
+# fnm use v$NODE_VERSION

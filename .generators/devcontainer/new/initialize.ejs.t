@@ -5,8 +5,8 @@ to: .devcontainer/initialize.sh
 
 echo ">>> RUNNING initialize.sh"
 
-echo ">>> getting ENVIRONMENT from devcontainer.env"
-source .devcontainer/devcontainer.env
+echo ">>> getting ENVIRONMENT from .env"
+source .devcontainer/.env
 
 echo ">>> Removing RAM folders"
 setopt shwordsplit

@@ -1,4 +1,4 @@
 ---
-to: .devcontainer/devcontainer.env
+to: .devcontainer/.env
 ---
 FOLDERS_TO_SYNC="<% ramFolder.split(' ').forEach(function(folder){ %><%= folder %> <% });%>"

@@ -11,8 +11,7 @@ services:
     volumes:
       - ..:<%= workspace %>
       - /var/run/docker.sock:/var/run/docker.sock
-    environment:
-      - TZ=<%= timezone %>
+    env_file: .env
     cap_add:
       - SYS_PTRACE
     security_opt:

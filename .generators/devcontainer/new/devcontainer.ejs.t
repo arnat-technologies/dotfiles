@@ -12,27 +12,19 @@ to: .devcontainer/devcontainer.json
   "appPort": [],
   "runArgs": [
     "-u",
-    "vscode",
-    "--env-file",
-    ".devcontainer/devcontainer.env"
+    "vscode"
   ],
   "settings": {
     "terminal.integrated.shell.linux": "<%= shell %>",
     "dotfiles.repository": "<%= repository %>",
     "dotfiles.targetPath": "<%= targetPath %>"
   },
-  "postStartCommand": "/bin/zsh .devcontainer/start.sh",
   "initializeCommand": "/bin/zsh .devcontainer/initialize.sh",
-  "postAttachCommand": "/bin/zsh .devcontainer/attach.sh",
   "postCreateCommand": "/bin/zsh .devcontainer/create.sh",
+  "postStartCommand": "/bin/zsh .devcontainer/start.sh",
+  "postAttachCommand": "/bin/zsh .devcontainer/attach.sh",
   "extensions": [<% extensions.split(' ').forEach(function(extension, idx){ %>
     "<%= extension %>"<% if (idx +1 !== extensions.split(' ').length) { %> , <% } else {  %><% }  %>
     <% }); %>
-  ],
-  "remoteEnv": {
-    "TZ": "<%= timezone %>",
-    "NODE_VERSION": "<%= nodeVersion %>",
-    "YARN_VERSION": "<%= yarnVersion %>",
-    "NPM_VERSION": "<%= npmVersion %>"
-  }
+  ]
 }
