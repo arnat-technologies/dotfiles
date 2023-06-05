@@ -1,0 +1,54 @@
+[core]
+  attributesfile = ~/.gitattributes
+  excludesfile = ~/.gitignore
+  editor = code --wait
+  autocrlf = input
+  eol = lf
+  safecrlf = false
+[diff]
+  tool = vscode
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+  interactive = auto
+  ui = true
+[color "branch"]
+  current = green reverse
+  local = green
+  remote = yellow
+[color "status"]
+  added = green
+  changed = yellow
+  untracked = blue
+[push]
+  default = upstream
+[pull]
+  rebase = preserve
+[status]
+  showUntrackedFiles = all
+[merge]
+  stat = true
+[fetch]
+  prune = true
+[stash]
+  showPatch = true
+[credential]
+  helper = cache --timeout=604800
+[init]
+	defaultBranch = master
+[tag]
+  # Sort tags as version numbers whenever applicable, so 1.10.2 is AFTER 1.2.0.
+  sort = version:refname
+[versionsort]
+  prereleaseSuffix = -pre
+  prereleaseSuffix = .pre
+  prereleaseSuffix = -beta
+  prereleaseSuffix = .beta
+  prereleaseSuffix = -rc
+  prereleaseSuffix = .rc
+[user]
+	email = roy.surjano@arnat.digital
+	name = Roy Surjano

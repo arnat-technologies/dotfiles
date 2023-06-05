@@ -1,0 +1,39 @@
+[
+  {
+    "key": "cmd+shift+k",
+    "command": "workbench.action.terminal.focusNext"
+  },
+  {
+    "key": "cmd+shift+j",
+    "command": "workbench.action.terminal.focusPrevious"
+  },
+  {
+    "key": "cmd+b",
+    "command": "-markdown.extension.editing.toggleBold",
+    "when": "editorTextFocus && editorLangId == 'markdown'"
+  },
+  {
+    "key": "cmd+b",
+    "command": "-markdown.extension.editing.toggleBold",
+    "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown'"
+  },
+  {
+    "key": "cmd+i",
+    "command": "-markdown.extension.editing.toggleItalic",
+    "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown'"
+  },
+  {
+    "key": "alt+s",
+    "command": "-markdown.extension.editing.toggleStrikethrough",
+    "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown'"
+  },
+  {
+    "key": "ctrl+`",
+    "command": "workbench.action.terminal.focus"
+  },
+  {
+    "key": "ctrl+`",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus"
+  }
+]

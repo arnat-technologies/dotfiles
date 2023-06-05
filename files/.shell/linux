@@ -1,0 +1,8 @@
+#!/bin/bash
+
+
+# alias pubkey="xclip -sel clip ~/.ssh/id_rsa.pub | printf '=> Public key copied to pasteboard.\n'"
+
+# alias htop='sudo htop'
+
+# alias genpass="gpg --gen-random --armor 1 13"

@@ -1,0 +1,31 @@
+#!/bin/bash
+
+export HOMEUSER="$HOME/.user"
+export PROJECTS="$HOMEUSER/projects"
+export CONCEPTS="$HOMEUSER/concepts"
+export DOTFILES="$HOMEUSER/dotfiles"
+
+. $DOTFILES/scripts/print.sh
+
+is_installed() {
+  local res=1
+  type $1 >/dev/null 2>&1 || { local res=0; }
+  echo "$res"
+}
+
+if [[ $(uname) = 'Linux' ]]; then . $HOME/.shell/linux; fi
+if [[ $(uname) = 'Darwin' ]]; then . $HOME/.shell/osx; fi
+
+. $HOME/.shell/exports
+
+. $HOME/.shell/aliases/git
+. $HOME/.shell/aliases/figlet
+. $HOME/.shell/aliases/npm
+. $HOME/.shell/aliases/utils
+. $HOME/.shell/aliases/yarn
+. $HOME/.shell/aliases/wip
+
+. $HOME/.shell/user
+. $HOME/.shell/api
+. $HOME/.shell/cli
+. $HOME/.shell/work

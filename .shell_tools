@@ -1,9 +1,0 @@
-# ENABLE TOOLS
-
-# API TOOLS FOR HANDLING API CALLS, GET | POST | PUT | DELETE
-
-#  REQUIREMENTS
-# - httpie
-# - jq
-
-. $HOME/tools/api.sh

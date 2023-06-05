@@ -1,0 +1,100 @@
+#!/bin/bash
+
+## =================================================
+##
+##  UTILS
+##
+## =================================================
+
+# zshrc config
+alias reload="source ~/.zshrc && echo 'Shell config reloaded from ~/.zshrc'"
+
+extract() {
+  if [ -z "$1" ]; then
+    echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
+  else
+    if [ -f $1 ]; then
+      NAME=${1%.*}
+      mkdir $NAME && cd $NAME
+      case $1 in
+      *.tar.bz2) tar xvjf ../$1 ;;
+      *.tar.gz) tar xvzf ../$1 ;;
+      *.tar.xz) tar xvJf ../$1 ;;
+      *.lzma) unlzma ../$1 ;;
+      *.bz2) bunzip2 ../$1 ;;
+      *.rar) unrar x -ad ../$1 ;;
+      *.gz) gunzip ../$1 ;;
+      *.tar) tar xvf ../$1 ;;
+      *.tbz2) tar xvjf ../$1 ;;
+      *.tgz) tar xvzf ../$1 ;;
+      *.zip) unzip ../$1 ;;
+      *.Z) uncompress ../$1 ;;
+      *.7z) 7z x ../$1 ;;
+      *.xz) unxz ../$1 ;;
+      *.exe) cabextract ../$1 ;;
+      *) echo "extract: '$1' - unknown archive method" ;;
+      esac
+      cd ..
+    else
+      echo "$1 - is not a valid file"
+    fi
+  fi
+}
+
+mcd() { mkdir -p "$1" && cd "$1"; }
+
+f() { find . -name "$1" 2>&1 | grep -v 'Permission denied'; } # # find shorthand
+
+gz() { # Compare original and gzipped file size
+  local origsize=$(wc -c <"$1")
+  local gzipsize=$(gzip -c "$1" | wc -c)
+  local ratio=$(echo "$gzipsize * 100 / $origsize" | bc -l)
+  printf "orig: %d bytes\n" "$origsize"
+  printf "gzip: %d bytes (%2.2f%%)\n" "$gzipsize" "$ratio"
+}
+
+escape() { # UTF-8-encode a string of Unicode symbols
+  printf "\\\x%s" $(printf "$@" | xxd -p -c1 -u)
+  # print a newline unless we’re piping the output to another program
+  if [ -t 1 ]; then
+    echo "" # newline
+  fi
+}
+
+deunicode() { # Decode \x{ABCD}-style Unicode escape sequences
+  perl -e "binmode(STDOUT, ':utf8'); print \"$@\""
+  # print a newline unless we’re piping the output to another program
+  if [ -t 1 ]; then
+    echo "" # newline
+  fi
+}
+
+unicode() { # Get a character’s Unicode code point
+  perl -e "use utf8; print sprintf('U+%04X', ord(\"$@\"))"
+  if [ -t 1 ]; then
+    echo "" # newline
+  fi
+}
+
+dataurl() { # Create a data URL from a file
+  local mimeType=$(file -b --mime-type "$1")
+  if [[ $mimeType == text/* ]]; then
+    mimeType="${mimeType};charset=utf-8"
+  fi
+  echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')"
+}
+
+isup() {
+  if ping -q -c 1 -W 1 8.8.8.8 >/dev/null; then
+    echo "The network is up"
+  else
+    echo "The network is down"
+  fi
+}
+
+cd() { builtin cd "$@"; }
+
+killport() {
+  local PORT=${1:-4200}
+  sudo kill $(sudo lsof -t -i:4200)
+}

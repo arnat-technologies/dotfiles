@@ -1,0 +1,10 @@
+unzip
+zsh
+tig
+net-tools
+openssh-server
+keychain
+pkg-config
+libsecret-1-dev
+g++
+make

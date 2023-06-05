@@ -1,0 +1,8 @@
+@angular/cli
+gatsby-cli
+create-react-app
+eslint
+nodemon
+beavr
+
+# npm i -g PACKAGE

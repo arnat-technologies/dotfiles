@@ -1,9 +1,0 @@
----
-# Configure a base Arch system from scratch.
-- hosts: local
-  roles:
-    # - bootstrap
-    - software
-    # - postinstall
-  vars_files:
-    - vars/main.yml

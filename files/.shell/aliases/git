@@ -1,0 +1,272 @@
+#!/bin/bash
+
+if [[ "$(is_installed git)" == "0" ]]; then return 1; fi
+
+alias gitcz='git cz -S'
+
+alias grf='git reflog --pretty=raw | tig --pretty=raw'
+alias gf='git reflog'
+
+alias gitconfig='git config --global -e'
+
+alias gbst="git for-each-ref --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short=9)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'"
+
+gtrack() {
+  git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote" --verbose; done
+}
+alias gb='git branch --verbose'
+alias gba='git branch --all --verbose'
+alias gbD='git branch --delete --force'
+alias gbd='git branch --delete'
+alias gbM='git branch --move --force'
+alias gbm='git branch --move'
+alias gbnm="git branch --no-merged"
+alias gbr="git branch --remote"
+alias gbsa='git branch --sort=committerdate'
+alias gbsd='git branch --sort=-committerdate'
+
+alias gam='git commit -am'
+alias gca='git commit --verbose --all'
+alias gcam='git commit --all --message'
+alias gcf='git commit --amend --reuse-message HEAD'
+alias gcF='git commit --verbose --amend'
+alias gcm='git commit --verbose --message'
+alias gcS='git commit -S --verbose'
+alias gcSa='git commit -S --verbose --all'
+alias gcSf='git commit -S --amend --reuse-message HEAD'
+alias gcSF='git commit -S --verbose --amend'
+alias gcSm='git commit -S --verbose --message'
+alias gitempty='git commit --allow-empty -m "Empty commit"'
+
+gcb() {
+  if [[ -z "$1" ]]; then
+    echo "provide a branch name"
+    return 1
+  fi
+  local BRANCH=$1
+  local ORIGIN=${2:-HEAD}
+  git checkout -b $BRANCH $ORIGIN
+}
+alias gc='git checkout'
+alias gcg="git checkout -- ."
+alias gCo='git checkout --ours --'
+alias gcO='git checkout --patch'
+alias gCt='git checkout --theirs --'
+alias ggmp='git checkout -'
+
+alias gchp='git cherry-pick'
+alias gcP='git cherry-pick --no-commit'
+alias gcp='git cherry-pick'
+alias gcy='git cherry -v --abbrev'
+alias gcY='git cherry -v'
+
+alias gcr='git revert'
+
+alias gbs='git show-branch --all'
+alias gcs='git show'
+
+alias gd='git ls-files'
+alias gdc='git ls-files --cached'
+alias gdk='git ls-files --killed'
+alias gdm='git ls-files --modified'
+alias gdu='git ls-files --other --exclude-standard'
+alias gdx='git ls-files --deleted'
+alias gwts='git ls-files | xargs wc -l'
+
+alias gf='git fetch'
+alias gfa="git fetch --all --prune"
+
+alias gcl='git clone'
+alias gcls='git clone --recurse-submodules'
+
+alias gFb='git flow bugfix'
+alias gFf='git flow feature'
+alias gFh='git flow hotfix'
+alias gFi='git flow init'
+alias gFl='git flow release'
+
+alias ggr='git grep'
+alias ggri='git grep --ignore-case'
+alias ggrl='git grep --files-with-matches'
+alias ggrL='git grep --files-without-matches'
+alias ggrv='git grep --invert-match'
+alias ggrw='git grep --word-regexp'
+
+alias gii='git update-index --assume-unchanged'
+alias giI='git update-index --no-assume-unchanged'
+
+alias gwx='git rm -r'
+alias gix='git rm -r --cached'
+alias gwX='git rm -rf'
+alias giX='git rm -rf --cached'
+
+alias gl='git log --topo-order --pretty=format:"${_git_log_medium_format}"'
+alias glb='git log --topo-order --pretty=format:"${_git_log_brief_format}"'
+alias glc='git shortlog --summary --numbered'
+alias gld='git log --topo-order --stat --patch --full-diff --pretty=format:"${_git_log_medium_format}"'
+alias glg='git log --topo-order --all --graph --pretty=format:"${_git_log_oneline_format}"'
+alias glo='git log --topo-order --pretty=format:"${_git_log_oneline_format}"'
+alias glp='git log --pretty --oneline' # view your last #s
+alias glp5='git log --pretty --oneline -5'
+alias gls='git log --topo-order --stat --pretty=format:"${_git_log_medium_format}"'
+alias glsw='git log -S'                                                         # search the commit history for the word puppy and display matching commits (glsw [word])
+alias glt='git log --all --graph --decorate --oneline --simplify-by-decoration' # pretty branch status
+alias gsl='git shortlog -sn'
+
+alias gCe='git mergetool $(gCl)'
+alias gm='git merge'
+alias gma='git merge --abort'
+alias gmC='git merge --no-commit'
+alias gmF='git merge --no-ff'
+alias gmt='git mergetool'
+
+gpush() {
+  local BRANCH=${1:-HEAD}
+  git add .
+  git commit -m "Updated to: $(date)"
+  git push origin $BRANCH --verbose
+}
+alias gp='git push -u origin HEAD'
+alias gpA='git push --all && git push --tags'
+alias gpf='git push --force-with-lease'
+alias gpF='git push --force'
+alias gpt='git push --tags -u origin HEAD'
+alias undopush="git push -f origin HEAD^:master"
+# alias gpa='git push --all origin HEAD'
+# alias gpc='git push --set-upstream origin "$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"'
+# alias gp="git push -u origin "$(git rev-parse --abbrev-ref HEAD 2> /dev/null)""
+# alias gpt="git push -u origin "$(git rev-parse --abbrev-ref HEAD 2> /dev/null)" && git push --tags"
+
+gpull() {
+  local BRANCH=${1:-master}
+  git fetch --all --prune --verbose
+  git pull --rebase origin $BRANCH --verbose
+}
+alias gPl='git pull origin "$(git rev-parse --abbrev-ref HEAD 2> /dev/null)" --prune'
+alias gplh='git pull origin "$(git rev-parse --abbrev-ref HEAD 2> /dev/null)" --prune'
+alias gplr='git pull --rebase'
+alias gpp='git pull origin "$(git rev-parse --abbrev-ref HEAD 2> /dev/null)" && git push origin "$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"'
+
+alias gr='git rebase'
+alias gra='git rebase --abort'
+alias grc='git rebase --continue'
+alias gri='git rebase --interactive'
+alias grs='git rebase --skip'
+
+alias gR='git remote'
+alias gra='git remote add'
+alias gRl='git remote --verbose'
+alias gRm='git remote rename'
+alias gRp='git remote prune'
+alias grr='git remote rm'
+alias gRs='git remote show'
+alias gRu='git remote update'
+alias gRx='git remote rm'
+
+alias gst='git stash save'
+alias gsta='git stash apply'
+alias gstl='git stash list'
+alias gstp='git stash pop'
+alias gstd='git stash drop'
+alias gsts='git stash show --patch --stat'
+alias gstsS='git stash save --patch --no-keep-index'
+alias gstss='git stash save --include-untracked'
+alias gstsw='git stash save --include-untracked --keep-index'
+
+alias gt='git tag'
+alias gtl='git tag -l'
+alias gta='git tag -a -m'
+
+alias gwd='git diff --no-ext-diff'
+alias gwD='git diff --no-ext-diff --word-diff'
+alias gid='git diff --no-ext-diff --cached'
+alias giD='git diff --no-ext-diff --cached --word-diff'
+alias gd='git diff'
+alias gCl='git --no-pager diff --name-only --diff-filter=U'
+
+alias gwr='git reset --soft'
+alias gwR='git reset --hard'
+alias grsh="git reset --soft HEAD^"
+alias gir='git reset'
+alias giR='git reset --patch'
+alias undocommit="git reset --soft HEAD~1"
+alias gcR='git reset "HEAD^"'
+
+alias gclc='git clean -n'
+alias gclC='git clean -f'
+alias gcln='git clean -df'
+alias gclN='git clean -xfd'
+
+alias ga="git add"
+alias gaa="git add --all"
+alias gap='git add -p'
+alias gapa="git add --patch"
+alias gCa='git add $(gCl)'
+alias giA='git add --patch'
+alias giu='git add --update'
+alias wip="git add . && git commit -m 'WIP' . && git push origin HEAD"
+
+alias gdi='git status --porcelain --short --ignored | sed -n "s/^!! //p"'
+alias gss='git status'
+alias gsss="git status -s"
+
+alias gbl='git blame -b -w'
+
+githash() {
+  local LEVELS=${1:-2}
+  if [ -z "$1" ]; then
+    echo $(git log -n 1 --pretty=format:"%H")
+  else
+    echo $(git log -n 1 --skip $LEVELS --pretty=format:"%H")
+  fi
+}
+
+gbundlezip() {
+  local LEVELS=${1:-1}
+  local latest_commmit=$(githash)
+  local previous_commit=$(githash $LEVELS)
+  local reponame=$(basename $(git rev-parse --show-toplevel))
+  git diff --name-only $previous_commit $latest_commmit | zip latest-commits---$reponame---$latest_commmit---$previous_commit.zip -@
+}
+
+alias gbundlefile="git archive --format=zip HEAD > latest-commit.zip" # creates a .zip from latest commit
+
+gbundle() {
+  local BRANCH=${1:-HEAD}
+  local COMMITS=${2:-1}
+  local HASH=$(githash $BRANCH)
+  local reponame=$(basename $(git rev-parse --show-toplevel))
+  git bundle create bundle---$reponame---$BRANCH-$HASH.bundle $BRANCH~$COMMITS..$BRANCH
+}
+
+c_refactor() {
+  git commit -m "refactor($1): ♻️ $2"
+}
+
+c_feat() {
+  git commit -m "feat($1): ✨ $2"
+}
+
+c_style() {
+  git commit -m "style($1): 💅 $2"
+}
+
+c_fix() {
+  git commit -m "fix($1): 🐛 $2"
+}
+
+c_docs() {
+  git commit -m "docs($1): 📝 $2"
+}
+
+c_test() {
+  git commit -m "test($1): ✅ $2"
+}
+
+c_chore() {
+  git commit -m "chore($1): 👷‍♂️ $2"
+}
+
+c_perf() {
+  git commit -m "perf($1): ⚡️ $2"
+}

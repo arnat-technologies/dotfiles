@@ -1,0 +1,81 @@
+#!/bin/bash
+
+# devcontainer_args() {
+#   # VARIABLE
+#   NODE=15.6.0
+#   YARN=1.22.10
+#   NPM=6.14.11
+#   DOCKERFILE=Dockerfile
+#   WORKSPACE=/workspace
+#   SHELL=/bin/zsh
+#   DOTFILES=arnat-technologies/dotfiles
+#   TARGET=~/.user/dotfiles
+#   TIMEZONE=America/Lima
+#   # ARRAY
+#   EXTENSIONS"dbaeumer.vscode-eslint esbenp.prettier-vscode"
+#   DOCKER_COMPOSE"docker-compose.yml"
+#   RAM_FOLDER"node_modules"
+
+#   for arg in "$@"; do
+#     case $arg in
+#     --yarn=*)
+#       YARN="${arg#*=}"
+#       shift
+#       ;;
+#     --node=*)
+#       NODE="${arg#*=}"
+#       shift
+#       ;;
+#     --npm=*)
+#       NPM="${arg#*=}"
+#       shift
+#       ;;
+#     --dockerFile=*)
+#       DOCKERFILE="${arg#*=}"
+#       shift
+#       ;;
+#     --workspace=*)
+#       WORKSPACE="${arg#*=}"
+#       shift
+#       ;;
+#     --shell=*)
+#       SHELL="${arg#*=}"
+#       shift
+#       ;;
+#     --dotfiles=*)
+#       SHELL="${arg#*=}"
+#       shift
+#       ;;
+#     --target=*)
+#       TARGET="${arg#*=}"
+#       shift
+#       ;;
+#     --timezone=*)
+#       TIMEZONE="${arg#*=}"
+#       shift
+#       ;;
+#     --extensions=*)
+#       EXTENSIONS="${arg#*=}"
+#       shift
+#       ;;
+#     --dockerCompose=*)
+#       DOCKER_COMPOSE="${arg#*=}"
+#       shift
+#       ;;
+#     --ramFolder=*)
+#       RAM_FOLDER="${arg#*=}"
+#       shift
+#       ;;
+#     *)
+#       OTHER_ARGUMENTS+=("$1")
+#       shift
+#       ;;
+#     esac
+#   done
+# }
+
+# devcontainer_go() {
+#   devcontainer_args
+
+#   devcontainer --extensions="golang.go esbenp.prettier-vscode" --settings=go
+# }

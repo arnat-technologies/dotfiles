@@ -1,3 +1,0 @@
-
-- name: Execute the POSTINSTALL SCRIPT
-  command: sh postinstall.sh

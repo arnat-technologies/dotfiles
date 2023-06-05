@@ -1,0 +1,54 @@
+#!/bin/bash
+
+# yay -S httpie
+# Visual Studio Code https://code.visualstudio.com/
+
+build_request() {
+  local API_URL=$1
+  local METHOD=$2
+  local OUTPUT=$3
+  local UUID=$4
+  local JSONREQUEST=${API_JSON_DATA:-}
+  local HEADERS=${API_HEADER_ADITIONAL:-$API_HEADERS}
+  local API_CALL=""
+  local EXTRA_PARAMS=""
+
+  [[ "$OUTPUT" == "http" ]] && OUTPUT=" --body --json"
+  [[ "$OUTPUT" == "verbose" ]] && OUTPUT=" --verbose"
+
+  if [[ $METHOD == "POST" || $METHOD == "PUT" || $METHOD == "DELETE" ]]; then
+    [[ "$JSONREQUEST" != "" ]] && API_CALL="http $METHOD $API_URL $API_AUTH $HEADERS $OUTPUT <$JSONREQUEST $EXTRA_PARAMS --output=/tmp/$UUID.json --timeout=999999"
+    [[ "$JSONREQUEST" == "" ]] && API_CALL="http $METHOD $API_URL $API_AUTH $HEADERS $OUTPUT $EXTRA_PARAMS --output=/tmp/$UUID.json --timeout=999999"
+  elif [[ $METHOD == "GET" ]]; then
+    API_CALL="http $METHOD $API_URL $API_AUTH $HEADERS $OUTPUT $EXTRA_PARAMS --output=/tmp/$UUID.json --verbose --timeout=999999"
+  fi
+  echo $API_CALL
+}
+
+to_vscode() {
+  eval $1
+  code "/tmp/$2.json"
+}
+
+api() {
+  local HOST=${API_HOST:-}
+  local PORT=${API_PORT:-}
+  local URL=${1:-}
+  local METHOD=${2:-GET}
+  local OUTPUT=${API_OUTPUT:-http}
+  local UUID=$(printf "%04x%04x-%04x-%04x-%04x-%04x%04x%04x\n" \
+    $RANDOM $RANDOM \
+    $RANDOM \
+    $(($RANDOM & 0x0fff | 0x4000)) \
+    $(($RANDOM & 0x3fff | 0x8000)) \
+    $RANDOM $RANDOM $RANDOM)
+
+  if [[ -v PORT ]]; then PORT=":$PORT/"; fi
+
+  local API=$(build_request $PORT$HOST$URL $METHOD $OUTPUT $UUID)
+
+  echo $API
+
+  if [[ $OUTPUT == "http" ]]; then to_vscode $API $UUID; fi
+  if [[ $OUTPUT == "verbose" ]]; then eval $API; fi
+}

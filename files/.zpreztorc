@@ -1,0 +1,26 @@
+zstyle ':prezto:*:*' color 'yes'
+zstyle ':prezto:module:autosuggestions:color' found 'fg=241'
+
+zstyle ':prezto:load' pmodule \
+  'environment' \
+  'autosuggestions' \
+  'terminal' \
+  'editor' \
+  'history' \
+  'spectrum' \
+  'completion' \
+  'ssh' \
+  'prompt' \
+  'syntax-highlighting' \
+  'history-substring-search' \
+  'git'
+
+zstyle ':prezto:module:git:alias' skip 'yes'
+zstyle ':prezto:module:history-substring-search:color' found ''
+zstyle ':prezto:module:history-substring-search:color' not-found ''
+zstyle ':prezto:module:prompt' pwd-length 'full'
+zstyle ':prezto:module:terminal' auto-title 'always'
+zstyle ':prezto:module:terminal:window-title' format '%n at  %s'
+zstyle ':prezto:module:terminal:tab-title' format '%s'
+zstyle ':prezto:module:editor' key-bindings 'vi'
+zstyle ':prezto:module:git:alias' skip 'yes'

@@ -1,7 +1,0 @@
-#!/bin/sh
-
-icon="☀"
-
-percent=$(xbacklight -get | sed 's/\..*$//g')
-
-echo "$icon: $percent%"
