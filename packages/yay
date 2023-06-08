@@ -16,3 +16,4 @@ radarr
 transmission-cli
 docker
 docker-compose
+barrier

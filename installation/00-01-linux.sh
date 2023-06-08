@@ -1,5 +1,4 @@
-#!/bin/bash
-
+#!/bin/zsh
 
 ssh_manual_copy_id() {
   cat ~/.ssh/id_rsa.pub | ssh $1@$2 "mkdir -p ~/.ssh && touch ~/.ssh/authorized_keys && chmod -R go= ~/.ssh && cat >> ~/.ssh/authorized_keys"
