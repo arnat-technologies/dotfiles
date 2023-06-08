@@ -1,5 +1,3 @@
-#!/bin/bash
-
 perror() { printf "\n\e[0;31m  [✖] $1 $2\e[0m\n\n"; }
 pinfo() { printf "\n\e[0;35m  [ℹ] $1\e[0m\n\n"; }
 pquestion() { printf "\n\e[0;33m  [?] $1\e[0m\n\n"; }

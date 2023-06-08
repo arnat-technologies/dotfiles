@@ -1,4 +1,4 @@
-command=~/scripts/statusbar/$BLOCK_NAME
+#command=~/scripts/statusbar/$BLOCK_NAME
 separator_block_width=10
 
 # [record]

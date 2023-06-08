@@ -3,7 +3,7 @@
 . $HOME/.shell/common
 
 if [ -x "$(command -v dircolors)" ]; then eval "$(dircolors -b $HOME/.dircolors)"; fi
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # eval "$(ssh-agent -s)"
 # if [ -n "${SSH_AGENT_PID}" ]; then

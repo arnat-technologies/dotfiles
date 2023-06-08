@@ -24,6 +24,6 @@ i3blocks-contrib/
 
 ## FOLDERS
 
-# Always ignore official files #
 *[oO][fF][fF][iI][cC][iI][aA][lL]*
 .keychain/
+.gnupg/

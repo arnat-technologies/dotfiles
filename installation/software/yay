@@ -3,12 +3,11 @@
 yay_arch() {
     pinfo "@yay @arch #software @start" 
 
-    git clone https://aur.archlinux.org/yay.git
-    chown -R $USER yay
-    cd yay
+    git clone https://aur.archlinux.org/yay.git /tmp/yay
+    chown -R $USER /tmp/yay
+    cd /tmp/yay
     makepkg -si --noconfirm
-    cd ..
-    rm -rf yay
+    cd $HOME
 
     psuccess "@yay @arch #software @done"
 }

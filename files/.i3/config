@@ -334,5 +334,5 @@ exec --no-startup-id feh --randomize --bg-fill ~/.betterlockscreen/*
 
 # Compton
 # exec compton -b --config $HOME/.compton.conf
-exec_always --no-startup-id "killall -q compton; compton --config ~/.compton.conf"
+# exec_always --no-startup-id "killall -q compton; compton --config ~/.compton.conf"
 

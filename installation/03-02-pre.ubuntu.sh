@@ -5,6 +5,6 @@ pinfo ":: [Setting]    |  Ubuntu"
 . $DOTFILES/scripts/config/pre.linux.sh
 
 sudo apt update
-install_from_file apt
+INSTALL_FROM_FILE apt
 
 psuccess ":: [Setting]    |  Ubuntu {done}"

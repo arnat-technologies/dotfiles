@@ -1,0 +1,4 @@
+#!/bin/bash
+
+git clone https://github.com/vivien/i3blocks-contrib.git ~/i3blocks-contrib
+rm -rf ~/i3blocks-contrib/.git

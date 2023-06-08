@@ -40,9 +40,6 @@ done
 gpgkey
 gpglist
 
-
-
-
 # rm -rf ~/Library/Application\ Support/Code/User/snippets
 # ln -fs $DOTFILES/.vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
 # ln -fs $DOTFILES/.vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
@@ -55,35 +52,6 @@ gpglist
 
 #SMAN SNIPPETS MANAGER
 #ln -fs $DOTFILES_DIR/snippets $HOME/.sman
-
-# URXVTD
-# sudo rm -rf /etc/systemd/urxvtd@service
-# echo "[Unit]
-# Description=RXVT-Unicode Daemon
-
-# [Service]
-# User=%i
-# ExecStart=/usr/bin/urxvtd -q -o
-
-# [Install]
-# WantedBy=multi-user.target" | sudo tee -a /etc/systemd/system/urxvtd@.service
-# sudo systemctl enable urxvtd@CHANGE_USER.service
-# sudo systemctl start urxvtd@CHANGE_USER.service
-
-# TMUX
-# echo "[Unit]
-# Description=Start tmux in detached session
-
-# [Service]
-# Type=forking
-# User=%I
-# ExecStart=/usr/bin/tmux new-session -s %u -d
-# ExecStop=/usr/bin/tmux kill-session -t %u
-
-# [Install]
-# WantedBy=multi-user.target" | sudo tee -a /etc/systemd/system/tmux@.service
-# sudo systemctl enable tmux@CHANGE_USER.service
-# sudo systemctl start tmux@CHANGE_USER.service
 
 # Fix for warnings drm_kms_helper, flip_done timed out (Dell with linux kernel)
 # $ vim /etc/default/grub:

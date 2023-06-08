@@ -3,7 +3,7 @@
 ## How to use
 
 ```shell
-source <(curl -s https://raw.githubusercontent.com/arnat-technologies/dotfiles/prd/install.sh?$(date +%s))
+source <(curl -s https://raw.githubusercontent.com/arnat-technologies/dotfiles/prd/remote-install.sh?$(date +%s))
 ```
 
 ## Symlinking files
