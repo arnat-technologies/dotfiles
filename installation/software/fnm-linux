@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+fnm install --lts
+fnm default lts-latest
