@@ -1,0 +1,9 @@
+# https://github.com/Ventto/mons
+
+PRIMARY=VGA-1
+# PRIMARY=LVDS-1
+
+mons -e right --primary $PRIMARY
+
+# DAEMON
+# mons -a &!

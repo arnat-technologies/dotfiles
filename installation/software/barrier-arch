@@ -1,0 +1,28 @@
+#!/bin/zsh
+
+generate_barrier_service(){
+SERVER_IP=${1:-192.168.100.40}
+
+echo "
+  [Unit]
+  Description=Barrier Client daemon
+  After=network.target
+
+  [Service]
+  User=%I
+  ExecStart=barrierc --disable-crypto --display :0 --debug DEBUG -f $1
+  Restart=always
+
+  [Install]
+  WantedBy=multi-user.target" | sudo tee -a /etc/systemd/barrier@.service
+}
+
+ask_for_confirmation "enable as service?"
+if answer_is_yes; then
+
+  get_input "server ip?"
+  generate_barrier_service $tmp_input
+
+  sudo systemctl enable barrier@$USER.service
+  sudo systemctl start barrier@$USER.service
+fi

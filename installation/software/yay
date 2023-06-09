@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 yay_arch() {
     pinfo "@yay @arch #software @start" 

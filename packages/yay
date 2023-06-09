@@ -17,3 +17,4 @@ transmission-cli
 docker
 docker-compose
 barrier
+squid
