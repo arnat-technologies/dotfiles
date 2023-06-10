@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SHELL_PATH=$DOTFILES/files/.shell
+SHELL_PATH=$DOTFILES/shell
 export ALIASES_PATH=$SHELL_PATH/aliases
 
 . $SHELL_PATH/lib/utils

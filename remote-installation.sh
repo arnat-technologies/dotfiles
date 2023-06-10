@@ -10,7 +10,7 @@ rm -rf prd.zip
 cd /tmp/dotfiles-prd
 rm -rf .git
 DOTFILES=/tmp/dotfiles-prd
-. $DOTFILES/files/.shell/core
+. $DOTFILES/shell/core
 
 select os in Arch Ubuntu OSX WSL2; do
   case $os in 

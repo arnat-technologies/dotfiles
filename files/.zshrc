@@ -10,8 +10,8 @@ export EDITOR='nvim'
 
 export PATH=$PATH:$HOME/bin
 
-. $HOME/.shell/core
-. $HOME/.shell/base
+. $DOTFILES/shell/core
+. $DOTFILES/shell/base
 
 if [ -x "$(command -v dircolors)" ]; then eval "$(dircolors -b $HOME/.dircolors)"; fi
 # source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh

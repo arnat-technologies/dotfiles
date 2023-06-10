@@ -1,3 +1,5 @@
+#!/bin/bash
+
 export TARGET_HOME=$HOME
 export DOTFILES_DIR="$TARGET_HOME/.user/dotfiles/files"
 
@@ -47,3 +49,8 @@ psuccess "#setting @arch +install @done"
 #   . $DOTFILES/scripts/symlink.sh
 #   exit 1
 # fi
+
+function make-symlink-files(){
+  echo "foo"
+}
+
