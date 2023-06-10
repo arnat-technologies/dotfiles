@@ -1,8 +1,0 @@
-{
-	"hello": {
-		"prefix": "jspAmdmod",
-		"body": "\ndefine([\n    \"${1:requiredModules}\"\n], function(${2:modules}) {\n    \"use strict\";\n\n    // static public property\n    ${3:myModule}.prop;\n\n    var ${3:myModule} = function() {\n\n        // public var\n        this.b = null;\n\n        // pseudo-protected var\n        this._c = null;\n\n    };\n\n    function ${4:privateMethod}(args) {\n    };\n\n    ${3:myModule}.${5:staticMethod} = function(args) {\n    };\n\n    ${3:myModule}.prototype.${6:publicMethod} = function(args) {\n    };\n\n    return ${3:myModule};\n});",
-		"description": "JS AMD module pattern",
-    "scope": "javascript, typescript, vue"
-	},
-}

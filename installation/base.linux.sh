@@ -46,23 +46,23 @@ INSTALL_PACKAGE() {
   local PACKAGES=${1:-}
   if [ -x "$(command -v apk)" ]; then
     apk add --no-cache $PACKAGES
-    INSTALL_ADDITIONAL_PACKAGE $PACKAGES-alpine
+    INSTALL_ADDITIONAL_PACKAGE $PACKAGES.alpine
     pinfo "#software @$pkg +install @done"
   elif [ -x "$(command -v apt-get)" ]; then
     sudo apt-get install $PACKAGES -y
-    INSTALL_ADDITIONAL_PACKAGE $PACKAGES-ubuntu
+    INSTALL_ADDITIONAL_PACKAGE $PACKAGES.ubuntu
     pinfo "#software @$pkg +install @done"
   elif [ -x "$(command -v dnf)" ]; then
     dnf install $PACKAGES
-    INSTALL_ADDITIONAL_PACKAGE $PACKAGES-fedora
+    INSTALL_ADDITIONAL_PACKAGE $PACKAGES.fedora
     pinfo "#software @$pkg +install @done"
   elif [ -x "$(command -v yay)" ]; then
     yay -S --noconfirm $PACKAGES
-    INSTALL_ADDITIONAL_PACKAGE $PACKAGES-arch
+    INSTALL_ADDITIONAL_PACKAGE $PACKAGES.arch
     pinfo "#software @$pkg +install @done"
   elif [ -x "$(command -v pacman)" ]; then
     sudo pacman -S --noconfirm $PACKAGES
-    INSTALL_ADDITIONAL_PACKAGE $PACKAGES-arch
+    INSTALL_ADDITIONAL_PACKAGE $PACKAGES.arch
     pinfo "#software @$pkg +install @done"
   else pinfo "#software @$pkg +install @fail"; fi
 }

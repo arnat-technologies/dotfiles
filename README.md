@@ -12,7 +12,8 @@ source <(curl -s https://raw.githubusercontent.com/arnat-technologies/dotfiles/p
 . $DOTFILES/scripts/symlink.sh
 ```
 
-## To-Do
+## Features
 
-- [ ] Symlink only files
+- Symlink only files from `/files` folder
+
 - [ ] Improve README.md

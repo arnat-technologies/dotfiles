@@ -3,8 +3,6 @@ export DOTFILES_DIR="$TARGET_HOME/.user/dotfiles/files"
 
 . $TARGET_HOME/.user/dotfiles/scripts/print.sh
 
-cd $DOTFILES_DIR
-
 FOLDERS_FINDER=$(find $DOTFILES_DIR -type d) 
 FOLDERS_TO_MAKE=$(echo $FOLDERS_FINDER | sed -e "s@$DOTFILES_DIR@$TARGET_HOME@g")
 FILES_FINDER=$(find $DOTFILES_DIR -type f) 

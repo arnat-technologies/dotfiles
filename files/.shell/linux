@@ -6,3 +6,8 @@
 # alias htop='sudo htop'
 
 # alias genpass="gpg --gen-random --armor 1 13"
+
+update_new_symlink_files(){
+# only new files
+
+}

@@ -45,11 +45,6 @@ gpglist
 # ln -fs $DOTFILES/.vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
 # ln -fs $DOTFILES/.vscode/snippets/ ~/Library/Application\ Support/Code/User
 
-# # Arch Linux
-# ln -fs $DOTFILES_DIR/.vscode/settings.json $HOME/.config/Code/User/settings.json
-# rm -rf $HOME/.config/Code/User/snippets # because it will symlink
-# ln -fs $DOTFILES_DIR/.vscode/snippets $HOME/.config/Code/User
-
 #SMAN SNIPPETS MANAGER
 #ln -fs $DOTFILES_DIR/snippets $HOME/.sman
 
