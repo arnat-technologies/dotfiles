@@ -1,5 +1,15 @@
 [[ $- != *i* ]] && return
 
+export HOMEUSER="$HOME/.user"
+export PROJECTS="$HOMEUSER/projects"
+export CONCEPTS="$HOMEUSER/concepts"
+export DOTFILES="$HOMEUSER/dotfiles"
+export I3BLOCKS=$HOME/i3blocks-contrib
+export SHELL=/usr/bin/zsh
+export EDITOR='nvim'
+
+export PATH=$PATH:$HOME/bin
+
 . $HOME/.shell/core
 . $HOME/.shell/base
 

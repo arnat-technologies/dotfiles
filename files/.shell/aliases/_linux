@@ -1,10 +1,9 @@
 #!/bin/bash
 
-script_path="$(dirname "$(readlink -f "${0}")")"
-. "${script_path}/utils.linux"
-. "${script_path}/git.linux"
-. "${script_path}/docker.linux"
-. "${script_path}/npm.global"
+. $ALIASES_PATH/utils.linux
+. $ALIASES_PATH/git.linux
+. $ALIASES_PATH/docker.linux
+. $ALIASES_PATH/npm.global
 
 # Easier navigation: .., ..., ~ and -
 alias ..="cd .."

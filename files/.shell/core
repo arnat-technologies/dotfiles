@@ -1,23 +1,25 @@
 #!/bin/bash
 
-script_path="$(dirname "$(readlink -f "${0}")")"
-. "${script_path}/lib/utils"
-. "${script_path}/lib/api"
-. "${script_path}/lib/file"
-. "${script_path}/lib/print"
+SHELL_PATH=$DOTFILES/files/.shell
+export ALIASES_PATH=$SHELL_PATH/aliases
+
+. $SHELL_PATH/lib/utils
+. $SHELL_PATH/lib/api
+. $SHELL_PATH/lib/file
+. $SHELL_PATH/lib/print
 
 case $(get-distro) in
     ubuntu|Darwin|arch) 
-        . "${script_path}/aliases/_linux"
+        . $ALIASES_PATH/_linux
     ;;
     ubuntu) 
-        . "${script_path}/aliases/_ubuntu"
+        . $ALIASES_PATH/_ubuntu
     ;;
     Darwin)
-        . "${script_path}/aliases/_osx"
+        . $ALIASES_PATH/_osx
     ;;
     arch)
-        . "${script_path}/aliases/_arch"
+        . $ALIASES_PATH/_arch
     ;;
 esac
 

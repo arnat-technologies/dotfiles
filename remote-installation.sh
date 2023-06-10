@@ -10,7 +10,7 @@ rm -rf prd.zip
 cd /tmp/dotfiles-prd
 rm -rf .git
 DOTFILES=/tmp/dotfiles-prd
-. $DOTFILES/scripts/print.sh
+. $DOTFILES/files/.shell/core
 
 select os in Arch Ubuntu OSX WSL2; do
   case $os in 
@@ -29,5 +29,7 @@ if answer_is_yes; then
 else
   SELECTION="post.$SELECTION"
 fi
+
+echo "$DOTFILES/installation/$SELECTION.sh"
 
 . $DOTFILES/installation/$SELECTION.sh
