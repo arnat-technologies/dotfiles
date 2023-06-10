@@ -1,6 +1,6 @@
 # Arnat dotfiles
 
-## How to use
+## Installation
 
 ```shell
 source <(curl -s https://raw.githubusercontent.com/arnat-technologies/dotfiles/prd/remote-install.sh?$(date +%s))
@@ -15,3 +15,4 @@ source <(curl -s https://raw.githubusercontent.com/arnat-technologies/dotfiles/p
 ## To-Do
 
 - [ ] Symlink only files
+- [ ] Improve README.md

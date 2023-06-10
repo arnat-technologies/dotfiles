@@ -18,3 +18,5 @@ docker
 docker-compose
 barrier
 squid
+cheat
+wuzz

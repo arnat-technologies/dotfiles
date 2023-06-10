@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+rm -rf ~/.zsh/zsh-autosuggestions/.git ~/.zsh/zsh-autosuggestions/spec

@@ -5,6 +5,8 @@ pinfo ":: [Setting]    |  Ubuntu"
 . $DOTFILES/scripts/config/post.linux.sh
 
 sudo apt update
+
+INSTALL_FROM_FILE apt
 INSTALL_FROM_FILE apt-recommended
 
 # ask_for_confirmation "copy id_rsa?"

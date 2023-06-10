@@ -43,3 +43,9 @@ for binary_file in $TARGET_HOME/bin/*; do
 done
 
 psuccess "#setting @arch +install @done"
+
+# ask_for_confirmation "symlink only?"
+# if answer_is_yes; then
+#   . $DOTFILES/scripts/symlink.sh
+#   exit 1
+# fi
