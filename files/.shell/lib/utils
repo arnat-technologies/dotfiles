@@ -1,0 +1,72 @@
+#!/bin/bash
+
+# # Copyright (C) 2017-2022 Andrei Pavel, andrei.pavel@mail.com
+# # Licensed under the MIT License
+
+# # Source guard
+# test -n "${_LIB_UTILS_SOURCED+x}" && return 0
+# export _LIB_UTILS_SOURCED=true
+
+# # Ask user if script should continue or not.
+# function confirm() {
+#   read -r -p "${1:-Are you sure? [y/N]} " response
+#   case "$response" in
+#     [yY][eE][sS]|[yY])
+#       true
+#       ;;
+#     *)
+#       false
+#       ;;
+#   esac
+# }
+# export -f confirm
+
+# # Test if environment variable given as parameter is set.
+# function mandatory() {
+#   while (( ${#} > 0 )); do
+#     if test -z "${!1+x}"; then
+#       printf "${RED}%s${RESET} argument is mandatory.\\n" "${1}" >&2
+#       print-usage
+#       exit 2
+#     fi
+#     shift
+#   done
+# }
+# export -f mandatory
+
+# function try-install() {
+#   case "${1}" in
+#     'jq') pip install jq; return 0 ;;
+#     'yq') pip install yq; return 0 ;;
+#   esac
+#   return 1
+# }
+
+# # Test if command given as parameter exists.
+# function mandatory-commands() {
+#   while (( ${#} > 0 )); do
+#     if ! command -V "${1}" &> /dev/null || ! "${1}" --help &> /dev/null; then
+#       if ! try-install "${1}"; then
+#         printf "${RED}%s${RESET} is mandatory.\\n" "${1}" >&2
+#         exit 3
+#       fi
+#     fi
+#     shift
+#   done
+# }
+# export -f mandatory-commands
+
+function get-distro() {
+    if [ -f /etc/os-release ]; then
+        source /etc/os-release
+        echo $ID
+    else
+        uname
+    fi
+}
+
+function is_installed() {
+  local res=1
+  type $1 >/dev/null 2>&1 || { local res=0; }
+  echo "$res"
+}

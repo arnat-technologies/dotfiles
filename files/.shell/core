@@ -1,0 +1,23 @@
+#!/bin/bash
+
+script_path="$(dirname "$(readlink -f "${0}")")"
+. "${script_path}/lib/utils"
+. "${script_path}/lib/api"
+. "${script_path}/lib/file"
+. "${script_path}/lib/print"
+
+case $(get-distro) in
+    ubuntu|Darwin|arch) 
+        . "${script_path}/aliases/_linux"
+    ;;
+    ubuntu) 
+        . "${script_path}/aliases/_ubuntu"
+    ;;
+    Darwin)
+        . "${script_path}/aliases/_osx"
+    ;;
+    arch)
+        . "${script_path}/aliases/_arch"
+    ;;
+esac
+

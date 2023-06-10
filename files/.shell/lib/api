@@ -12,7 +12,7 @@ build_request() {
   local HEADERS=${API_HEADER_ADITIONAL:-$API_HEADERS}
   local API_CALL=""
   local EXTRA_PARAMS=""
-
+  
   [[ "$OUTPUT" == "http" ]] && OUTPUT=" --body --json"
   [[ "$OUTPUT" == "verbose" ]] && OUTPUT=" --verbose"
 
@@ -46,8 +46,6 @@ api() {
   if [[ -v PORT ]]; then PORT=":$PORT/"; fi
 
   local API=$(build_request $PORT$HOST$URL $METHOD $OUTPUT $UUID)
-
-  echo $API
 
   if [[ $OUTPUT == "http" ]]; then to_vscode $API $UUID; fi
   if [[ $OUTPUT == "verbose" ]]; then eval $API; fi

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+script_path="$(dirname "$(readlink -f "${0}")")"
+. "${script_path}/utils.linux"
+. "${script_path}/git.linux"
+. "${script_path}/docker.linux"
+. "${script_path}/npm.global"
+
+# Easier navigation: .., ..., ~ and -
+alias ..="cd .."
+alias ...="cd ..\/.."
+alias ....="cd ..\/..\/.."
+alias .....="cd ..\/..\/..\/.."
+
+alias pubkey="xclip -sel clip ~/.ssh/id_rsa.pub | printf '=> Public key copied to pasteboard.\n'"
+alias genpass="gpg --gen-random --armor 1 13"

@@ -150,11 +150,6 @@ bbucket_fetch_repos() {
 # Shortcuts
 alias x+="chmod +x"
 
-# Easier navigation: .., ..., ~ and -
-alias ..="cd .."
-alias ...="cd ..\/.."
-alias ....="cd ..\/..\/.."
-alias .....="cd ..\/..\/..\/.."
 
 up() {
   if [[ "$#" < 1 ]]; then

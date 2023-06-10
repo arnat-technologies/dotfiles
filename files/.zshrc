@@ -1,6 +1,7 @@
 [[ $- != *i* ]] && return
 
-. $HOME/.shell/common
+. $HOME/.shell/core
+. $HOME/.shell/base
 
 if [ -x "$(command -v dircolors)" ]; then eval "$(dircolors -b $HOME/.dircolors)"; fi
 # source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -29,4 +30,5 @@ bindkey '\eg' _navi_
 export LDFLAGS="-L/opt/homebrew/opt/sqlite/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/sqlite/include"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/sqlite/lib/pkgconfig"
- export PATH="$PATH":"$HOME/.pub-cache/bin"
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+

@@ -1,29 +1,16 @@
 #!/bin/bash
 
-# EXPLORER
-
 alias fd="open ."
 
-# Disc utils
 alias diskspace_report="df -P -kHl"
 alias free_space="df -h"
 
-# Chrome debugging
 alias chromedebug="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222"
-
-# ⚙️ Utilities
 
 alias reload="exec ${SHELL} -l"
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 alias flush_dns="sudo killall -HUP mDNSResponder"
 
-# 📱 Apps
 alias upda='brew update; brew outdated; brew upgrade; brew cleanup; mas upgrade'
 
-# --------------------------------------------------
-# GPG
-#--------------------------------------------------
-
-# if [[ "$(is_installed gpg)" != "0" ]] ; then
-#   alias gpgreset="gpgconf --kill all"
-# fi
+alias gpgreset="gpgconf --kill all"

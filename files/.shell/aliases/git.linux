@@ -1,7 +1,5 @@
 #!/bin/bash
 
-if [[ "$(is_installed git)" == "0" ]]; then return 1; fi
-
 alias gitcz='git cz -S'
 
 alias grf='git reflog --pretty=raw | tig --pretty=raw'
@@ -11,7 +9,7 @@ alias gitconfig='git config --global -e'
 
 alias gbst="git for-each-ref --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short=9)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'"
 
-gtrack() {
+function gtrack() {
   git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote" --verbose; done
 }
 alias gb='git branch --verbose'
@@ -38,7 +36,7 @@ alias gcSF='git commit -S --verbose --amend'
 alias gcSm='git commit -S --verbose --message'
 alias gitempty='git commit --allow-empty -m "Empty commit"'
 
-gcb() {
+function gcb() {
   if [[ -z "$1" ]]; then
     echo "provide a branch name"
     return 1

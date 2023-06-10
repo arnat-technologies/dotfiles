@@ -1,0 +1,13 @@
+#!/bin/bash
+
+alias asciit="figlet -f basic -w100  -c $1"
+alias asciis="figlet -f doom $1"
+alias asciip="figlet -f cybermedium $1"
+
+asciitb() { figlet -f basic -w100  -c $1 | sed -e 's/^/# /;'; }
+asciisb() { figlet -f doom $1 | sed -e 's/^/# /;'; }
+asciipb() { figlet -f cybermedium $1 | sed -e 's/^/# /;'; }
+
+asciitc(){ echo "/*\n$(figlet -f basic -w100  -c $1)\n*/"; }
+asciisc(){ echo "/*\n$(figlet -f doom $1)\n*/"; }
+asciipc(){ echo "/*\n$(figlet -f cybermedium $1)\n*/"; }

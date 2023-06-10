@@ -1,11 +1,5 @@
 #!/bin/bash
 
-## =================================================
-##
-##  UTILS
-##
-## =================================================
-
 # zshrc config
 alias reload="source ~/.zshrc && echo 'Shell config reloaded from ~/.zshrc'"
 
