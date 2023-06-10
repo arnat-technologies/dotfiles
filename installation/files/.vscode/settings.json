@@ -1,5 +1,4 @@
 {
-  "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
   "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
 
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -42,5 +41,6 @@
   "terminal.integrated.fontSize": 10,
   "editor.minimap.enabled": false,
 
-  "extensions.autoUpdate": "onlyEnabledExtensions"
+  "extensions.autoUpdate": "onlyEnabledExtensions",
+  "workbench.colorTheme": "Monokai Pro (Filter Spectrum)"
 }
