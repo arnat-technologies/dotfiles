@@ -7,3 +7,5 @@ fi
 
 sudo chown $USER:$USER $HOME/.config/$CODE_PATH/User/settings.json
 symlink_files $DOTFILES/installation/files/.vscode $HOME/.config/$CODE_PATH/User
+
+. $DOTFILES/installation/software/vscode

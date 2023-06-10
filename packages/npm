@@ -1,8 +1,14 @@
 @angular/cli
-gatsby-cli
+@arnat/getrepo
+@typescript-eslint/parser
+bower
 create-react-app
 eslint
+gatsby-cli
+gulp
+http-server
 nodemon
-beavr
-
-# npm i -g PACKAGE
+prettier
+typescript
+vue-eslint-parser
+webpack

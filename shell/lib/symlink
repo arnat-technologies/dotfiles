@@ -1,6 +1,6 @@
 #!/bin/bash
 
-symlink_files(){
+symlink-files(){
   if [[ -z "${1+xxx}" || -z "${2+xxx}" ]]; then echo "Source & Target are required"; return 1; fi
 
   local SOURCE_FOLDER=${1:-}

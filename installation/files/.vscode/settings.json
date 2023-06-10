@@ -1,3 +1,46 @@
 {
-    "workbench.colorTheme": "Visual Studio Dark"
+  "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
+  "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
+
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.rulers": [120],
+  "editor.scrollBeyondLastLine": false,
+  "editor.formatOnSave": true,
+  "editor.stablePeek": true,
+  "editor.tabSize": 2,
+  "editor.fontFamily": "Fira Code Retina",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 11,
+
+  "window.title": "${rootName} ${dirty}${activeEditorLong}",
+
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "search.exclude": {
+    "**/bower_components": true,
+    "**/node_modules": true,
+    "**/dist": true,
+    ".conky/**": true,
+    ".emacs.d/**": true,
+    ".vscode/**": true,
+    "gnome-shell/**": true,
+    "mutt/**": true,
+    "vagrant/**": true
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true
+  },
+  "files.defaultLanguage": "markdown",
+  "files.insertFinalNewline": true,
+  "files.autoSave": "onFocusChange",
+
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+
+  "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
+  "terminal.integrated.fontSize": 10,
+  "editor.minimap.enabled": false,
+
+  "extensions.autoUpdate": "onlyEnabledExtensions"
 }

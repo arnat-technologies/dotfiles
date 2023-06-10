@@ -30,11 +30,7 @@ else
   SELECTION="post.$SELECTION"
 fi
 
-echo "$DOTFILES/installation/$SELECTION.sh"
-
 . $DOTFILES/installation/$SELECTION.sh
-
-
 
 # # ask_for_confirmation "symlink only?"
 # # if answer_is_yes; then

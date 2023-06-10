@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-# rm -rf ~/Library/Application\ Support/Code/User/snippets
-# ln -fs $DOTFILES/.vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
-# ln -fs $DOTFILES/.vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
-# ln -fs $DOTFILES/.vscode/snippets/ ~/Library/Application\ Support/Code/User
+sudo chown -R $USER:$USER $HOME/Library/Application\ Support/Code/User
+symlink_files $DOTFILES/installation/files/.vscode $HOME/Library/Application\ Support/code/User
+
+. $DOTFILES/installation/software/vscode

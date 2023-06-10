@@ -9,18 +9,22 @@ export ALIASES_PATH=$SHELL_PATH/aliases
 . $SHELL_PATH/lib/print
 . $SHELL_PATH/lib/symlink
 
-case $(get-distro) in
-    ubuntu|Darwin|arch) 
+distro=$(get-distro)
+
+case $distro in
+    ubuntu|Darwin|arch)
         . $ALIASES_PATH/_linux
     ;;
+esac
+
+case $distro in
     ubuntu) 
         . $ALIASES_PATH/_ubuntu
     ;;
     Darwin)
         . $ALIASES_PATH/_osx
     ;;
-    arch)
-        . $ALIASES_PATH/_arch
+    arch*)
+        source "${ALIASES_PATH}/_arch"
     ;;
 esac
-

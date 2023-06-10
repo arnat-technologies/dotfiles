@@ -86,53 +86,7 @@ EOF
 
 # fi
 
-# --------------------------------------------------
-# KUBERNETES
-#--------------------------------------------------
-
-# if [[ "$(is_installed kubectl)" != "0" ]]; then
-#   kbgp(){
-#     local KUBECONFIG=${1:-kube-config}
-#     kubectl --kubeconfig=$KUBECONFIG get pods
-#   }
-#   kbgs(){
-#     local KUBECONFIG=${1:-kube-config}
-#     kubectl --kubeconfig=$KUBECONFIG get service
-#   }
-#   kbdp(){
-#     if [[ -z "$1" ]]; then
-#       echo "Must provide POD NAME to delete"
-#     else
-#       local POD=$1
-#       local KUBECONFIG=${2:-kube-config}
-#       kubectl --kubeconfig=$KUBECONFIG delete pod $POD
-#     fi
-#   }
-#   kblp(){
-#     if [[ -z "$1" ]]; then
-#       echo "Must provide POD NAME to log"
-#     else
-#       local POD=$1
-#       local KUBECONFIG=${2:-kube-config}
-#       kubectl --kubeconfig=$KUBECONFIG logs $POD
-#     fi
-#   }
-#   kbsh(){
-#     if [[ -z "$1" ]]; then
-#       echo "Must provide POD NAME to shell"
-#     else
-#       local POD=$1
-#       local KUBECONFIG=${2:-kube-config}
-#       kubectl --kubeconfig=$KUBECONFIG exec -it $POD sh
-#     fi
-#   }
-# fi
-
-# --------------------------------------------------
-# BITBUCKET
-#--------------------------------------------------
-
-bbucket_fetch_repos() {
+function bbucket_fetch_repos() {
   if [[ -z "$1" ]]; then
     echo "Must provide USER/PASS/TEAM for cloning all bitbucket repos (max 100)"
   else
@@ -141,17 +95,7 @@ bbucket_fetch_repos() {
   fi
 }
 
-## =================================================
-##
-##  COMMAND LINE
-##
-## =================================================
-
-# Shortcuts
-alias x+="chmod +x"
-
-
-up() {
+function up() {
   if [[ "$#" < 1 ]]; then
     cd ..
   else
@@ -183,36 +127,3 @@ alias lm="ll -s=modified"          # Sorted by modified date
 alias lc="ll --created -s=created" # Sorted by created date
 
 alias lsd='ls -l | grep "^d"'
-
-delete_node_modules() {
-  find . -name 'node_modules' -type d -prune -print -exec rm -rf '{}' \;
-}
-
-# let jspdf = document.createElement("script");
-
-# jspdf.onload = function () {
-
-#     let pdf = new jsPDF();
-#     let elements = document.getElementsByTagName("img");
-#     for (let i in elements) {
-#         let img = elements[i];
-#         console.log("add img ", img);
-#         if (!/^blob:/.test(img.src)) {
-#             console.log("invalid src");
-#             continue;
-#         }
-#         let can = document.createElement('canvas');
-#         let con = can.getContext("2d");
-#         can.width = img.width;
-#         can.height = img.height;
-#         con.drawImage(img, 0, 0, img.width, img.height);
-#         let imgData = can.toDataURL("image/jpeg", 1.0);
-#         pdf.addImage(imgData, 'JPEG', 0, 0);
-#         pdf.addPage();
-#     }
-
-#     pdf.save("download.pdf");
-# };
-
-# jspdf.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js';
-# document.body.appendChild(jspdf);

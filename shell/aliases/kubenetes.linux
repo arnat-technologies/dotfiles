@@ -1,0 +1,41 @@
+#!/bin/bash
+
+kbgp(){
+local KUBECONFIG=${1:-kube-config}
+kubectl --kubeconfig=$KUBECONFIG get pods
+}
+
+kbgs(){
+    local KUBECONFIG=${1:-kube-config}
+    kubectl --kubeconfig=$KUBECONFIG get service
+}
+
+kbdp(){
+if [[ -z "$1" ]]; then
+    echo "Must provide POD NAME to delete"
+else
+    local POD=$1
+    local KUBECONFIG=${2:-kube-config}
+    kubectl --kubeconfig=$KUBECONFIG delete pod $POD
+fi
+}
+
+kblp(){
+if [[ -z "$1" ]]; then
+    echo "Must provide POD NAME to log"
+else
+    local POD=$1
+    local KUBECONFIG=${2:-kube-config}
+    kubectl --kubeconfig=$KUBECONFIG logs $POD
+fi
+}
+
+kbsh(){
+if [[ -z "$1" ]]; then
+    echo "Must provide POD NAME to shell"
+else
+    local POD=$1
+    local KUBECONFIG=${2:-kube-config}
+    kubectl --kubeconfig=$KUBECONFIG exec -it $POD sh
+fi
+}
