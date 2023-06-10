@@ -33,3 +33,11 @@ fi
 echo "$DOTFILES/installation/$SELECTION.sh"
 
 . $DOTFILES/installation/$SELECTION.sh
+
+
+
+# # ask_for_confirmation "symlink only?"
+# # if answer_is_yes; then
+# #   . $DOTFILES/scripts/symlink.sh
+# #   exit 1
+# # fi

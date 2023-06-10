@@ -7,6 +7,7 @@ export ALIASES_PATH=$SHELL_PATH/aliases
 . $SHELL_PATH/lib/api
 . $SHELL_PATH/lib/file
 . $SHELL_PATH/lib/print
+. $SHELL_PATH/lib/symlink
 
 case $(get-distro) in
     ubuntu|Darwin|arch) 

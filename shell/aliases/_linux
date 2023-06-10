@@ -13,3 +13,8 @@ alias .....="cd ..\/..\/..\/.."
 
 alias pubkey="xclip -sel clip ~/.ssh/id_rsa.pub | printf '=> Public key copied to pasteboard.\n'"
 alias genpass="gpg --gen-random --armor 1 13"
+
+function symlink-dotfiles(){
+    make-symlink-files $DOTFILES/files $HOME
+    # update-binary-files
+}
