@@ -5,37 +5,5 @@ if [ -d "$HOME/.config/Code - OSS" ]; then
     CODE_PATH="Code - OSS"
 fi
 
-VSCODE_DIR=$DOTFILES/installation/files/.vscode
-TARGET_HOME=$HOME/.config/$CODE_PATH/User
-
-FOLDERS_FINDER=$(find $VSCODE_DIR -type d) 
-FOLDERS_TO_MAKE=$(echo $FOLDERS_FINDER | sed -e "s@$VSCODE_DIR@$TARGET_HOME@g")
-FILES_FINDER=$(find $VSCODE_DIR -type f) 
-FILES_TO_SYMLINK=$(echo $FILES_FINDER | sed -e "s@$VSCODE_DIR@@g")
-
-for folder_to_create in $FOLDERS_TO_MAKE; do
- if [ -d "$folder_to_create" ]; then
-   :
- else
-    mkdir -p $folder_to_create
- fi
-done
-
-for filename in $FILES_TO_SYMLINK; do
- sourceFile="$VSCODE_DIR$filename" 
- targetFile="$TARGET_HOME$filename"
-
-  if [ ! -e "$targetFile" ]; then
-    ln -fs $sourceFile $targetFile
-    psuccess "$targetFile → $sourceFile"
-  else
-    ask_for_confirmation "'$targetFile' already exists, do you want to overwrite it?"
-    if answer_is_yes; then
-      rm -rf "$targetFile"
-      ln -fs $sourceFile $targetFile
-      psuccess "$targetFile → $sourceFile"
-    else
-      perror "$targetFile → $sourceFile"
-    fi
-  fi
-done
+sudo chown $USER:$USER $HOME/.config/$CODE_PATH/User/settings.json
+symlink_files $DOTFILES/installation/files/.vscode $HOME/.config/$CODE_PATH/User

@@ -1,33 +1,21 @@
 #!/bin/bash
 
-function update-binary-files(){
-  for binary_file in $HOME/bin/*; do
-    chmod +rwx $HOME/bin/${binary_file##*/}
-  done
-}
-
-function make-symlink-files(){
+symlink_files(){
   if [[ -z "${1+xxx}" || -z "${2+xxx}" ]]; then echo "Source & Target are required"; return 1; fi
 
-  local SOURCE_FOLDER=$1
-  local TARGET_FOLDER=$2
+  local SOURCE_FOLDER=${1:-}
+  local TARGET_FOLDER=${2:-}
 
-  FOLDERS_FINDER=$(find $SOURCE_FOLDER -type d) 
-  FOLDERS_TO_MAKE=$(echo $FOLDERS_FINDER | sed -e "s@$SOURCE_FOLDER@$TARGET_FOLDER@g")
-  FILES_FINDER=$(find $SOURCE_FOLDER -type f) 
-  FILES_TO_SYMLINK=$(echo $FILES_FINDER | sed -e "s@$SOURCE_FOLDER@@g")
+  local FOLDERS_FINDER=$(find $SOURCE_FOLDER -type d) 
+  local FILES_FINDER=$(find $SOURCE_FOLDER -type f) 
 
-  for folder_to_create in $FOLDERS_TO_MAKE; do
-    if [ -d "$folder_to_create" ]; then
-      :
-    else
-      mkdir -p $folder_to_create  >/dev/null 2>&1
-    fi
+  for i in $(echo $FOLDERS_FINDER | sed -e "s@$SOURCE_FOLDER@$TARGET_FOLDER@g"); do
+      mkdir $i >/dev/null 2>&1
   done
 
-  for filename in $FILES_TO_SYMLINK; do
-  sourceFile="$SOURCE_FOLDER$filename" 
-  targetFile="$TARGET_FOLDER$filename"
+  for filename in $(echo $FILES_FINDER | sed -e "s@$SOURCE_FOLDER@@g"); do
+    local sourceFile="$SOURCE_FOLDER$filename" 
+    local targetFile="$TARGET_FOLDER$filename"
 
     if [ ! -e "$targetFile" ]; then
       ln -fs $sourceFile $targetFile
