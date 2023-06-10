@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# yay -S httpie
-# Visual Studio Code https://code.visualstudio.com/
-
 build_request() {
   local API_URL=$1
   local METHOD=$2
@@ -12,7 +9,7 @@ build_request() {
   local HEADERS=${API_HEADER_ADITIONAL:-$API_HEADERS}
   local API_CALL=""
   local EXTRA_PARAMS=""
-  
+
   [[ "$OUTPUT" == "http" ]] && OUTPUT=" --body --json"
   [[ "$OUTPUT" == "verbose" ]] && OUTPUT=" --verbose"
 

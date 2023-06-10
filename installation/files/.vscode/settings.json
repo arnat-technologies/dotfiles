@@ -1,4 +1,9 @@
 {
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+
+  "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
   "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
 
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -10,10 +15,10 @@
   "editor.fontFamily": "Fira Code Retina",
   "editor.fontLigatures": true,
   "editor.fontSize": 11,
+  "editor.minimap.enabled": false,
 
   "window.title": "${rootName} ${dirty}${activeEditorLong}",
 
-  "terminal.integrated.defaultProfile.linux": "zsh",
   "search.exclude": {
     "**/bower_components": true,
     "**/node_modules": true,
@@ -39,8 +44,7 @@
 
   "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
   "terminal.integrated.fontSize": 10,
-  "editor.minimap.enabled": false,
+  "terminal.integrated.defaultProfile.linux": "zsh",
 
-  "extensions.autoUpdate": "onlyEnabledExtensions",
-  "workbench.colorTheme": "Monokai Pro (Filter Spectrum)"
+  "extensions.autoUpdate": "onlyEnabledExtensions"
 }
