@@ -8,7 +8,10 @@ go
 htop
 httpie
 i3-wm
+i3-gaps
+i3lock
 i3blocks
+i3blocks-gaps-git
 i3blocks-contrib
 i3status
 light
@@ -26,3 +29,8 @@ git
 tldr
 ttf-dejavu
 ttf-liberation
+vlc
+rofi
+python-j2cli
+jq
+ranger

@@ -18,6 +18,8 @@ docker
 docker-compose
 barrier
 squid
-cheat
 wuzz
 python
+ffmpeg
+samba
+smbclient

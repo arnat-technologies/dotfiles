@@ -29,3 +29,13 @@ if [[ $(uname) = 'Darwin' ]]; then . $HOME/.shell/osx; fi
 . $HOME/.shell/api
 . $HOME/.shell/cli
 . $HOME/.shell/work
+
+# if [[ $(uname) = 'Linux' ]]; then
+#   IS_LINUX=1
+#   . $HOME/.shell_linux
+# fi
+
+# if [[ $(uname) = 'Darwin' ]]; then
+#   IS_MAC=1
+#   . $HOME/.shell_osx
+# fi

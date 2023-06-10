@@ -1,0 +1,29 @@
+#!/bin/zsh
+
+ask_for_confirmation "enable as service?"
+if answer_is_yes; then
+  sudo systemctl enable smb.service nmbd.service
+  sudo systemctl start smb.service nmbd.service
+fi
+
+ask_for_confirmation "create /samba/public?"
+if answer_is_yes; then
+
+    sudo mkdir -p /samba/public
+    sudo chown -R $USER:$USER /samba
+
+    (echo "$USER"; echo "$USER") | sudo smbpasswd -s -a "$USER"
+
+echo "
+[Public]
+server string = Public Server
+comment = public 
+workgroup = WORKGROUP
+path = /samba/public
+browseable = yes
+writable = yes
+valid users = $USER
+guest ok = yes" | sudo tee -a /etc/samba/smb.conf
+
+    sudo systemctl restart smb.service nmb.service
+fi
