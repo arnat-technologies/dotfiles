@@ -13,6 +13,17 @@ alias .....="cd ..\/..\/..\/.."
 alias pubkey="xclip -sel clip ~/.ssh/id_rsa.pub | printf '=> Public key copied to pasteboard.\n'"
 alias genpass="gpg --gen-random --armor 1 13"
 
-function symlink-dotfiles(){
-    symlink-files $DOTFILES/files $HOME
+function symlink-dotfiles() {
+  symlink-files $DOTFILES/files $HOME
+}
+
+function uuid() {
+  cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1
+}
+
+function tmp_file() {
+  local id=$(uuid)
+  local extension=${1:-"json"}
+  echo "" >/tmp/$id.$extension
+  echo /tmp/$id.$extension
 }

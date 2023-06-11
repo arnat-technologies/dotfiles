@@ -1,49 +1,202 @@
 #!/bin/bash
 
-build_request() {
-  local API_URL=$1
-  local METHOD=$2
-  local OUTPUT=$3
-  local UUID=$4
-  local JSONREQUEST=${API_JSON_DATA:-}
-  local HEADERS=${API_HEADER_ADITIONAL:-$API_HEADERS}
-  local API_CALL=""
-  local EXTRA_PARAMS=""
+# build_api_call() {
+#   local API_URL=${1:-edx.com}
+#   local METHOD=${2:-GET}
+#   local OUTPUT=${3:-http}
+#   local JSONREQUEST=${API_JSON_DATA:-}
+#   local HEADERS=${API_HEADER_ADITIONAL:-$API_HEADERS}
+#   local API_CALL=""
+#   local EXTRA_PARAMS=""
 
-  [[ "$OUTPUT" == "http" ]] && OUTPUT=" --body --json"
-  [[ "$OUTPUT" == "verbose" ]] && OUTPUT=" --verbose"
+#   [[ "$OUTPUT" == "http" || "$OUTPUT" == "plain" ]] && OUTPUT=" --body"
+#   [[ "$OUTPUT" == "json" ]] && OUTPUT=" --body" && EXTRA_PARAMS=" | fx"
+#   [[ "$OUTPUT" == "debug" ]] && OUTPUT=" --verbose"
 
-  if [[ $METHOD == "POST" || $METHOD == "PUT" || $METHOD == "DELETE" ]]; then
-    [[ "$JSONREQUEST" != "" ]] && API_CALL="http $METHOD $API_URL $API_AUTH $HEADERS $OUTPUT <$JSONREQUEST $EXTRA_PARAMS --output=/tmp/$UUID.json --timeout=999999"
-    [[ "$JSONREQUEST" == "" ]] && API_CALL="http $METHOD $API_URL $API_AUTH $HEADERS $OUTPUT $EXTRA_PARAMS --output=/tmp/$UUID.json --timeout=999999"
-  elif [[ $METHOD == "GET" ]]; then
-    API_CALL="http $METHOD $API_URL $API_AUTH $HEADERS $OUTPUT $EXTRA_PARAMS --output=/tmp/$UUID.json --verbose --timeout=999999"
+#   if [[ $METHOD == "POST" || $METHOD == "PUT" || $METHOD == "DELETE" ]]; then
+#     [[ "$JSONREQUEST" != "" ]] && API_CALL="http $METHOD $API_URL $API_AUTH $HEADERS $OUTPUT <$JSONREQUEST $EXTRA_PARAMS"
+#     [[ "$JSONREQUEST" == "" ]] && API_CALL="http $METHOD $API_URL $API_AUTH $HEADERS $OUTPUT $EXTRA_PARAMS"
+#   elif [[ $METHOD == "GET" ]]; then
+#     API_CALL="http $METHOD $API_URL $API_AUTH $HEADERS $OUTPUT $EXTRA_PARAMS"
+#   else
+#     API_CALL=""
+#   fi
+#   echo $API_CALL
+# }
+
+# handle_response() {
+#   local FILE=$(print_json $1)
+#   echo ">>> JSON CREATED: $FILE"
+#   [[ "$API_LEVEL_DEBUG" == "code" ]] && code $FILE
+#   [[ "$API_LEVEL_DEBUG" == "log" ]] && fx $FILE
+# }
+
+# handle_output() {
+#   local URL=${1:-example.com}
+#   local METHOD=${2:-GET}
+#   local OUTPUT=${3:-http}
+#   local FILE=${4:-false}
+#   local API=$(build_api_call $URL $METHOD $OUTPUT)
+
+#   if [[ $OUTPUT == "json" || $OUTPUT == "debug" || $OUTPUT == "plain" ]]; then
+#     eval $API
+#   elif [[ $OUTPUT == "http" ]]; then
+#     local RESPONSE=$(eval $API)
+#     handle_response $RESPONSE
+#   else
+#     echo "output not supported: http|json|debug|plain"
+#   fi
+# }
+
+_update_yml_with_query() { # 1: query, 2: file
+  echo -n "$1?: "
+  read answer
+  yq -iy "$1 = \"$answer\"" $2
+}
+
+_populate_json_from_yaml() { # 1: TEMPLATE, $2: YAML_DATA, 3: JSON_DATA
+  echo $(j2 --format=yaml $1 $2) >$3
+  echo $file
+}
+
+_populate_json_from_data() { # 1: YAML_FILE, 2: QUERY, 3: JSON_DATA_FILE
+  local YAML_DATA_FILE=$(tmp_file yaml)
+  yq -iy --null-input '.data' $YAML_DATA_FILE
+
+  for item in $(yq ".$2.params[]" $1 -r); do
+    _update_yml_with_query ".data.$item" $YAML_DATA_FILE
+  done
+
+  _populate_json_from_yaml "$(dirname $1)/$2.json" $YAML_DATA_FILE $3 >/dev/null
+}
+
+_build_request() { # $1: YAML_FILE $2: QUERY, 3: JSON_DATA_FILE
+  local BODY=""
+  local URL=$(yq ".env.$REQRES_ENV.url" $1 -r)/$(yq ".$2.action" $1 -r)
+  local METHOD=$(yq ".$2.method" $1 -r)
+  local PARAMS=$(yq ".$2.params[]?" $1 -r)
+
+  if [ -z $PARAMS ]; then :; else
+    BODY="$BODY --body --json <$3"
   fi
-  echo $API_CALL
+
+  echo "http $METHOD $URL $BODY"
 }
 
-to_vscode() {
-  eval $1
-  code "/tmp/$2.json"
+_build_data_request() { # 1: YAML_FILE, 2: QUERY
+  local JSON_DATA_FILE=$(tmp_file json)
+  _populate_json_from_data $1 $2 $JSON_DATA_FILE
+  local REQUEST=$(_build_request $1 $2 $JSON_DATA_FILE)
+
+  case $API_OUTPUT in
+  http)
+    eval $REQUEST
+    ;;
+  vscode)
+    echo "vscode output $REQUEST"
+    ;;
+  raw*)
+    echo "raw output $REQUEST"
+    ;;
+  esac
 }
 
-api() {
-  local HOST=${API_HOST:-}
-  local PORT=${API_PORT:-}
-  local URL=${1:-}
-  local METHOD=${2:-GET}
-  local OUTPUT=${API_OUTPUT:-http}
-  local UUID=$(printf "%04x%04x-%04x-%04x-%04x-%04x%04x%04x\n" \
-    $RANDOM $RANDOM \
-    $RANDOM \
-    $(($RANDOM & 0x0fff | 0x4000)) \
-    $(($RANDOM & 0x3fff | 0x8000)) \
-    $RANDOM $RANDOM $RANDOM)
+_api_env() {
+  API_OUTPUT=http
 
-  if [[ -v PORT ]]; then PORT=":$PORT/"; fi
-
-  local API=$(build_request $PORT$HOST$URL $METHOD $OUTPUT $UUID)
-
-  if [[ $OUTPUT == "http" ]]; then to_vscode $API $UUID; fi
-  if [[ $OUTPUT == "verbose" ]]; then eval $API; fi
+  for arg in "$@"; do
+    case $arg in
+    -o=* | --output=*)
+      export API_OUTPUT="${arg#*=}"
+      shift
+      ;;
+    *)
+      OTHER_ARGUMENTS+=("$1")
+      shift
+      ;;
+    esac
+  done
 }
+
+# _build_yml() {
+#   export new_file=$(tmp_file yaml)
+#   arr2=("$@")
+#   yq -iy --null-input '.data' $new_file
+
+#   for param in $arr2; do
+#     echo -n "$param?: "
+#     read answer
+
+#     yq -iy ".data.$param = \"$answer\"" $new_file
+#   done
+# }
+
+# _build_json_data() {
+#   local new_file=$3
+#   yq -iy --null-input '.data' $new_file
+
+#   local YAML_FILE=$1
+#   local QUERY=$2
+
+#   local JSON_TMPL=$(dirname $YAML_FILE)/$QUERY.json
+#   for item in $(_yaml_raw_list ".$QUERY.params[]" $YAML_FILE); do
+#     _update_yml_with_query ".data.$item" $new_file
+#   done
+
+#   # export api_json_data=$(print_json $JSON_TMPL $new_file)
+#   print_json $JSON_TMPL $new_file
+# }
+
+# print_json /mnt/external/00-INBOX/tmpl /mnt/external/00-INBOX/tmpl.ini
+
+# $ yq --yaml-output '.spec |= ({selector: {matchLabels: {app: "test-app"}}} + .)' </tmp/your-yaml-file.yaml
+
+# #!/bin/bash
+
+# build_request() {
+#   local API_URL=$1
+#   local METHOD=$2
+#   local OUTPUT=$3
+#   local UUID=$4
+#   local JSONREQUEST=${API_JSON_DATA:-}
+#   local HEADERS=${API_HEADER_ADITIONAL:-$API_HEADERS}
+#   local API_CALL=""
+#   local EXTRA_PARAMS=""
+
+#   [[ "$OUTPUT" == "http" ]] && OUTPUT=" --body --json"
+#   [[ "$OUTPUT" == "verbose" ]] && OUTPUT=" --verbose"
+
+#   if [[ $METHOD == "POST" || $METHOD == "PUT" || $METHOD == "DELETE" ]]; then
+#     [[ "$JSONREQUEST" != "" ]] && API_CALL="http $METHOD $API_URL $API_AUTH $HEADERS $OUTPUT <$JSONREQUEST $EXTRA_PARAMS --output=/tmp/$UUID.json --timeout=999999"
+#     [[ "$JSONREQUEST" == "" ]] && API_CALL="http $METHOD $API_URL $API_AUTH $HEADERS $OUTPUT $EXTRA_PARAMS --output=/tmp/$UUID.json --timeout=999999"
+#   elif [[ $METHOD == "GET" ]]; then
+#     API_CALL="http $METHOD $API_URL $API_AUTH $HEADERS $OUTPUT $EXTRA_PARAMS --output=/tmp/$UUID.json --verbose --timeout=999999"
+#   fi
+#   echo $API_CALL
+# }
+
+# to_vscode() {
+#   eval $1
+#   code "/tmp/$2.json"
+# }
+
+# api() {
+#   local HOST=${API_HOST:-}
+#   local PORT=${API_PORT:-}
+#   local URL=${1:-}
+#   local METHOD=${2:-GET}
+#   local OUTPUT=${API_OUTPUT:-http}
+#   local UUID=$(printf "%04x%04x-%04x-%04x-%04x-%04x%04x%04x\n" \
+#     $RANDOM $RANDOM \
+#     $RANDOM \
+#     $(($RANDOM & 0x0fff | 0x4000)) \
+#     $(($RANDOM & 0x3fff | 0x8000)) \
+#     $RANDOM $RANDOM $RANDOM)
+
+#   if [[ -v PORT ]]; then PORT=":$PORT/"; fi
+
+#   local API=$(build_request $PORT$HOST$URL $METHOD $OUTPUT $UUID)
+
+#   if [[ $OUTPUT == "http" ]]; then to_vscode $API $UUID; fi
+#   if [[ $OUTPUT == "verbose" ]]; then eval $API; fi
+# }

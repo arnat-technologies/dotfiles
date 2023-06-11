@@ -5,6 +5,11 @@
 
   "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
   "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.colorCustomizations": {
+    "editorIndentGuide.activeBackground": "#2d77e6"
+  },
+  "workbench.statusBar.visible": true,
 
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.rulers": [120],
@@ -18,6 +23,7 @@
   "editor.minimap.enabled": false,
 
   "window.title": "${rootName} ${dirty}${activeEditorLong}",
+  "window.menuBarVisibility": "toggle",
 
   "search.exclude": {
     "**/bower_components": true,

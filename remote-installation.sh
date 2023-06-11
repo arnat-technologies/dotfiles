@@ -13,13 +13,31 @@ DOTFILES=/tmp/dotfiles-prd
 . $DOTFILES/shell/core
 
 select os in Arch Ubuntu OSX WSL2; do
-  case $os in 
-    "Arch") SELECTION=arch; break ;;
-    "WSL2") SELECTION=wsl2; break ;;
-    "Ubuntu") SELECTION=ubuntu; break ;;
-    "OSX") SELECTION=osx; break ;;
-    "WSL2") SELECTION=wsl2; break ;;
-    *) exit 0; break ;;
+  case $os in
+  "Arch")
+    SELECTION=arch
+    break
+    ;;
+  "WSL2")
+    SELECTION=wsl2
+    break
+    ;;
+  "Ubuntu")
+    SELECTION=ubuntu
+    break
+    ;;
+  "OSX")
+    SELECTION=osx
+    break
+    ;;
+  "WSL2")
+    SELECTION=wsl2
+    break
+    ;;
+  *)
+    exit 0
+    break
+    ;;
   esac
 done
 

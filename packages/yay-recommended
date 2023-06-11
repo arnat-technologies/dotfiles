@@ -33,6 +33,7 @@ vlc
 rofi
 python-j2cli
 jq
+yq
 ranger
 firefox
 xclip
