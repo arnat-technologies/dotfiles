@@ -127,3 +127,13 @@ alias lm="ll -s=modified"          # Sorted by modified date
 alias lc="ll --created -s=created" # Sorted by created date
 
 alias lsd='ls -l | grep "^d"'
+
+function isPortOpened() {
+  RESULT=$(curl --data "port=$1&IP=$(curl ifconfig.me/ip)" http://www.canyouseeme.org | grep -i success)
+
+  if [ -z $RESULT ]; then
+    echo -e "\nThe port $1 is NOT open!"
+  else
+    echo -e "\nThe port $1 IS open!"
+  fi
+}

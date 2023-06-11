@@ -23,3 +23,10 @@ python
 ffmpeg
 samba
 smbclient
+jdk8-openjdk
+w3m
+dunst
+httptunnel
+browsh
+cronie
+dmenu
