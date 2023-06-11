@@ -13,6 +13,10 @@ export PATH=$PATH:$HOME/bin
 . $DOTFILES/shell/core
 . $DOTFILES/shell/base
 
+if [ -f "$HOME/.user/work" ]; then
+  . $HOME/.user/work
+fi
+
 if [ -x "$(command -v dircolors)" ]; then eval "$(dircolors -b $HOME/.dircolors)"; fi
 # source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
@@ -27,7 +31,7 @@ if [ -x "$(command -v dircolors)" ]; then eval "$(dircolors -b $HOME/.dircolors)
 eval "$(starship init zsh)"
 eval "$(fnm env)"
 
-function _navi_ {
+function _navi_() {
   zle kill-whole-line
   zle -U "$("navi")"
   zle accept-line
@@ -41,4 +45,3 @@ export LDFLAGS="-L/opt/homebrew/opt/sqlite/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/sqlite/include"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/sqlite/lib/pkgconfig"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
-

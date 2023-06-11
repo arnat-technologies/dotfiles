@@ -1,12 +1,15 @@
 #!/bin/zsh
 
-echo "root:root" | chpasswd
-echo "%wheel ALL=(ALL) ALL" > /etc/sudoers.d/wheel
- 
-useradd -m -G wheel -s /bin/bash rsurj
-echo "rsurj:rsurj" | chpasswd
+echo -n "user name?: "
+read newuser
 
-sudo -u "rsurj" -i <<EOF
+echo "root:root" | chpasswd
+echo "%wheel ALL=(ALL) ALL" >/etc/sudoers.d/wheel
+
+useradd -m -G wheel -s /bin/bash $newuser
+echo "$newuser:$newuser" | chpasswd
+
+sudo -u "$newuser" -i <<EOF
 echo "$(whoami)"
 
 sudo pacman-key --init
@@ -18,6 +21,6 @@ sudo pacman -S git wget base-devel binutils go --noconfirm
 sudo pacman -R fakeroot-tcp --noconfirm
 EOF
 
-echo "Arch.exe config --default-user rsurj"
+echo "Arch.exe config --default-user $newuser"
 
-echo "exit & reboot Arch Linux" 
+echo "exit & reboot Arch Linux"
