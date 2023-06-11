@@ -14,3 +14,12 @@ alias flush_dns="sudo killall -HUP mDNSResponder"
 alias upda='brew update; brew outdated; brew upgrade; brew cleanup; mas upgrade'
 
 alias gpgreset="gpgconf --kill all"
+
+uuid() {
+  printf "%04x%04x-%04x-%04x-%04x-%04x%04x%04x\n" \
+    $RANDOM $RANDOM \
+    $RANDOM \
+    $(($RANDOM & 0x0fff | 0x4000)) \
+    $(($RANDOM & 0x3fff | 0x8000)) \
+    $RANDOM $RANDOM $RANDOM
+}

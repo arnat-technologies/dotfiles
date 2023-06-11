@@ -50,7 +50,8 @@
 
   "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
   "terminal.integrated.fontSize": 10,
-  "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.defaultProfile.linux": "tmux",
 
-  "extensions.autoUpdate": "onlyEnabledExtensions"
+  "extensions.autoUpdate": "onlyEnabledExtensions",
+  "security.workspace.trust.untrustedFiles": "open"
 }
