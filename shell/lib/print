@@ -31,5 +31,4 @@ execute() {
 
 get_input() {
   read -p "=> : " tmp_input
-  vared -p '=> : : ' PATH
 }

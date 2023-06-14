@@ -18,10 +18,6 @@ select os in Arch Ubuntu OSX WSL2; do
     SELECTION=arch
     break
     ;;
-  "WSL2")
-    SELECTION=wsl2
-    break
-    ;;
   "Ubuntu")
     SELECTION=ubuntu
     break
@@ -49,9 +45,3 @@ else
 fi
 
 . $DOTFILES/installation/$SELECTION.sh
-
-# # ask_for_confirmation "symlink only?"
-# # if answer_is_yes; then
-# #   . $DOTFILES/scripts/symlink.sh
-# #   exit 1
-# # fi
