@@ -1,0 +1,16 @@
+#!/bin/bash
+
+verticaldisplay() {
+  local display=${1:-VGA-1}
+  xrandr --output $display --rotate right
+}
+
+extend_display_as_primary() {
+  local display=${1:-VGA-1}
+  mons -e right --primary $display
+}
+
+extend_vertical_display_as_primary() {
+  verticaldisplay
+  extend_display_as_primary
+}

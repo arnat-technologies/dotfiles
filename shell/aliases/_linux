@@ -4,6 +4,7 @@
 . $ALIASES_PATH/git.linux
 . $ALIASES_PATH/docker.linux
 . $ALIASES_PATH/npm.global
+. $ALIASES_PATH/display.linux
 
 alias ..="cd .."
 alias ...="cd ..\/.."
@@ -26,4 +27,18 @@ function tmp_file() {
   local extension=${1:-"json"}
   echo "" >/tmp/$id.$extension
   echo /tmp/$id.$extension
+}
+
+# WIP
+function yaml_from_list() { # 1:ARRAY_LIST
+  local YAML_FILE=$(tmp_file yaml)
+  yq -iy --null-input '.data' $YAML_FILE
+
+  for item in $@; do
+    echo "$item?: "
+    read answer
+    yq -iy ".data.$item = \"$answer\"" $YAML_FILE
+  done
+
+  echo $YAML_FILE
 }

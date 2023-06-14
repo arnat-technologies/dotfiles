@@ -1,0 +1,53 @@
+version: '3.7'
+services:
+  web:
+    image: 'gitlab/gitlab-ce:latest'
+    restart: always
+    hostname: 'localhost'
+    container_name: gitlab-ce
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://localhost'
+    ports:
+      - '8080:80'
+      - '8443:443'
+    volumes:
+      - '/data/config:/etc/gitlab'
+      - '/data/logs:/var/log/gitlab'
+      - '/data/data:/var/opt/gitlab'
+    networks:
+      - gitlab
+  gitlab-runner:
+    image: gitlab/gitlab-runner:alpine
+    container_name: gitlab-runner
+    restart: always
+    depends_on:
+      - web
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - '/data/gitlab-runner:/etc/gitlab-runner'
+      - ./config:/etc/gitlab-runner
+    networks:
+      - gitlab
+    environment:
+      - CI_SERVER_URL=http://localhost:8080
+      - REGISTRATION_TOKEN=glrt-YGggyzZRSg3rRkz-6vzW
+
+networks:
+  gitlab:
+    name: gitlab-network
+
+# docker exec -it gitlab-ce grep 'Password:' /etc/gitlab/initial_root_password
+# user: root
+# pass: HASH GENERATED
+
+
+# RESET PASSWORD, last item requires enter pass
+# docker exec -it gitlab-ce bash
+# gitlab-rake "gitlab:password:reset[root]"
+# foobar2023
+
+# gitlab-rails console
+# user = User.find(1)
+# user.password = NEW_PASS
+# user.password_confirmation = NEW_PASS

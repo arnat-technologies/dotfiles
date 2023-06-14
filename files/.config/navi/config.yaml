@@ -13,3 +13,7 @@ finder:
   command: fzf
 shell:
   command: zsh
+
+cheats:
+  paths:
+    - $HOME/.navi

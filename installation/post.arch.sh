@@ -4,7 +4,14 @@
 . $DOTFILES/installation/00-03-post.linux.sh
 . $DOTFILES/installation/02-01-base.arch.sh
 
-ENABLE_DHCP_ETHERNET(){
+sudo sysctl -w vm.max_map_count=262144
+sudo sysctl -p
+cat /proc/sys/vm/max_map_count # 26214
+
+# wsl -d docker-desktop
+# sysctl -w vm.max_map_count=2621444
+
+ENABLE_DHCP_ETHERNET() {
   sudo systemctl start NetworkManager.service
   sudo systemctl start dhcpcd.service
 }

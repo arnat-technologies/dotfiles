@@ -17,4 +17,3 @@ chsh -s /bin/zsh # ZSH as default
 
 # echo "LANG=en_GB.UTF-8" > /etc/locale.conf
 # echo "KEYMAP=us" > /etc/vconsole.conf
-

@@ -9,6 +9,11 @@ export SHELL=/usr/bin/zsh
 export EDITOR='nvim'
 
 export PATH=$PATH:$HOME/bin
+# export NAVI_CONFIG_YAML=$HOME/.navi
+
+# # ZSH COMPLETION
+# autoload -U compinit
+# compinit
 
 . $DOTFILES/shell/core
 . $DOTFILES/shell/base
@@ -17,8 +22,8 @@ if [ -f "$HOME/.user/work" ]; then
   . $HOME/.user/work
 fi
 
-if [ -x "$(command -v dircolors)" ]; then eval "$(dircolors -b $HOME/.dircolors)"; fi
-# source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# if [ -x "$(command -v dircolors)" ]; then eval "$(dircolors -b $HOME/.dircolors)"; fi
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # eval "$(ssh-agent -s)"
 # if [ -n "${SSH_AGENT_PID}" ]; then
@@ -27,18 +32,18 @@ if [ -x "$(command -v dircolors)" ]; then eval "$(dircolors -b $HOME/.dircolors)
 
 # keychain --nogui --quiet $HOME/.ssh/id_rsa
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(starship init zsh)"
 eval "$(fnm env)"
 
-function _navi_() {
-  zle kill-whole-line
-  zle -U "$("navi")"
-  zle accept-line
-}
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# function _navi_() {
+#   zle kill-whole-line
+#   zle -U "$("navi")"
+#   zle accept-line
+# }
 
-zle -N _navi_
-bindkey '\eg' _navi_
+# zle -N _navi_
+# bindkey '\eg' _navi_
 
 # 2. export compiler related env variables
 export LDFLAGS="-L/opt/homebrew/opt/sqlite/lib"

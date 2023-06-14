@@ -1,5 +1,7 @@
 #!/bin/bash
 
+. $ALIASES_PATH/docker.images
+
 alias dknexus='mkdir $DATA/nexus-data 2>/dev/null; docker run --rm -it -p 8081:8081 -v $DATA/nexus-data:/nexus-data sonatype/nexus3:latest'
 
 function dkb() {
@@ -51,9 +53,9 @@ function dkp() {
   docker push $1
 }
 
-function docker-alias(){
-echo "
-dknexus: 
+function docker-alias() {
+  echo "
+dknexus:
 dkb:
 dka:
 dki:
@@ -62,4 +64,28 @@ dkrmc:
 dkrmi:
 dkp:
 "
+}
+
+docker_wait_until_running() { # 1: CONTAINER_NAME
+  until [ "$(docker inspect -f {{.State.Running}} $1)"=="true" ]; do
+    sleep 0.1
+  done
+}
+
+docker_wait_until_health() { # 1: CONTAINER_NAME
+  until [ "$(docker inspect -f {{.State.Health.Status}} $1)"=="healthy" ]; do
+    sleep 0.1
+  done
+}
+
+delete_all_docker_containers() {
+  docker rm $(docker ps -a -q)
+}
+
+delete_all_docker_images() {
+  docker rmi $(docker images -q)
+}
+
+stop_all_docker_containers() {
+  docker stop $(docker ps -a -q)
 }

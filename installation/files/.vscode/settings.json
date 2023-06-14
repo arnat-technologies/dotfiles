@@ -3,8 +3,8 @@
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
 
-  "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
-  "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
+  "workbench.colorTheme": "Monokai Pro (Filter Octagon)",
+  "workbench.iconTheme": "Monokai Pro (Filter Octagon) Icons",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.colorCustomizations": {
     "editorIndentGuide.activeBackground": "#2d77e6"
@@ -54,5 +54,8 @@
 
   "extensions.autoUpdate": "onlyEnabledExtensions",
   "security.workspace.trust.untrustedFiles": "open",
-  "explorer.confirmDelete": false
+  "explorer.confirmDelete": false,
+  "[properties]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  }
 }

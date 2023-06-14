@@ -1,1 +1,23 @@
 #!/bin/bash
+
+export SHELL_OS_PATH=$SHELL_PATH/os
+
+distro=$(get-distro)
+
+case $distro in
+ubuntu | Darwin | arch)
+  . $SHELL_OS_PATH/linux
+  ;;
+esac
+
+case $distro in
+ubuntu)
+  . $SHELL_OS_PATH/ubuntu
+  ;;
+Darwin)
+  . $SHELL_OS_PATH/osx
+  ;;
+arch*)
+  . $SHELL_OS_PATH/arch
+  ;;
+esac
