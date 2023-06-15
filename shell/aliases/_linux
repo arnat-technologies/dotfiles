@@ -6,6 +6,11 @@
 . $ALIASES_PATH/npm.global
 . $ALIASES_PATH/display.linux
 
+. $DEVOPS_PATH/bitbucket
+. $DEVOPS_PATH/gitlab
+. $DEVOPS_PATH/postgres
+. $DEVOPS_PATH/sonar
+
 alias ..="cd .."
 alias ...="cd ..\/.."
 alias ....="cd ..\/..\/.."

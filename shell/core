@@ -2,6 +2,7 @@
 
 SHELL_PATH=$DOTFILES/shell
 export ALIASES_PATH=$SHELL_PATH/aliases
+export DEVOPS_PATH=$SHELL_PATH/devops
 
 . $SHELL_PATH/lib/utils
 . $SHELL_PATH/lib/api
@@ -23,6 +24,9 @@ ubuntu)
   ;;
 Darwin)
   . $ALIASES_PATH/_osx
+  ;;
+MINGW*)
+  . $ALIASES_PATH/_gitbash
   ;;
 arch)
   . ${ALIASES_PATH}/_arch

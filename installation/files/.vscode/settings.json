@@ -55,5 +55,6 @@
   "terminal.integrated.defaultProfile.linux": "zsh",
 
   "security.workspace.trust.untrustedFiles": "open",
-  "explorer.confirmDelete": false
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false
 }
