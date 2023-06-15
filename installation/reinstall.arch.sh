@@ -16,7 +16,7 @@ DOTFILES=/tmp/dotfiles-prd
 CLEAN_DOTFILES
 INSTALL_DOTFILES
 
-. $DOTFILES/installation/pre.linux.sh
+. $DOTFILES/installation/base.linux.sh
 . $DOTFILES/installation/base.arch.sh
 
 INSTALL_FROM_FILE yay-recommended
