@@ -11,14 +11,13 @@ cd /tmp/dotfiles-prd
 rm -rf .git
 DOTFILES=/tmp/dotfiles-prd
 
-. $DOTFILES/installation/00-03-post.linux.sh
+. $DOTFILES/installation/post.linux.sh
 
 CLEAN_DOTFILES
 INSTALL_DOTFILES
 
-. $DOTFILES/scripts/print.sh
-. $DOTFILES/installation/00-01-linux.sh
-. $DOTFILES/installation/02-01-base.arch.sh
+. $DOTFILES/installation/pre.linux.sh
+. $DOTFILES/installation/base.arch.sh
 
 INSTALL_FROM_FILE yay-recommended
 INSTALL_EACH_FROM_FILE yay
