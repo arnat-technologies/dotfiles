@@ -10,6 +10,7 @@
     "editorIndentGuide.activeBackground": "#2d77e6"
   },
   "workbench.statusBar.visible": true,
+  "workbench.editor.enablePreview": false,
 
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.rulers": [120],
@@ -21,6 +22,7 @@
   "editor.fontLigatures": true,
   "editor.fontSize": 11,
   "editor.minimap.enabled": false,
+  "extensions.autoUpdate": "onlyEnabledExtensions",
 
   "window.title": "${rootName} ${dirty}${activeEditorLong}",
   "window.menuBarVisibility": "toggle",
@@ -52,10 +54,6 @@
   "terminal.integrated.fontSize": 10,
   "terminal.integrated.defaultProfile.linux": "zsh",
 
-  "extensions.autoUpdate": "onlyEnabledExtensions",
   "security.workspace.trust.untrustedFiles": "open",
-  "explorer.confirmDelete": false,
-  "[properties]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  }
+  "explorer.confirmDelete": false
 }

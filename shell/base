@@ -17,7 +17,10 @@ ubuntu)
 Darwin)
   . $SHELL_OS_PATH/osx
   ;;
-arch*)
+MINGW*)
+  echo "git-bash"
+  ;;
+arch)
   . $SHELL_OS_PATH/arch
   ;;
 esac

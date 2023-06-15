@@ -1,5 +1,1 @@
 #!/bin/bash
-
-function update_symlink_files(){
-    # only new files
-}
