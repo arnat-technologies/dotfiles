@@ -5,6 +5,7 @@
 . $ALIASES_PATH/docker.linux
 . $ALIASES_PATH/npm.global
 . $ALIASES_PATH/display.linux
+. $ALIASES_PATH/pip.linux
 
 . $DEVOPS_PATH/bitbucket
 . $DEVOPS_PATH/gitlab

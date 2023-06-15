@@ -1,0 +1,5 @@
+#!/bin/bash
+
+pip_nossl() { # 1(PACKAGE_NAME)
+  pip install --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org $1
+}
