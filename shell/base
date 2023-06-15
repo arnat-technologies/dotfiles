@@ -18,7 +18,7 @@ Darwin)
   . $SHELL_OS_PATH/osx
   ;;
 MINGW*)
-  echo "git-bash"
+  . $SHELL_OS_PATH/mingw64
   ;;
 arch)
   . $SHELL_OS_PATH/arch

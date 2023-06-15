@@ -1,1 +1,3 @@
 #!/bin/bash
+
+export I3BLOCKS=$HOME/i3blocks-contrib

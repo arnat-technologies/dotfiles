@@ -1,1 +1,11 @@
 #!/bin/bash
+
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+eval "$(ssh-agent -s)"
+if [ -n "${SSH_AGENT_PID}" ]; then
+  eval "$(ssh-agent -k)"
+fi
+
+eval "$(starship init zsh)"
+eval "$(fnm env)"

@@ -12,7 +12,7 @@ export ALIASES_PATH=$SHELL_PATH/aliases
 distro=$(get-distro)
 
 case $distro in
-ubuntu | Darwin | arch)
+ubuntu | Darwin | arch | MINGW*)
   . $ALIASES_PATH/_linux
   ;;
 esac
@@ -24,7 +24,7 @@ ubuntu)
 Darwin)
   . $ALIASES_PATH/_osx
   ;;
-arch*)
+arch)
   . ${ALIASES_PATH}/_arch
   ;;
 esac
