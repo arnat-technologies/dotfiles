@@ -1,19 +1,19 @@
 #!/bin/bash
 
-. $DOTFILES/installation/00-01-linux.sh
-. $DOTFILES/installation/00-02-pre.linux.sh
-. $DOTFILES/installation/02-01-base.arch.sh
+. $DOTFILES/installation/base.linux
+. $DOTFILES/installation/pre.linux
+. $DOTFILES/installation/base.arch
 
-CORE_ARCH_PACKAGES(){
+CORE_ARCH_PACKAGES() {
   yes | pacstrap /mnt base base-devel networkmanager grub linux linux-firmware dhcpcd wpa_supplicant dialog git sudo zsh unzip openssh
 }
 
-CORE_ARCH_PACKAGES_UEFI(){
+CORE_ARCH_PACKAGES_UEFI() {
   yes | pacstrap /mnt efibootmgr
   CORE_ARCH_PACKAGES
 }
 
-BOOT_ARCH(){
+BOOT_ARCH() {
   {
     grub-mkconfig -o /boot/grub/grub.cfg
   } | arch-chroot /mnt

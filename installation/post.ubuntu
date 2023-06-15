@@ -1,8 +1,9 @@
 #!/bin/bash
 
 pinfo ":: [Setting]    |  Ubuntu"
-. $DOTFILES/scripts/config/ubuntu.sh
-. $DOTFILES/scripts/config/post.linux.sh
+. $DOTFILES/installation/base.linux
+. $DOTFILES/installation/base.ubuntu
+. $DOTFILES/installation/post.linux
 
 sudo apt update
 

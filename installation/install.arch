@@ -1,17 +1,17 @@
 #!/bin/bash
 
-. $DOTFILES/installation/02-02-pre.arch.sh
+. $DOTFILES/installation/pre.arch
 
 PARTITION_UEFI
 
 CORE_ARCH_PACKAGES_UEFI
-  
+
 SAVE_PARTITIONS_TO_DEVICE
 
 if [[ -z ${_UEFI} ]]; then
-    BOOT_ARCH_INSTALLATION
+  BOOT_ARCH_INSTALLATION
 else
-    BOOT_ARCH_UEFI_INSTALLATION
+  BOOT_ARCH_UEFI_INSTALLATION
 fi
 
 {
@@ -28,5 +28,5 @@ fi
   rm -rf .git
   export DOTFILES=/tmp/dotfiles-prd
 
-  . $DOTFILES/installation/02-03-post.arch.sh
+  . $DOTFILES/installation/post.arch
 } | arch-chroot -u $_USER /mnt

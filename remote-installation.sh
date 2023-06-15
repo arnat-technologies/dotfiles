@@ -44,4 +44,4 @@ else
   SELECTION="post.$SELECTION"
 fi
 
-. $DOTFILES/installation/$SELECTION.sh
+. $DOTFILES/installation/$SELECTION

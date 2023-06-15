@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# source <(curl -s https://raw.githubusercontent.com/arnat-technologies/dotfiles/prd/installation/02-00-reinstall.arch.sh?$(date +%s))
+# source <(curl -s https://raw.githubusercontent.com/arnat-technologies/dotfiles/prd/installation/02-00-reinstall.arch?$(date +%s))
 
 cd /tmp
 curl -OL https://github.com/arnat-technologies/dotfiles/archive/prd.zip
@@ -11,15 +11,15 @@ cd /tmp/dotfiles-prd
 rm -rf .git
 DOTFILES=/tmp/dotfiles-prd
 
-. $DOTFILES/installation/post.linux.sh
+. $DOTFILES/installation/post.linux
 
 CLEAN_DOTFILES
 INSTALL_DOTFILES
 
-. $DOTFILES/installation/base.linux.sh
-. $DOTFILES/installation/base.arch.sh
+. $DOTFILES/installation/base.linux
+. $DOTFILES/installation/base.arch
 
 INSTALL_FROM_FILE yay-recommended
 INSTALL_EACH_FROM_FILE yay
 
-. $DOTFILES/scripts/symlink.sh
+. $DOTFILES/scripts/symlink
