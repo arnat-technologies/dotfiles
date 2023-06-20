@@ -6,7 +6,7 @@ _update_yml_with_query() { # 1: query, 2: file
   yq -iy "$1 = \"$answer\"" $2
 }
 
-_populate_json_from_yaml() { # 1: TEMPLATE, $2: YAML_DATA, 3: JSON_DATA
+_populate_tmpl_from_yaml() { # 1: TEMPLATE, $2: YAML_DATA, 3: JSON_DATA
   echo $(j2 --format=yaml $1 $2) >$3
   echo $file
 }
@@ -19,7 +19,7 @@ _populate_json_from_data() { # 1: YAML_FILE, 2: QUERY, 3: JSON_DATA_FILE
     _update_yml_with_query ".data.$item" $YAML_DATA_FILE
   done
 
-  _populate_json_from_yaml "$(dirname $1)/$2.json" $YAML_DATA_FILE $3 >/dev/null
+  _populate_tmpl_from_yaml "$(dirname $1)/$(yq ".$2.tmpl" $1 -r)" $YAML_DATA_FILE $3 >/dev/null
 }
 
 _build_request() { # $1: YAML_FILE $2: QUERY, 3: JSON_DATA_FILE

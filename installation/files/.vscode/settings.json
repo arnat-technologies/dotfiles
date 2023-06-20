@@ -56,5 +56,6 @@
 
   "security.workspace.trust.untrustedFiles": "open",
   "explorer.confirmDelete": false,
-  "explorer.confirmDragAndDrop": false
+  "explorer.confirmDragAndDrop": false,
+  "telemetry.telemetryLevel": "off"
 }

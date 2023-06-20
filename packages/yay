@@ -13,6 +13,7 @@ xorg-server
 xorg-xinit
 sonarr
 radarr
+jackett
 transmission-cli
 docker
 docker-compose

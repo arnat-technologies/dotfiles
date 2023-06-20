@@ -1,11 +1,13 @@
-#!/bin/zsh
+#!/bin/bash
 
 CODE_PATH="Code"
 if [ -d "$HOME/.config/Code - OSS" ]; then
     CODE_PATH="Code - OSS"
+elif [ -d "$HOME/.config/VSCodium" ]; then
+    CODE_PATH="VSCodium"
 fi
 
 sudo chown $USER:$USER $HOME/.config/$CODE_PATH/User/settings.json
-symlink_files $DOTFILES/installation/files/.vscode $HOME/.config/$CODE_PATH/User
+symlink-files $DOTFILES/installation/files/.vscode $HOME/.config/$CODE_PATH/User
 
 . $DOTFILES/installation/software/vscode
