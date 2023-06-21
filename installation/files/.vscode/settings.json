@@ -27,6 +27,15 @@
   "window.title": "${rootName} ${dirty}${activeEditorLong}",
   "window.menuBarVisibility": "toggle",
 
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/node_modules": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true
+  },
   "search.exclude": {
     "**/bower_components": true,
     "**/node_modules": true,
