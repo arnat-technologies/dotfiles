@@ -3,7 +3,7 @@ git-crypt
 gomplate-bin
 keychain
 navi
-otf-nerd-fonts-fira-code
+
 hack-nf-mono-git
 pass
 powerline-fonts
@@ -20,7 +20,6 @@ docker-compose
 barrier
 squid
 wuzz
-python
 ffmpeg
 samba
 smbclient
@@ -31,3 +30,6 @@ httptunnel
 browsh
 cronie
 dmenu
+
+otf-nerd-fonts-fira-code
+ttf-fira-code
