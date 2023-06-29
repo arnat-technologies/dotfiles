@@ -3,8 +3,8 @@
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
 
-  "workbench.colorTheme": "Monokai Pro (Filter Octagon)",
-  "workbench.iconTheme": "Monokai Pro (Filter Octagon) Icons",
+  "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
+  "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.colorCustomizations": {
     "editorIndentGuide.activeBackground": "#2d77e6"
@@ -26,6 +26,8 @@
   "window.title": "${rootName} ${dirty}${activeEditorLong}",
   "window.menuBarVisibility": "toggle",
 
+  "emmet.triggerExpansionOnTab": true,
+
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,
@@ -35,6 +37,14 @@
     "**/.DS_Store": true,
     "**/Thumbs.db": true
   },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true
+  },
+  "files.defaultLanguage": "markdown",
+  "files.insertFinalNewline": true,
+  "files.autoSave": "onFocusChange",
   "search.exclude": {
     "**/bower_components": true,
     "**/node_modules": true,
@@ -46,17 +56,9 @@
     "mutt/**": true,
     "vagrant/**": true
   },
-  "files.watcherExclude": {
-    "**/.git/objects/**": true,
-    "**/.git/subtree-cache/**": true,
-    "**/node_modules/**": true
-  },
-  "files.defaultLanguage": "markdown",
-  "files.insertFinalNewline": true,
-  "files.autoSave": "onFocusChange",
 
-  "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.validate.enable": false,
 
   "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
   "terminal.integrated.fontSize": 10,
@@ -66,5 +68,8 @@
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "telemetry.telemetryLevel": "off",
-  "extensions.autoUpdate": "onlyEnabledExtensions"
+  "extensions.autoUpdate": "onlyEnabledExtensions",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "javascript.validate.enable": false,
+  "scss.lint.validProperties": ["composes"]
 }

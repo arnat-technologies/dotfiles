@@ -13,3 +13,6 @@ typescript
 vue-eslint-parser
 webpack
 npm-check-updates
+pnpm
+yalc
+turbo
