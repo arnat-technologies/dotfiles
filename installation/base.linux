@@ -12,7 +12,7 @@ ListenAddress 0.0.0.0
 END
 }
 
-INSTALL_EACH_FROM_FILE(){
+INSTALL_EACH_FROM_FILE() {
   local PACKAGES=${1:-}
 
   cat $DOTFILES/packages/$PACKAGES | while read pkg; do
@@ -21,7 +21,7 @@ INSTALL_EACH_FROM_FILE(){
     if answer_is_yes; then
       INSTALL_PACKAGE $pkg
     else
-      pinfo "#software @$pkg +install @fail";
+      pinfo "#software @$pkg +install @fail"
     fi
 
   done
@@ -34,7 +34,7 @@ INSTALL_FROM_FILE() {
   done
 }
 
-INSTALL_ADDITIONAL_PACKAGE(){
+INSTALL_ADDITIONAL_PACKAGE() {
   ADDITIONAL_SOFTWARE_PACKAGE=$DOTFILES/installation/software/$1
   if [ -f "$ADDITIONAL_SOFTWARE_PACKAGE" ]; then
     . $ADDITIONAL_SOFTWARE_PACKAGE
@@ -77,7 +77,7 @@ NEW_USER() {
   pinfo "#setting @user $USER +new @done"
 }
 
-DELETE_USER(){
+DELETE_USER() {
   sudo killall -u $1
   userdel -f $1
 }

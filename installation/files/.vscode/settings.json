@@ -12,7 +12,6 @@
   "workbench.statusBar.visible": true,
   "workbench.editor.enablePreview": false,
 
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.rulers": [120],
   "editor.scrollBeyondLastLine": false,
   "editor.formatOnSave": true,
@@ -51,7 +50,6 @@
     "**/dist": true,
     ".conky/**": true,
     ".emacs.d/**": true,
-    ".vscode/**": true,
     "gnome-shell/**": true,
     "mutt/**": true,
     "vagrant/**": true
@@ -71,5 +69,10 @@
   "extensions.autoUpdate": "onlyEnabledExtensions",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "javascript.validate.enable": false,
-  "scss.lint.validProperties": ["composes"]
+  "scss.lint.validProperties": [
+    "composes"
+  ],
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
