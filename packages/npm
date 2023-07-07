@@ -1,6 +1,7 @@
 @angular/cli
 @arnat/getrepo
 @typescript-eslint/parser
+vue-eslint-parser
 bower
 create-react-app
 eslint
@@ -10,10 +11,10 @@ http-server
 nodemon
 prettier
 typescript
-vue-eslint-parser
 webpack
 npm-check-updates
 pnpm
 yalc
 turbo
 oclif
+lerna

@@ -48,3 +48,7 @@ function yaml_from_list() { # 1:ARRAY_LIST
 
   echo $YAML_FILE
 }
+
+if [ -x "$(command -v codium)" ]; then
+  code() { codium $@; }
+fi
