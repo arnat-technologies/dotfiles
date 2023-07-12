@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "{ }" >$HOME/.config/transmission-cli/settings.json
+
+sudo usermod -a -G debian-tramission $USER

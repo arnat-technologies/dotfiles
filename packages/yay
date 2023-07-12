@@ -14,6 +14,8 @@ xorg-xinit
 sonarr
 radarr
 jackett
+lidarr
+prowlarr
 transmission-cli
 docker
 docker-compose

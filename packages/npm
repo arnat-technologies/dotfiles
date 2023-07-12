@@ -5,6 +5,8 @@ vue-eslint-parser
 bower
 create-react-app
 eslint
+eslint-plugin-prettier
+eslint-config-prettier
 gatsby-cli
 gulp
 http-server
@@ -18,3 +20,4 @@ yalc
 turbo
 oclif
 lerna
+live-server
