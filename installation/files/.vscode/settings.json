@@ -28,6 +28,7 @@
 
   "files.exclude": {
     "**/.git": true,
+    "**/package-lock.json": true,
     "**/.svn": true,
     "**/node_modules": true,
     "**/.hg": true,
@@ -91,6 +92,9 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }
