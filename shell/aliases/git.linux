@@ -268,3 +268,19 @@ c_chore() {
 c_perf() {
   git commit -m "perf($1): ⚡️ $2"
 }
+
+git_rewrite_author_email() {
+  local ORIGIN_AUTHOR=${1:-}
+
+  git filter-branch --commit-filter '
+    if [ "$GIT_COMMITTER_NAME" = "" ];
+    then
+        GIT_COMMITTER_NAME="Arnat Code";
+        GIT_AUTHOR_NAME="Arnat Code";
+        GIT_COMMITTER_EMAIL="code@arnat.digital";
+        GIT_AUTHOR_EMAIL="code@arnat.digital";
+        git commit-tree "$@" -f;
+    else
+        git commit-tree "$@";
+    fi' HEAD
+}
