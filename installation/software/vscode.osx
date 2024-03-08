@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-sudo chown -R $USER:$USER $HOME/Library/Application\ Support/Code/User
-symlink_files $DOTFILES/installation/files/.vscode $HOME/Library/Application\ Support/code/User
+# sudo chown -R $USER:$USER $HOME/Library/Application\ Support/Code/User
+symlink-files $DOTFILES/installation/files/.vscode $HOME/Library/Application\ Support/code/User
 
 . $DOTFILES/installation/software/vscode
