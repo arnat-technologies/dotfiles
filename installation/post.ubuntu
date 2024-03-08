@@ -18,9 +18,6 @@ sudo ssh-keygen -A
 # init_ssh_config
 # sudo service ssh restart
 
-pinfo ":: [Software]    |  exo"
-install_exa
-
 pinfo ":: [Software]    |  starship"
 install_starship
 

@@ -11,7 +11,8 @@ INSTALL_DOTFILES() {
   export DOTFILES=$HOME/.user/dotfiles
 }
 
-chsh -s /bin/zsh # ZSH as default
+# ZSH as default
+chsh -s /bin/zsh
 
 # echo "" >~/.gitconfig.local
 

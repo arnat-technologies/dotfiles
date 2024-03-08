@@ -1,4 +1,4 @@
-# Arnat dotfiles
+# Dotfiles for Arnat Organization
 
 ## Remote installation
 
@@ -47,7 +47,6 @@ DOTFILES=$(pwd)
 symlink-dotfiles
 ```
 
-
 ## How to Install a package
 
 Script verify the best package manager accoding your OS, also includes run of CONFIGURE_PACKAGE
@@ -61,7 +60,6 @@ DOTFILES=$(pwd)
 . $DOTFILES/installation/base.linux
 INSTALL_PACKAGE $SOFTWARE.$SELECTION
 ```
-
 
 ## Configure a specific Software
 

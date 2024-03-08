@@ -12,7 +12,7 @@
   "editor.scrollBeyondLastLine": false,
   "editor.stablePeek": true,
   "editor.tabSize": 2,
-  "editor.fontFamily": "Fira Code Retina, Hack Nerd Font, Noto Color Emoji",
+  "editor.fontFamily": "Fira Code Retina",
   "editor.fontLigatures": true,
   "editor.fontSize": 11,
   "editor.minimap.enabled": false,
@@ -74,13 +74,13 @@
   "telemetry.telemetryLevel": "off",
   "gitlens.telemetry.enabled": false,
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   },
   "[dockerfile]": {
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   },
   "[markdown]": {
     "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
@@ -89,14 +89,15 @@
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   },
   "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   },
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   },
   "http.proxySupport": "on",
-  "http.proxy": "https://gateway-bcp-pe.goskope.com"
+  "http.proxy": "https://gateway-bcp-pe.goskope.com",
+  "http.proxyStrictSSL": false
 }

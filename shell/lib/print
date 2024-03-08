@@ -13,14 +13,17 @@ presult() {
 }
 
 answer_is_yes() {
-  [[ "$REPLY" =~ ^[Yy]$ ]] &&
+  answer=$(cat /tmp/answer)
+  [[ "$answer" =~ ^[Yy]$ ]] &&
     return 0 ||
     return 1
 }
 
+# ZSH compatible
 ask_for_confirmation() {
   pquestion "$1 (y/n) "
-  read -n 1
+  read -k 1 answer
+  echo $answer >/tmp/answer
   printf "\n"
 }
 

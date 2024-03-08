@@ -1,27 +1,30 @@
 #!/bin/bash
 
-symlink-files(){
-  if [[ -z "${1+xxx}" || -z "${2+xxx}" ]]; then echo "Source & Target are required"; return 1; fi
+symlink-files() {
+  if [[ -z "${1+xxx}" || -z "${2+xxx}" ]]; then
+    echo "Source & Target are required"
+    return 1
+  fi
 
   local SOURCE_FOLDER=${1:-}
   local TARGET_FOLDER=${2:-}
 
-  local FOLDERS_FINDER=$(find $SOURCE_FOLDER -type d) 
-  local FILES_FINDER=$(find $SOURCE_FOLDER -type f) 
+  local FOLDERS_FINDER=$(find $SOURCE_FOLDER -type d)
+  local FILES_FINDER=$(find $SOURCE_FOLDER -type f)
 
   for i in $(echo $FOLDERS_FINDER | sed -e "s@$SOURCE_FOLDER@$TARGET_FOLDER@g"); do
-      mkdir $i >/dev/null 2>&1
+    mkdir $i >/dev/null 2>&1
   done
 
   for filename in $(echo $FILES_FINDER | sed -e "s@$SOURCE_FOLDER@@g"); do
-    local sourceFile="$SOURCE_FOLDER$filename" 
+    local sourceFile="$SOURCE_FOLDER$filename"
     local targetFile="$TARGET_FOLDER$filename"
 
     if [ ! -e "$targetFile" ]; then
       ln -fs $sourceFile $targetFile
       psuccess "$targetFile → $sourceFile"
     else
-      ask_for_confirmation "'$targetFile' already exists, do you want to overwrite it?"
+      ask_for_confirmation "$targetFile already exists, do you want to overwrite it?"
       if answer_is_yes; then
         rm -rf "$targetFile"
         ln -fs $sourceFile $targetFile

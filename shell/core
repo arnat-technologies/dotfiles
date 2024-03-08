@@ -14,21 +14,21 @@ distro=$(get-distro)
 
 case $distro in
 ubuntu | Darwin | arch | MINGW*)
-  . $ALIASES_PATH/_linux
+  . $ALIASES_PATH/os/linux
   ;;
 esac
 
 case $distro in
 ubuntu)
-  . $ALIASES_PATH/_ubuntu
+  . $ALIASES_PATH/os/ubuntu
   ;;
 Darwin)
-  . $ALIASES_PATH/_osx
+  . $ALIASES_PATH/os/osx
   ;;
 MINGW*)
-  . $ALIASES_PATH/_gitbash
+  . $ALIASES_PATH/os/gitbash
   ;;
 arch)
-  . ${ALIASES_PATH}/_arch
+  . ${ALIASES_PATH}/os/arch
   ;;
 esac

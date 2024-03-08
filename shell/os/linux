@@ -7,5 +7,5 @@
 #   eval "$(ssh-agent -k)"
 # fi
 
-# eval "$(starship init zsh)"
-# eval "$(fnm env)"
+eval "$(starship init zsh)"
+eval "$(fnm env)"

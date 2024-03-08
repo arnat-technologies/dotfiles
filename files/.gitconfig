@@ -52,3 +52,6 @@
 [user]
 	email = roy.surjano@arnat.digital
 	name = Roy Surjano
+
+[http]
+	sslVerify = false

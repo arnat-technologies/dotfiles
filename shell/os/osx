@@ -1,6 +1,9 @@
-#!/bin/bash
+#!/bin/zsh
 
-keychain --nogui --quiet $HOME/.ssh/id_rsa
+# keychain --nogui --quiet $HOME/.ssh/id_rsa
+
+# eval "$(starship init zsh)"
+eval "$(fnm env)"
 
 if [ -x "$(command -v dircolors)" ]; then eval "$(dircolors -b $HOME/.dircolors)"; fi
 

@@ -119,7 +119,7 @@ alias where=which
 alias l="ls -lF"
 
 # alias la="ls -la"
-alias ls="exa --git --group-directories-first"
+alias ls="eza --git --group-directories-first"
 alias ll="ls -l"
 alias la="ll -a"
 alias lk="ll -s=size"              # Sorted by size
