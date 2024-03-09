@@ -1,4 +1,9 @@
 #!/bin/bash
 
+# Creates a Screenshot folder & set it as the default location
 mkdir ~/Desktop/Screenshots
 defaults write com.apple.screencapture location ~/Desktop/Screenshots
+
+# Set to Zero second the hide/show Dock
+defaults write com.apple.Dock autohide-delay -float 0
+killall Dock

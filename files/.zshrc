@@ -9,7 +9,7 @@ export PATH=$PATH:$HOME/bin
 . $DOTFILES/shell/core
 . $DOTFILES/shell/base
 
-if [ -f "$HOME/.user/work" ]; then . $HOME/.user/work; fi
+if [ -f "$HOME/.user/.work/core" ]; then . $HOME/.user/.work/core; fi
 
 # # fnm
 # export PATH="/Users/t34848/Library/Application Support/fnm:$PATH"

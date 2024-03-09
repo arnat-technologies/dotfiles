@@ -13,3 +13,6 @@ eval "$(fnm env)"
 # if [ -x "$(command -v gdircolors)" ]; then
 #   eval $(gdircolors -b ~/bliss.dircolors)
 # fi
+
+# https://github.com/denisidoro/navi/blob/master/docs/installation.md#installing-the-shell-widget
+eval "$(navi widget zsh)"

@@ -2,11 +2,30 @@
   "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
   "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
   "workbench.startupEditor": "newUntitledFile",
-  "workbench.colorCustomizations": {
-    "editorIndentGuide.activeBackground": "#2d77e6"
-  },
+
   "workbench.statusBar.visible": true,
   "workbench.editor.enablePreview": false,
+
+  "workbench.colorCustomizations": {
+    "terminal.background": "#222222",
+    "terminal.foreground": "#dddad6e7",
+    "terminal.ansiBlack": "#1d2021f3",
+    "terminal.ansiBrightBlack": "#665c54e3",
+    "terminal.ansiBrightBlue": "#0d6678ef",
+    "terminal.ansiBrightCyan": "#8ba59bec",
+    "terminal.ansiBrightGreen": "#237e02ee",
+    "terminal.ansiBrightMagenta": "#8f4673ee",
+    "terminal.ansiBrightRed": "#fb553ff2",
+    "terminal.ansiBrightWhite": "#fdf4c1ed",
+    "terminal.ansiBrightYellow": "#fac13bed",
+    "terminal.ansiBlue": "#00a2f9f1",
+    "terminal.ansiCyan": "#8ba59bf8",
+    "terminal.ansiGreen": "#95c085f2",
+    "terminal.ansiMagenta": "#8f4673ec",
+    "terminal.ansiRed": "#fb553ff5",
+    "terminal.ansiWhite": "#a89984f4",
+    "terminal.ansiYellow": "#fac13bf1"
+  },
 
   "editor.rulers": [120],
   "editor.scrollBeyondLastLine": false,
@@ -22,8 +41,6 @@
   },
 
   "window.title": "${rootName} ${dirty}${activeEditorLong}",
-  "window.menuBarVisibility": "toggle",
-
   "emmet.triggerExpansionOnTab": true,
 
   "files.exclude": {
@@ -59,8 +76,9 @@
   "typescript.validate.enable": false,
 
   "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
-  "terminal.integrated.fontSize": 10,
+  "terminal.integrated.fontSize": 11,
   "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.defaultProfile.osx": "zsh",
 
   "security.workspace.trust.untrustedFiles": "open",
   "explorer.confirmDelete": false,
@@ -73,6 +91,7 @@
   "jest.jestCommandLine": "source ~/.zshrc",
   "telemetry.telemetryLevel": "off",
   "gitlens.telemetry.enabled": false,
+
   "[typescript]": {
     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   },
@@ -97,6 +116,7 @@
   "[javascript]": {
     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   },
+
   "http.proxySupport": "on",
   "http.proxy": "https://gateway-bcp-pe.goskope.com",
   "http.proxyStrictSSL": false
