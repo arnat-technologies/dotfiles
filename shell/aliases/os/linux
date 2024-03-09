@@ -14,7 +14,7 @@
 
 # alias la="ls -la"
 if [ -x "$(command -v eza)" ]; then
-  alias ls="eza --git --group-directories-first --color=always"
+  alias ls="eza --git --group-directories-first --color=auto"
 fi
 
 alias l="ls -lF"

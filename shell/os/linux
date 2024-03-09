@@ -10,6 +10,6 @@
 eval "$(starship init zsh)"
 eval "$(fnm env)"
 
-if [ -x "$(command -v gdircolors)" ]; then
-  eval $(gdircolors -b ~/bliss.dircolors)
-fi
+# if [ -x "$(command -v gdircolors)" ]; then
+#   eval $(gdircolors -b ~/bliss.dircolors)
+# fi
