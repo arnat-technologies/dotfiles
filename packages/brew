@@ -19,3 +19,6 @@ yarn
 rustup
 sqlite3
 coreutils
+sevenzip
+pandoc
+tlrc

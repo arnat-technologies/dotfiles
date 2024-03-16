@@ -1,11 +1,11 @@
 style:
   tag:
     color: grey
-    width_percentage: 26
+    width_percentage: 15
     min_width: 20
   comment:
     color: blue
-    width_percentage: 42
+    width_percentage: 65
     min_width: 45
   snippet:
     color: dark_green
@@ -17,4 +17,3 @@ shell:
 cheats:
   paths:
     - $HOME/.navi
-    - $HOME/.user/.work/.navi

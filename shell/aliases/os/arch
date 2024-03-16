@@ -17,8 +17,6 @@ alias tigs='tig status'
 
 alias yayu="yay  -Syu"
 
-alias navip='navi --print'
-
 navis() {
   navi --query "$1" --best-match
 }

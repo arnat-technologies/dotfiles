@@ -6,11 +6,12 @@
 . $ALIASES_PATH/npm.global
 . $ALIASES_PATH/display.linux
 . $ALIASES_PATH/pip.linux
+. $ALIASES_PATH/navi.linux
 
-. $DEVOPS_PATH/bitbucket
-. $DEVOPS_PATH/gitlab
-. $DEVOPS_PATH/postgres
-. $DEVOPS_PATH/sonar
+# . $DEVOPS_PATH/bitbucket
+# . $DEVOPS_PATH/gitlab
+# . $DEVOPS_PATH/postgres
+# . $DEVOPS_PATH/sonar
 
 alias ls='ls --color'
 if [ -x "$(command -v eza)" ]; then
