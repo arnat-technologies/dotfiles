@@ -6,7 +6,6 @@ dbaeumer.vscode-eslint
 rvest.vs-code-prettier-eslint
 eamodio.gitlens
 EditorConfig.editorconfig
-emmanuelbeziat.vscode-great-icons
 foam.foam-vscode
 foxundermoon.shell-format
 Gruntfuggly.todo-tree
@@ -35,3 +34,4 @@ mechatroner.rainbow-csv
 attilabuti.vscode-mjml
 chrischinchilla.vscode-pandoc
 wenfangdu.snippet-generator
+
