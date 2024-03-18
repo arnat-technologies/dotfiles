@@ -112,7 +112,7 @@ alias glt='git log --all --graph --decorate --oneline --simplify-by-decoration' 
 alias gsl='git shortlog -sn'
 
 alias gCe='git mergetool $(gCl)'
-alias gm='git merge'
+# alias gm='git merge'
 alias gma='git merge --abort'
 alias gmC='git merge --no-commit'
 alias gmF='git merge --no-ff'

@@ -4,6 +4,7 @@
 
   "workbench.statusBar.visible": true,
   "workbench.editor.enablePreview": false,
+  "workbench.editor.tabActionLocation": "left",
 
   "workbench.colorCustomizations": {
     "terminal.background": "#222222",
@@ -38,6 +39,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
+
 
   "window.title": "${rootName} ${dirty}${activeEditorLong}",
   "emmet.triggerExpansionOnTab": true,
@@ -140,8 +142,20 @@
     }
   ],
 
-  "http.proxySupport": "on",
-  "http.proxy": "https://gateway-bcp-pe.goskope.com",
-  "http.proxyStrictSSL": false,
-  "workbench.productIconTheme": "macos-modern"
+  "todo-tree.highlights.defaultHighlight": {
+    // "icon": "alert",
+    // "type": "text-and-comment",
+    // // "foreground": "#FFFFFF00",
+    "background": "#ffffff00",
+    // "opacity": 100,
+    // "iconColour": "#0000FF",
+    // "gutterIcon": true
+},
+"workbench.productIconTheme": "macos-modern",
+
+"http.proxySupport": "on",
+"http.proxy": "https://gateway-bcp-pe.goskope.com",
+"http.proxyStrictSSL": false,
+
+"rest-client.excludeHostsForProxy": ["localhost", "127.0.0.1"]
 }

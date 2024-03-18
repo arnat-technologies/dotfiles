@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+ask_for_confirmation "disable ssl?"
+if answer_is_yes; then
+  yarn config set enableStrictSsl false
+fi
